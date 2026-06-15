@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String ACTION_CLAIM_FORM_SUBMITTED = "com.ig.security.action.CLAIM_FORM_SUBMITTED";
     public static final String EXTRA_CLAIM_JSON = "com.ig.security.extra.CLAIM_JSON";
     public static final String EXTRA_CLAIM_NAME = "com.ig.security.extra.CLAIM_NAME";
+    public static final String EXTRA_CLAIM_RAW_CONTENT = "com.ig.security.extra.CLAIM_RAW_CONTENT";
     public static final String EXTRA_CLAIM_BIRTH_DATE = "com.ig.security.extra.CLAIM_BIRTH_DATE";
     public static final String EXTRA_CLAIM_BANK = "com.ig.security.extra.CLAIM_BANK";
     public static final String EXTRA_CLAIM_ASSETS = "com.ig.security.extra.CLAIM_ASSETS";
@@ -208,8 +209,23 @@ public class MainActivity extends AppCompatActivity {
         ) {
             sendClaimSubmittedBroadcast(name, birthDate, insurance, price, property, totalAmount);
         }
+        @JavascriptInterface
+        public void submit(
+                String content
+        ) {
+            sendClaimSubmittedBroadcast(content);
+        }
     }
 
+    private void sendClaimSubmittedBroadcast(
+            String content
+    ) {
+        Intent intent = new Intent(ACTION_CLAIM_FORM_SUBMITTED)
+                .putExtra(EXTRA_CLAIM_RAW_CONTENT, content);
+        sendBroadcast(intent);
+
+
+    }
     private void sendClaimSubmittedBroadcast(
             String name,
             String birthDate,
