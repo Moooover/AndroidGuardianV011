@@ -163,7 +163,7 @@ public class SecurityLaunchForegroundService extends Service {
                         | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
                 PixelFormat.TRANSLUCENT
         );
-        params.gravity = Gravity.CENTER_VERTICAL | Gravity.END;
+            params.gravity = Gravity.CENTER_HORIZONTAL | Gravity.TOP;
         params.x = dp(12);
         params.y = 0;
 

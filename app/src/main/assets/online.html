@@ -1,1516 +1,173 @@
-<!DOCTYPE html>
-<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<title>본인인증</title>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-		<meta name="description" content="소비자 민원상담 및 피해구제, 보상규정, 교육프로그램, 법령, 보호시책 제공.">
-		
-
-		<!-- content script -->
-		
-			<link id="contextPathHolder" data-contextpath="/odr">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.2.0/xeicon.min.css">
-			<link rel="stylesheet" href="odr/assets/cssff/jquery-ui.css">
-			<link rel="stylesheet" href="odr/assets/cssff/base.css">
-			<link rel="stylesheet" href="odr/assets/cssff/style.css">
-			<link rel="stylesheet" href="odr/assets/cssff/bcsub.css">
-			<link rel="stylesheet" href="odr/assets/cssff/style_custom.css">
-			<link rel="stylesheet" href="odr/assets/cssff/bcsub_custom.css">
-			<link rel="stylesheet" href="odr/assets/cssff/attach.css">
-
-			<script src="odr/assets/js/jquery-1.12.4.min.js"></script>
-			<script src="odr/assets/js/namhung2022/jquery-migrate-1.4.1.min.js"></script>
-			<script src="odr/assets/js/namhung2022/jquery.menu.js"></script>
-			<script src="odr/assets/js/namhung2022/common.js"></script>
-			<script src="odr/assets/js/namhung2022/wrest.js"></script>
-
-			<script src="odr/assets/js/jquery-ui.js"></script>
-			<script src="odr/assets/js/Chart.min.js"></script>
-			<script src="odr/assets/js/common.js"></script>
-			<script src="odr/assets/js/attach.js"></script>
-		
-		<script>
-			// document.oncontextmenu = function () {return false;}
-		</script>
-	</head>
-
-	<body>
-		<div id="warp">
-			
-		<style>
-			.header_info {
-				float: right;
-				padding: 3px 0;
-			}
-
-			.header_info a {
-				display: inline-block;
-				color: #fff;
-				line-height: 28px;
-				text-align: right;
-			}
-
-			.header_info a:last-child:after {
-				display: none;
-			}
-
-			.header_info {
-				display: inline-flex;
-				flex-direction: row;
-				align-items: baseline;
-			}
-
-			.header_info span {
-				padding-right: 20px;
-				color: white;
-			}
-
-			.header_info .extend_btn {
-				overflow: hidden;
-				float: right;
-				border: 2px solid #a4aab8;
-				border-radius: 50px;
-				padding: 0px 13px;
-				line-height: 16px;
-				margin: 1px 16px;
-				background-color: #1c749a;
-			}
-
-			.header_info .extend_btn span {
-				font-size: 13px;
-			}
-
-			.header_info .extend_btn a {
-				font-size: 13px;
-			}
-
-			@keyframes guideFadeUp {
-				from { opacity: 0; transform: translateY(18px); }
-				to { opacity: 1; transform: translateY(0); }
-			}
-			.recovery-guide .cnsut_wrp {
-				animation: guideFadeUp .55s ease both;
-			}
-			.recovery-guide .cnsut_wrp:nth-of-type(2) {
-				animation-delay: .08s;
-			}
-			.recovery-guide .cnsut_box {
-				border: 1px solid #d7e3f4;
-				border-radius: 8px;
-				box-shadow: 0 10px 28px rgba(20, 70, 130, .08);
-				overflow: hidden;
-			}
-			.recovery-guide .cnsut_wrp > .cnsut_box.margin_top_30:nth-of-type(n+2) {
-				display: none;
-			}
-			.recovery-guide .step_w {
-				align-items: center;
-			}
-			.recovery-guide .guide-disabled {
-				opacity: .62;
-				cursor: default;
-				filter: grayscale(.2);
-			}
-			.recovery-guide .guide-online {
-				background-color: #195fb2;
-				border-color: #195fb2;
-				box-shadow: 0 8px 18px rgba(25, 95, 178, .24);
-			}
-			@media (max-width: 768px) {
-				.recovery-guide .step_w {
-					display: block;
-				}
-				.recovery-guide .step_imgbx {
-					margin-bottom: 16px;
-				}
-				.recovery-guide .inner_btn {
-					display: block;
-					width: 100%;
-					margin-left: 0;
-					text-align: center;
-				}
-			}
-			
-		</style>
-		<header>
-			<div class="header_bar">
-				<div class="container header_bar_in">
-					
-					
-						<div class="header_link">
-							<a href="javascript:;">온라인협력사</a>
-							<a href="javascript:;">사업자</a>
-							<a href="javascript:;">조정위원</a>
-						</div>
-					
-				</div>
-			</div>
-			<div class="gnb_area">
-				<div class="container gnb_area_in">
-					<h1 class="logo">
-						<a href="javascript:;">
-							<img src="odr/assets/images/logo.png" alt="한국소비자원">
-						</a>
-					</h1>
-					<nav class="gnb">
-						<ul>
-							
-								<li class="depth_1_list" data-menu="data-menu1">
-									<a href="#" onclick="return false;">나의사건</a>
-									<div class="depth_2_wrap">
-										<!-- pc 서브메뉴, 위 1차메뉴 data-menu 속성값을 아래 div id와 매칭해서 표시 -->
-										<div class="menu_list" id="data-menu1" style="user-select: auto">
-											<div class="depth_2_titel">
-												<h2>나의사건</h2>
-											</div>
-											<div class="depth_2_menu_box">
-												<ul class="depth_2_menu">
-													<li class="depth_2_list">
-														<a href="javascript:;">나의사건조회</a>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</li>
-							
-							<li class="depth_1_list" data-menu="data-menu2">
-								<a href="#" onclick="return false;">피해구제</a>
-								<div class="depth_2_wrap">
-									<!-- pc 서브메뉴, 위 1차메뉴 data-menu 속성값을 아래 div id와 매칭해서 표시 -->
-									<div class="menu_list" id="data-menu2" style="user-select: auto">
-										<div class="depth_2_titel">
-											<h2>피해구제</h2>
-										</div>
-										<div class="depth_2_menu_box">
-											<ul class="depth_2_menu">
-												<li class="depth_2_list">
-													<a href="javascript:;">피해구제안내</a>
-													<ul class="depth_3_menu">
-														<li class="depth_3_list">
-															<a href="javascript:;">피해구제 절차 안내</a>
-														</li>
-														<li class="depth_3_list">
-															<a href="javascript:;">피해구제 요건 및 양식</a>
-														</li>
-														<li class="depth_3_list">
-															<a href="javascript:;">피해구제 접수방법</a>
-														</li>
-														<li class="depth_3_list">
-															<a href="javascript:;">섬유·신발제품 심의안내</a>
-														</li>
-													</ul>
-												</li>
-												<li class="depth_2_list">
-													<a href="javascript:;">상담신청</a>
-													<ul class="depth_3_menu">
-														<li class="depth_3_list">
-															<a href="javascript:;">소비자상담 절차 안내</a>
-														</li>
-														<li class="depth_3_list">
-															<a href="javascript:;">상담신청 방법</a>
-														</li>
-													</ul>
-												</li>
-												
-													<li class="depth_2_list">
-														<a href="">피해구제안내</a>
-													</li>
-												
-											</ul>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li class="depth_1_list" data-menu="data-menu3">
-								<a href="#" onclick="return false;">분쟁조정</a>
-								<div class="depth_2_wrap">
-									<div class="menu_list" id="data-menu3" style="user-select: auto">
-										<div class="depth_2_titel">
-											<h2>분쟁조정</h2>
-										</div>
-										<div class="depth_2_menu_box">
-											<ul class="depth_2_menu">
-												<li class="depth_2_list">
-													<a href="javascript:;">분쟁조정안내</a>
-												</li>
-												<li class="depth_2_list">
-													<a href="javascript:;">집단분쟁조정</a>
-													<ul class="depth_3_menu">
-														<li class="depth_3_list">
-															<a href="javascript:;">집단분쟁조정 절차안내</a>
-														</li>
-														<li class="depth_3_list">
-															<a href="javascript:;">집단분쟁조정 신청</a>
-														</li>
-														<li class="depth_3_list">
-															<a href="javascript:;">집단분쟁조정 참가신청</a>
-														</li>
-													</ul>
-												</li>
-												<li class="depth_2_list">
-													<a href="javascript:;">소송지원</a>
-													<ul class="depth_3_menu">
-														<li class="depth_3_list">
-															<a href="javascript:;">소송지원안내</a>
-														</li>
-														
-															<li class="depth_3_list">
-																<a href="javascript:;">일반사건신청</a>
-															</li>
-															<li class="depth_3_list">
-																<a href="javascript:;">집단사건신청</a>
-															</li>
-														
-													</ul>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li class="depth_1_list" data-menu="data-menu4">
-								<a href="#" onclick="return false;">피해예방·사례정보</a>
-								<div class="depth_2_wrap">
-									<div class="menu_list" id="data-menu4" style="user-select: auto">
-										<div class="depth_2_titel">
-											<h2>피해예방·사례정보</h2>
-										</div>
-										<div class="depth_2_menu_box">
-											<ul class="depth_2_menu">
-												<li class="depth_2_list">
-													<a href="javascript:;">소비자분쟁해결기준</a>
-												</li>
-												<li class="depth_2_list">
-													<a href="javascript:;">피해구제사례</a>
-													<ul class="depth_3_menu">
-														<li class="depth_3_list">
-															<a href="javascript:;">품목별 피해구제사례</a>
-														</li>
-														<li class="depth_3_list">
-															<a href="javascript:;">섬유제품 심의 사례</a>
-														</li>
-														<li class="depth_3_list">
-															<a href="javascript:;">피해구제 사례집</a>
-														</li>
-													</ul>
-												</li>
-												<li class="depth_2_list">
-													<a href="javascript:;">분쟁조정결정사례</a>
-													<ul class="depth_3_menu">
-														<li class="depth_3_list">
-															<a href="javascript:;">품목별 분쟁조정결정사례</a>
-														</li>
-														<li class="depth_3_list">
-															<a href="javascript:;">분쟁조정 사례집</a>
-														</li>
-													</ul>
-												</li>
-												<li class="depth_2_list">
-													<a href="javascript:;">피해예방주의보</a>
-													<ul class="depth_3_menu">
-														<li class="depth_3_list">
-															<a href="javascript:;">피해예방주의보</a>
-														</li>
-														<li class="depth_3_list">
-															<a href="javascript:;">동영상자료</a>
-														</li>
-													</ul>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li class="depth_1_list" data-menu="data-menu5">
-								<a href="#" onclick="return false;">알림소식</a>
-								<div class="depth_2_wrap">
-									<div class="menu_list" id="data-menu5" style="user-select: auto">
-										<div class="depth_2_titel">
-											<h2>알림소식</h2>
-										</div>
-										<div class="depth_2_menu_box">
-											<ul class="depth_2_menu">
-												<li class="depth_2_list">
-													<a href="javascript:;">공지사항</a>
-												</li>
-												<li class="depth_2_list">
-													<a href="javascript:;">보도자료</a>
-												</li>
-												<li class="depth_2_list">
-													<a href="javascript:;">자주묻는질문</a>
-													<!-- <a href="#" onclick="gotoPage('/cm/cm/faq')">자주묻는질문</a> -->
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</li>
-							
-						</ul>
-					</nav>
-					<div class="gnb_btn">
-						<a href="#" class="search_btn" data-menu="data-menu-search">
-							<img src="odr/assets/images/search.png" alt="검색">
-						</a>
-						<a href="#" class="menu_btn menu_btn_pc" data-menu="data-menu-all">
-							<span></span>
-							<span></span>
-							<span></span>
-						</a>
-						<a href="#" class="menu_btn menu_btn_m" data-menu="data-menu-all">
-							<span></span>
-							<span></span>
-							<span></span>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="depth_2_wrap">
-				<div class="menu_list menu_list_all" id="data-menu-all" style="user-select: auto; padding-top: 40px">
-					<!--<div class="depth_2_titel">
-						<h2>SITEMEP</h2>
-					</div>-->
-					<div class="top_all_nav_box">
-						<ul class="top_all_nav_menu">
-							
-								<li class="top_all_nav_list">
-									<a>나의사건</a>
-									<ul class="depth_all_nav_menu">
-										<li class="depth_all_nav_list">
-											<a href="javascript:;">나의사건조회</a>
-										</li>
-									</ul>
-								</li>
-							
-							<li class="top_all_nav_list">
-								<a>피해구제</a>
-								<ul class="depth_all_nav_menu">
-									<li class="depth_all_nav_list">
-										<a href="javascript:;">피해구제안내</a>
-										<ul class="depth_2_all_nav_menu">
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 피해구제 절차 안내</a>
-											</li>
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 피해구제 요건 및 양식</a>
-											</li>
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 피해구제 접수방법</a>
-											</li>
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 섬유·신발제품 심의안내</a>
-											</li>
-										</ul>
-									</li>
-									<li class="depth_all_nav_list">
-										<a href="javascript:;">상담신청</a>
-										<ul class="depth_2_all_nav_menu">
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 소비자상담 절차 안내</a>
-											</li>
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 상담신청 방법</a>
-											</li>
-										</ul>
-									</li>
-									
-										<li class="depth_all_nav_list">
-											<a href="">온라인피해구제신청</a>
-										</li>
-									
-								</ul>
-							</li>
-							<li class="top_all_nav_list">
-								<a>분쟁조정</a>
-								<ul class="depth_all_nav_menu">
-									<li class="depth_all_nav_list">
-										<a href="javascript:;">분쟁조정안내</a>
-									</li>
-									<li class="depth_all_nav_list">
-										<a href="javascript:;">집단분쟁조정</a>
-										<ul class="depth_2_all_nav_menu">
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 집단분쟁조정 절차안내</a>
-											</li>
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 집단분쟁조정 신청</a>
-											</li>
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 집단분쟁조정 참가신청</a>
-											</li>
-										</ul>
-									</li>
-									<li class="depth_all_nav_list">
-										<a href="javascript:;">소송지원</a>
-										<ul class="depth_2_all_nav_menu">
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 소송지원안내</a>
-											</li>
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 일반사건신청</a>
-											</li>
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 집단사건신청</a>
-											</li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li class="top_all_nav_list">
-								<a>피해예방·사례정보</a>
-								<ul class="depth_all_nav_menu">
-									<li class="depth_all_nav_list">
-										<a href="javascript:;">소비자분쟁해결기준</a>
-									</li>
-									<li class="depth_all_nav_list">
-										<a href="javascript:;">피해구제사례</a>
-										<ul class="depth_2_all_nav_menu">
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 품목별 피해구제사례</a>
-											</li>
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 섬유제품심의사례</a>
-											</li>
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 피해구제사례집</a>
-											</li>
-										</ul>
-									</li>
-									<li class="depth_all_nav_list">
-										<a href="javascript:;">분쟁조정결정사례</a>
-										<ul class="depth_2_all_nav_menu">
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 품목별 분쟁조정결정사례</a>
-											</li>
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 분쟁조정사례집</a>
-											</li>
-										</ul>
-									</li>
-									<li class="depth_all_nav_list">
-										<a href="javascript:;">피해예방주의보</a>
-										<ul class="depth_2_all_nav_menu">
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 피해예방주의보</a>
-											</li>
-											<li class="depth_2_all_nav_list">
-												<a href="javascript:;">- 동영상자료</a>
-											</li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li class="top_all_nav_list">
-								<a>알림소식</a>
-								<ul class="depth_all_nav_menu">
-									<li class="depth_all_nav_list">
-										<a href="javascript:;">공지사항</a>
-									</li>
-									<li class="depth_all_nav_list">
-										<a href="javascript:;">보도자료</a>
-									</li>
-									<li class="depth_all_nav_list">
-										<a href="javascript:;">자주묻는질문</a>
-									</li>
-								</ul>
-							</li>
-							
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="t_common_bg2" style="user-select: auto; display: none"></div>
-
-			<div class="total_search" id="totalSearch" style="display: none">
-				<div class="inner">
-					<h3>통합검색</h3>
-					<div class="search_bar cmm_srch">
-						<!-- <label for="totSearchValue">통합검색</label> -->
-						<div class="bar">
-							<form id="totalSearchForm" name="totalSearchForm">
-								<div>
-									<input type="text" id="totalSearchKeyword" name="totalSearchKeyword" value="" placeholder="검색어를 입력하세요." maxlength="100" autocomplete="off">
-									<div id="auto_comp_div" class="auto_comp">
-										<ul id="auto_comp_ul">
-										</ul>
-									</div>
-								</div>
-								<!-- <button onclick="fn_totalSearch()">검색</button> -->
-							</form>
-						</div>
-						<button type="button" class="btn_default btn_ico dark_gray search" onclick="fn_totalSearch()">검색하기</button>
-					</div>
-
-					<div class="close_btn">
-						<button type="button" class="btn_type search_close" onclick="fn_HideTotalSearchBar()"></button>
-					</div>
-				</div>
-			</div>
-		</header>
-
-		<!-- 모바일 메뉴 시작 =============================================================================================================================== -->
-		<div class="t_common_bg" style="user-select: auto; display: none"></div>
-		<div class="t_right_menu" style="user-select: auto">
-			<!-- 모바일 메뉴 닫기, 이미지 적용하기 -->
-			<a class="close" style="user-select: auto; display: none">
-				<img src="odr/assets/images/m_menu_close.png" alt="메뉴 닫기" style="user-select: auto">
-			</a>
-
-			<!-- 모바일 메뉴 상단, 사용하지않을경우 해당 div 삭제 -->
-			<div class="top" style="user-select: auto; padding: 15px 0 10px 0 !important">
-				<div class="m_menu_logo_box">
-					<a href="javascript:;" title="한국소비자원모바일" class="m_menu_logo" style="user-select: auto">
-						<img src="odr/assets/images/flogo.png" alt="한국소비자원">
-					</a>
-				</div>
-				<!-- <div class="click_area" style="user-select: auto">
-					<a title="로그인 페이지 바로가기" class="info" style="user-select: auto"> 로그인 </a>
-				</div> -->
-			</div>
-
-			<!-- 모바일 메뉴-->
-			<div class="toggle_tab" style="user-select: auto; margin-top: 73px !important">
-				<ul class="clearfix" style="user-select: auto">
-					<!-- li가 메뉴 묶음, li안에 2차,3차메뉴 표시 -->
-					
-						<li style="user-select: auto">
-							<!-- 1차메뉴-->
-							<a href="javascript:;" style="user-select: auto" class="arrow_none">나의사건</a>
-						</li>
-					
-
-					<li style="user-select: auto">
-						<!-- 1차메뉴-->
-						<a style="user-select: auto">피해구제</a>
-
-						<ul class="clearfix" style="user-select: auto">
-							<!-- 2차메뉴-->
-							<li style="user-select: auto">
-								<a href="javascript:;" style="user-select: auto" class="arrow_none">피해구제안내</a>
-								<ul class="clearfix" style="user-select: auto">
-									<!-- 3차메뉴-->
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" title="피해구제 절차 안내" style="user-select: auto">피해구제 절차 안내</a>
-									</li>
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" title="피해구제 요건 및 양식" style="user-select: auto">피해구제 요건 및 양식</a>
-									</li>
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" title="피해구제 접수방법" style="user-select: auto">피해구제 접수방법</a>
-									</li>
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" title="섬유·신발제품 심의안내" style="user-select: auto">섬유·신발제품 심의안내</a>
-									</li>
-								</ul>
-							</li>
-							<li style="user-select: auto">
-								<a href="javascript:;" style="user-select: auto" class="arrow_none">상담신청</a>
-								<ul class="clearfix" style="user-select: auto">
-									<!-- 3차메뉴-->
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" title="소비자상담 절차 안내" style="user-select: auto">소비자상담 절차 안내</a>
-									</li>
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" title="상담신청 방법" style="user-select: auto">상담신청 방법</a>
-									</li>
-								</ul>
-							</li>
-							
-								<li style="user-select: auto">
-									<a href="" style="user-select: auto" class="arrow_none">온라인피해구제신청</a>
-								</li>
-							
-						</ul>
-					</li>
-					<li style="user-select: auto">
-						<!-- 1차메뉴-->
-						<a style="user-select: auto">분쟁조정</a>
-
-						<ul class="clearfix" style="user-select: auto">
-							<!-- 2차메뉴-->
-							<li style="user-select: auto">
-								<a href="javascript:;" style="user-select: auto" class="arrow_none">분쟁조정안내</a>
-							</li>
-							<li style="user-select: auto">
-								<a href="javascript:;" style="user-select: auto" class="arrow_none">집단분쟁조정</a>
-								<ul class="clearfix" style="user-select: auto">
-									<!-- 3차메뉴-->
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" title="집단분쟁조정 절차 안내" style="user-select: auto">집단분쟁조정 절차 안내</a>
-									</li>
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" title="집단분쟁조정 신청" style="user-select: auto">집단분쟁조정 신청</a>
-									</li>
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" title="피해구제 접수방법" style="user-select: auto">집단분쟁조정 참가신청</a>
-									</li>
-								</ul>
-							</li>
-							<li style="user-select: auto">
-								<a href="javascript:;" style="user-select: auto">소송지원</a>
-								<ul class="clearfix" style="user-select: auto">
-									<!-- 3차메뉴-->
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" style="user-select: auto">소송지원안내</a>
-									</li>
-									
-										<li class="quick_go" style="user-select: auto">
-											<a style="user-select: auto" href="javascript:;">일반사건신청</a>
-										</li>
-										<li class="quick_go" style="user-select: auto">
-											<a style="user-select: auto" href="javascript:;">집단사건신청</a>
-										</li>
-									
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<li style="user-select: auto">
-						<!-- 1차메뉴-->
-						<a style="user-select: auto">피해예방·사례정보</a>
-
-						<ul class="clearfix" style="user-select: auto">
-							<!-- 2차메뉴-->
-							<li style="user-select: auto">
-								<a href="javascript:;" style="user-select: auto" class="arrow_none">소비자분쟁해결기준</a>
-							</li>
-							<li style="user-select: auto">
-								<a style="user-select: auto">피해구제사례</a>
-								<ul class="clearfix" style="user-select: auto">
-									<!-- 3차메뉴-->
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" title="품목별피해구제사례" style="user-select: auto">품목별 피해구제사례</a>
-									</li>
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" title="섬유제품심의사례" style="user-select: auto">섬유제품심의사례</a>
-									</li>
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" title="피해구제사례집" style="user-select: auto">피해구제사례집</a>
-									</li>
-								</ul>
-							</li>
-							<li style="user-select: auto">
-								<a style="user-select: auto">분쟁조정결정사례</a>
-								<ul class="clearfix" style="user-select: auto">
-									<!-- 3차메뉴-->
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" title="품목별분쟁조정결정사례" style="user-select: auto">품목별 분쟁조정결정사례</a>
-									</li>
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" title="분쟁조정사례집" style="user-select: auto">분쟁조정사례집</a>
-									</li>
-								</ul>
-							</li>
-							<li style="user-select: auto">
-								<a style="user-select: auto">피해예방주의보</a>
-								<ul class="clearfix" style="user-select: auto">
-									<!-- 3차메뉴-->
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" title="피해예방" style="user-select: auto">피해예방주의보</a>
-									</li>
-									<li class="quick_go" style="user-select: auto">
-										<a href="javascript:;" style="user-select: auto">동영상자료</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<li style="user-select: auto">
-						<!-- 1차메뉴-->
-						<a style="user-select: auto">알림소식</a>
-
-						<ul class="clearfix" style="user-select: auto">
-							<!-- 2차메뉴-->
-							<li style="user-select: auto">
-								<a href="javascript:;" style="user-select: auto" class="arrow_none">공지사항</a>
-							</li>
-							<li style="user-select: auto">
-								<a href="javascript:;" style="user-select: auto" class="arrow_none">보도자료</a>
-							</li>
-							<li style="user-select: auto">
-								<a href="javascript:;" style="user-select: auto" class="arrow_none">자주묻는질문</a>
-							</li>
-						</ul>
-					</li>
-
-					
-				</ul>
-			</div>
-		</div>
-		<!-- 모바일 메뉴 종료 =============================================================================================================================== -->
-
-		<!-- <form name="messageForm" id="messageForm">
-			<input type="hidden" id="loginMsg" name="loginMsg" value="${loginMsg}" />
-			<input type="hidden" id="loginRst" name="loginRst" value="${loginRst}" />
-		</form> -->
-		<!-- <form name="resultDiv" id="resultDiv">
-			<input type="hidden" id="resultMsg" name="resultMsg" th:value="${resultMsg}" />
-		</form> -->
-		<script>
-			var fileserver = "https:\/\/www.kca.go.kr\/bft";
-
-			$(function () {
-				//pc메뉴 스크립트 시작
-				$(".gnb li").on("mouseover", function () {
-					var activeMenu = $(this).attr("data-menu");
-					$(".gnb, .search_btn").addClass("active");
-					$(".gnb li, .menu_btn_pc, .search_btn").removeClass("active");
-					$(".depth_2_wrap .menu_list").removeClass("active");
-					$("#totalSearch").hide();
-					$(this).addClass("active");
-					$("#" + activeMenu).addClass("active");
-					$(".gnb li, .menu_btn_pc, .search_btn").removeClass("remove_active");
-					$(".t_common_bg2").css("display","none");
-				});
-
-				$(".gnb li").focusin(function () {
-					var activeMenu = $(this).attr("data-menu");
-					$(".gnb, .search_btn").addClass("active");
-					$(".gnb li, .menu_btn_pc, .search_btn").removeClass("active");
-					$(".depth_2_wrap .menu_list").removeClass("active");
-					$("#totalSearch").hide();
-					$(this).addClass("active");
-					$("#" + activeMenu).addClass("active");
-					$(".gnb li, .menu_btn_pc, .search_btn").removeClass("remove_active");
-					$(".t_common_bg2").css("display","none");
-				});
-
-				$(".gnb, .depth_2_wrap").on("mouseover", function () {
-					$("header").addClass("active");
-					$(".depth_2_wrap").addClass("active");
-					$(".depth_2_wrap").stop().fadeIn(200);
-					//$(".depth_2_wrap").stop().show();
-					$(".gnb, .search_btn").addClass("active");
-
-					$(".gnb li, .menu_btn_pc, .search_btn").removeClass("remove_active");
-				});
-
-				$(".gnb, .depth_2_wrap").focusin(function () {
-					$("header").addClass("active");
-					$(".depth_2_wrap").addClass("active");
-					$(".depth_2_wrap").stop().fadeIn(200);
-					//$(".depth_2_wrap").stop().show();
-					$(".gnb, .search_btn").addClass("active");
-
-					$(".gnb li, .menu_btn_pc, .search_btn").removeClass("remove_active");
-				});
-
-				$("header").on("mouseleave", function () {
-					$("header").removeClass("active");
-					$(".gnb, .menu_btn_pc, .search_btn").removeClass("active");
-					$(".depth_2_wrap").removeClass("active");
-					//$(".depth_2_wrap").fadeOut(600);
-					$(".depth_2_wrap").hide();
-					//$(".depth2_bg").stop().fadeOut(200);
-					$(".gnb li, .menu_btn_pc, .search_btn").addClass("remove_active");
-					$(".gnb li, .menu_btn_pc, .search_btn").removeClass("active");
-				});
-
-				$("header").focusout(function () {
-					$("header").removeClass("active");
-					$(".gnb, .menu_btn_pc, .search_btn").removeClass("active");
-					$(".depth_2_wrap").removeClass("active");
-					// $("#totalSearch").hide();
-					//$(".depth_2_wrap").fadeOut(600);
-					// $(".depth_2_wrap").hide();
-					//$(".depth2_bg").stop().fadeOut(200);
-					$(".gnb li, .menu_btn_pc, .search_btn").addClass("remove_active");
-					$(".gnb li, .menu_btn_pc, .search_btn").removeClass("active");
-					// $(".t_common_bg2").css("display","none");
-				});
-
-				$(".depth_2_wrap").on("mouseleave", function(){
-					$("header").removeClass("active");
-					$(".gnb, .menu_btn_pc, .search_btn").removeClass("active");
-					$(".depth_2_wrap").removeClass("active");
-					$(".depth_2_wrap").hide();
-					$(".gnb li, .menu_btn_pc, .search_btn").addClass("remove_active");
-					$(".gnb li, .menu_btn_pc, .search_btn").removeClass("active");
-					$(".t_common_bg2").css("display","none");
-				});
-
-				$(".menu_btn_pc").on("click", function (e) {
-					if ($(this).attr("class") == "menu_btn menu_btn_pc active") {
-						$("header").removeClass("active");
-						$(".gnb, .menu_btn_pc, .search_btn").removeClass("active");
-						$(".depth_2_wrap").removeClass("active");
-						//$(".depth_2_wrap").fadeOut(600);
-						$(".depth_2_wrap").hide();
-						//$(".depth2_bg").stop().fadeOut(200);
-						$(".gnb li, .menu_btn_pc, .search_btn").addClass("remove_active");
-						$(".gnb li, .menu_btn_pc, .search_btn").removeClass("active");
-						$(".t_common_bg2").css("display","none");
-					} else {
-						var activeMenu = $(this).attr("data-menu");
-						$(".gnb, .menu_btn_pc, .search_btn").addClass("active");
-						$(".gnb li, .menu_btn_pc, .search_btn").removeClass("active");
-						$(".depth_2_wrap .menu_list").removeClass("active");
-						$(this).addClass("active");
-						$('#' + activeMenu).addClass("active");
-						$(".gnb li, .menu_btn_pc, .search_btn").removeClass("remove_active");
-						$("#totalSearch").hide();
-						$("header").addClass("active");
-						$(".depth_2_wrap").addClass("active");
-						$(".depth_2_wrap").stop().fadeIn(200);
-						//$(".depth_2_wrap").stop().show();
-						$(".gnb, .search_btn").addClass("active");
-
-						$(".gnb li, .search_btn").removeClass("remove_active");
-						$(".t_common_bg2").css("display","block");
-					}
-				});
-				//pc메뉴 스크립트 종료
-
-				//mobile메뉴 스크립트 시작
-
-				$(".menu_btn_m").on("click", function (e) {
-					e.preventDefault();
-
-					$(".t_common_bg").fadeIn(200, function () {
-						$(".t_right_menu").addClass("active");
-						$(".t_right_menu .close").fadeIn(500);
-					});
-
-					return false;
-				});
-
-				$(".t_common_bg, .t_right_menu .close").on("click", function () {
-					$(".t_right_menu").removeClass("active");
-					$(".t_right_menu .close").hide();
-
-					setTimeout(function () {
-						$(".t_common_bg").fadeOut(200);
-					}, 300);
-				});
-
-				// toggle - 1차
-				$(".toggle_tab > ul:first-child > li > a").on("click", function (e) {
-					if ($(this).siblings("ul").length) {
-						e.preventDefault();
-					} else {
-						$(this).addClass("link_direct");
-					}
-
-					if ($(this).hasClass("active_toggle")) {
-						$(this).removeClass("active_toggle");
-						$(this).siblings("ul").stop().slideUp();
-						$(this).siblings("ul").removeClass("active_toggle");
-					} else {
-						$(this).parent().siblings("li").find("ul").slideUp();
-						$(this).parent().siblings("li").children("a").removeClass("active_toggle");
-						$(this).addClass("active_toggle");
-						$(this).siblings("ul").addClass("active_toggle");
-						$(this).siblings("ul").stop().slideDown();
-					}
-				});
-
-				// toggle - 2차
-				$(".toggle_tab > ul:first-child > li > ul > li > a").on("click", function (e) {
-					if ($(this).siblings("ul").html() != undefined) {
-						e.preventDefault();
-						$(this).siblings("ul").slideDown().addClass("active");
-
-						if ($(this).hasClass("active")) {
-							$(this).removeClass("active");
-							$(this).siblings("ul").slideUp();
-						} else {
-							$(this).parent().siblings("li").find("ul").slideUp();
-							$(this).parent().siblings("li").children("a").removeClass("active");
-							$(this).addClass("active");
-							$(this).siblings("ul").slideDown();
-						}
-					}
-				});
-				//mobile메뉴 스크립트 종료
-
-				$(".search_btn").on("click", function (e) {
-					if ($("#totalSearch").css("display") == "block") {
-						$("header").removeClass("active");
-						$(".gnb, .menu_btn_pc, .search_btn").removeClass("active");
-						$(".depth_2_wrap").removeClass("active");
-						$("#totalSearch").hide();
-						//$(".depth_2_wrap").fadeOut(600);
-						$(".depth_2_wrap").hide();
-						//$(".depth2_bg").stop().fadeOut(200);
-						$(".gnb li, .menu_btn_pc, .search_btn").addClass("remove_active");
-						$(".gnb li, .menu_btn_pc, .search_btn").removeClass("active");
-						$(".t_common_bg2").css("display","none");
-					} else {
-						$(".gnb, .menu_btn_pc, .search_btn").addClass("active");
-						$(".gnb li, .menu_btn_pc, .search_btn").removeClass("active");
-						$(".depth_2_wrap .menu_list").removeClass("active");
-						$(".gnb li, .menu_btn_pc, .search_btn").removeClass("remove_active");
-						$("header").addClass("active");
-						$(".depth_2_wrap").removeClass("active");
-						//$(".depth_2_wrap").stop().show();
-						$(".gnb").addClass("active");
-						$(".gnb li").removeClass("remove_active");
-						$("#totalSearch").fadeIn(100, function () {
-						})
-						$("#totalSearchKeyword").focus();
-						$(".t_common_bg2").css("display","block");
-					}
-
-				});
-			});
-
-			function fn_totalSearch(searchTxt) {
-				var totalSearchKeyword;
-				if (searchTxt != null && searchTxt != '') {
-					totalSearchKeyword = searchTxt;
-				} else {
-					if (fn_isNullCheck($("#totalSearchKeyword"), "검색어")) return;
-					totalSearchKeyword = $('#totalSearchKeyword').val();
-					$('#totalSearchKeyword').val('');
-				}
-
-				var newForm = document.createElement('form');
-				newForm.method = 'POST'
-				newForm.action = contextPath + '/cm/search.do';
-				newForm.name = 'totalSearchForm';
-
-				var data = document.createElement('input');
-				data.setAttribute("type", 'hidden');
-				data.setAttribute("name", 'searchKeyword');
-				data.setAttribute("value", totalSearchKeyword);
-
-				newForm.appendChild(data);
-				document.body.appendChild(newForm);
-				newForm.submit();
-			}
-			
-			const clickAutoComplete = function(srchKeyword) {
-				fn_totalSearch(srchKeyword);
-				
-			}
-			
-			const getAutoComplete = function(event, inp, divclass) {
-			var data = 'autoComplete='+inp.val();
-			 inp.autocomplete({
-			 	source : function(request, response) {
-			 		$.ajax({
-			 			type:'POST',
-				 		url: contextPath + "/cm/getAutoComplete",
-				 		data: data,
-				 		success: function(result) {
-				 			response(
-				 				$.map(result.result, function(item) {
-				 					return {
-				 						label : item.highlight,
-				 						value : item.word
-				 					
-				 					}
-				 				})
-				 				
-				 			)
-				 		
-				 		}
-			 		});
-			 	},
-			 	select: function(event, ui) {
-				 	clickAutoComplete(ui.item.value);
-				},
-				focus: function(event, ui) {
-					return false;
-		 		},
-				position: { my: 'right top', at : 'right bottom'},
-		 		close: function(event){
-				 			
-				}
-			 }).autocomplete("instance")._renderItem = function(ul, item) {
-			 	return $("<li>").append("<div class='"+divclass+"'><img src='"+contextPath+'/assets/images/search.png\'/>'+item.label+"</div>").appendTo(ul);
-			 
-			 };
-			}
-
-			const isTotalSearchEnterKey = function(event) {
-				
-				if (event.keyCode == 13) {
-					event.preventDefault();
-					fn_totalSearch();
-				}
-			};
-
-			const fn_HideTotalSearchBar = function() {
-				$("#totalSearch").hide();
-				$(".t_common_bg2").css("display","none");
-			}
-
-			$(document).ready(function () {
-
-				$("input[name=totalSearchKeyword]").on("keydown", function (event) {
-					isTotalSearchEnterKey(event);
-				});
-				
-				$("input[name=totalSearchKeyword]").on("keyup", function (event) {
-					var inp = $("input[name=totalSearchKeyword]");
-					var dv = $('#auto_comp_div');
-					var ul = $('#auto_comp_ul');
-					getAutoComplete(event, inp, 'total_search_autocomplete');
-				});
-				
-				
-
-				let session = {"DEV_SERVER":false,"CURRENT_URL":"\/cm\/ma\/cert.do","certRtnUrl":"\/pg\/pr\/cnSutList.do","PRE_URL":"\/pg\/pr\/cnSutList.do","fileServer":"https:\/\/www.kca.go.kr\/bft","ts":1681220992140};
-
-				if ((session.certVO != null && session.certVO != "") || (session.userSe != null && session.userSe != "")) {
-					let sessionExpireTime = fn_getCookie("sessionExpireTime");
-
-					sessionExpireTime *= 1;
-					let expireTime = new Date(sessionExpireTime);
-
-					i_gRemainSecond = Math.floor((expireTime - new Date()) / 1000);
-					fn_setViewTimer();
-				}
-			});
-
-			window.onload = function () {
-				if(navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1 || navigator.userAgent.indexOf("MSIE") != -1){
-					alert("익스플로러에서는 해당 사이트가 원활하게 작동되지 않습니다.\n 다른 브라우저를 이용해 주시길 바랍니다.");
-				}
-				deviceInfo = checkDeviceType();
-				// console.log(deviceInfo);
-
-				let resultMsg = null;
-
-				if (!fn_isEmpty(resultMsg)) {
-					alert(resultMsg);
-				}
-			}
-		</script>
-	
-			<section id="container">
-	<script>
-		var msg = "";
-		var onepassStatus = null;
-		switch (onepassStatus) {
-			case "STOP":
-				msg = "디지털원패스 인증 오류\n\n정지된 사용자 입니다.";
-				break;
-			case "OUT":
-				msg = "디지털원패스 인증 오류\n\n탈퇴한 사용자 입니다.";
-				break;
-			case "NOT_FOUND":
-				msg = "디지털원패스 인증 오류\n\n존재하지 않는 사용자 입니다.";
-				break;
-			case "UNKNOWN":
-				msg = "디지털원패스 인증 오류\n\n알 수 없는 오류 입니다.";
-				break;
-		}
-
-		if (msg != "") {
-			alert(msg);
-		}
-
-		function fn_callback_cert(authName, authTel, authType, authSex, authBirth) {
-			$("#authName").val(authName);
-			$("#authTel").val(authTel);
-			$("#authType").val(authType);
-			$("#authBirth").val(authBirth);
-			$("#authSex").val(authSex);
-			document.certForm.action = contextPath + "/cm/ma/checkCert.do";
-			document.certForm.submit();
-		}
-
-		const fn_cert_mobile = function () {
-			var popupWindow = window.open(contextPath + "/cm/cr/certMobile.do", "kcbPopMobile", "width=420, height=576, resizable=0, scrollbars=no, status=no, titlebar=no, toolbar=no, left=435, top=250");
-			if (popupWindow == null) {
-				alert(" ※ 윈도우 XP SP2 또는 인터넷 익스플로러 7 사용자일 경우에는 \n    화면 상단에 있는 팝업 차단 알림줄을 클릭하여 팝업을 허용해 주시기 바랍니다. \n\n※ MSN,야후,구글 팝업 차단 툴바가 설치된 경우 팝업허용을 해주시기 바랍니다.");
-			}
-
-			popupWindow.focus();
-		};
-
-		const fn_cert_ipin = function () {
-			var popupWindow = window.open(contextPath + "/cm/cr/certIpin.do", "kcbPopIpin", "left=200, top=100, status=0, width=450, height=550");
-			if (popupWindow == null) {
-				alert(" ※ 윈도우 XP SP2 또는 인터넷 익스플로러 7 사용자일 경우에는 \n    화면 상단에 있는 팝업 차단 알림줄을 클릭하여 팝업을 허용해 주시기 바랍니다. \n\n※ MSN,야후,구글 팝업 차단 툴바가 설치된 경우 팝업허용을 해주시기 바랍니다.");
-			}
-			popupWindow.focus();
-		};
-
-		const fn_cert_onepass = function () {
-			var popupWindow = window.open(contextPath + "/cm/cr/certOnepass.do", "kcbPopIpin", "width=500, height=576, resizable=0, scrollbars=no, status=no, titlebar=no, toolbar=no, left=435, top=250");
-			if (popupWindow == null) {
-				alert(" ※ 윈도우 XP SP2 또는 인터넷 익스플로러 7 사용자일 경우에는 \n    화면 상단에 있는 팝업 차단 알림줄을 클릭하여 팝업을 허용해 주시기 바랍니다. \n\n※ MSN,야후,구글 팝업 차단 툴바가 설치된 경우 팝업허용을 해주시기 바랍니다.");
-			}
-
-			popupWindow.focus();
-		};
-
-		const fn_openPopup2 = function (certTp) {
-			if (event.keyCode == 13) {
-				fn_openPopup(certTp);
-			}
-		}
-		const fn_openPopup = function (certTp) {
-			var path = "";
-			var width = "";
-			var height = "";
-			var left = "";
-			var top = "";
-
-			switch (certTp) {
-				case 'mobile':
-					path = "/cm/cr/certMobile.do";
-					title = "Mobile";
-					width = "420";
-					height = "576";
-					left = "435";
-					top = "250";
-					break;
-				case 'ipin':
-					path = "/cm/cr/certIpin.do";
-					title = "Ipin";
-					width = "450";
-					height = "550";
-					left = "200";
-					top = "100";
-					break;
-				case 'onepass':
-					path = "/cm/cr/certOnepass.do";
-					title = "Onepass";
-					width = "500";
-					height = "576";
-					left = "435";
-					top = "250";
-					break;
-				case 'kakao':
-					path = "/cm/cr/certKakao.do";
-					// path = "";
-					title = "Kakao";
-					width = "500";
-					height = "400";
-					left = "435";
-					top = "250";
-					break;
-				case 'naver':
-					path = "/cm/cr/certNaver.do";
-					// path = "";
-					title = "Naver";
-					width = "500";
-					height = "400";
-					left = "435";
-					top = "250";
-					break;
-				default:
-			}
-
-			if (path == "") {
-				alert("준비중 입니다. 다른 인증 방식을 이용하시기 바랍니다.");
-				// alert(deviceType);
-				// alert(deviceInfo);
-
-				return;
-			}
-
-			var popupWindow = window.open(contextPath + path, title, "width=" + width + ", height=" + height + ", target=_blank, location=no, menubar=no, resizable=no, scrollbars=no, status=no, titlebar=no, toolbar=no, left=" + left + ", top=" + top + "");
-			if (popupWindow == null) {
-				alert(" ※ 윈도우 XP SP2 또는 인터넷 익스플로러 7 사용자일 경우에는 \n 화면 상단에 있는 팝업 차단 알림줄을 클릭하여 팝업을 허용해 주시기 바랍니다. \n\n※ MSN,야후,구글 팝업 차단 툴바가 설치된 경우 팝업허용을 해주시기 바랍니다.");
-			}
-
-			popupWindow.focus();
-		};
-	</script>
-	<!-- content -->
-	
-		<!-- <div class="tit_h2_wrap">
-			<div class="tit_h2_area">
-				<h2 class="tit_h2" th:text="${pageTitle}"></h2>
-			</div>
-		</div> -->
-		<!-- <div class="tit_h2_wrap">
-			<div class="tit_h2_area">
-				<h2 class="tit_h2" th:text="${pageTitle}"></h2>
-			</div>
-			<div class="tit_h2_area add_slogan">
-				<h2 class="tit_h2">피해구제 접수안내</h2>
-				<p class="bcs_subslogan">소비생활에 가치를 더하다</p>
-			</div>
-		</div> -->
-	
-
-	<div class="bc_cnb">
-		<div class="bc_cnb_wrp">
-			<ul>
-				<li class="home">
-					<a href="javascript:;">
-						<!-- <i class="xi-home"></i> -->
-					</a>
-				</li>
-				
-				
-					<li>
-						<a href="#">피해구제</a>
-						<ul class="clearfix subMul m_action" style="display: none">
-							
-								<li>
-									<a class="dep1_t" href="javascript:;">나의사건</a>
-								</li>
-							
-							<li class="on">
-								<a class="dep1_t" href="javascript:;" title="선택됨">피해구제</a>
-							</li>
-							<li>
-								<a class="dep1_t" href="javascript:;">분쟁조정</a>
-							</li>
-							<li>
-								<a class="dep1_t" href="javascript:;">피해예방·사례정보</a>
-							</li>
-							<li>
-								<a class="dep1_t" href="javascript:;">알림소식</a>
-							</li>
-							
-						</ul>
-					</li>
-					<!-- <li>
-						<a href="#">온라인피해구제신청</a>
-						<ul class="clearfix subMul m_action" style="display: none">
-							<li>
-								<a class="dep1_t" href="javascript:;">피해구제안내</a>
-							</li>
-							<li>
-								<a class="dep1_t" href="javascript:;">상담신청</a>
-							</li>
-							
-								<li class="on">
-									<a class="dep1_t" href="" title="선택됨">온라인피해구제신청</a>
-								</li>
-							
-						</ul>
-					</li> -->
-				
-				
-			</ul>
-		</div>
-	</div>
-	<script type="text/javascript">
-		$(".bc_cnb_wrp > ul > li")
-			.not(".home")
-			.find(" > a")
-			.click(function () {
-				if ($(this).parent().hasClass("on")) {
-					$(this).parent().removeClass("on");
-					$(this).siblings("ul").hide();
-				} else {
-					$(".bc_cnb_wrp > ul > li").removeClass("on");
-					$(".bc_cnb_wrp ul ul").hide();
-					$(this).parent().addClass("on");
-					$(this).siblings("ul").show();
-				}
-				return false;
-			});
-		$(".bc_cnb_wrp ul ul")
-			.find("li:last-child a")
-			.on("focusout", function () {
-				$(".bc_cnb_wrp > ul > li").removeClass("on");
-				$(".bc_cnb_wrp ul ul").hide();
-			});
-		$("body").click(function (e) {
-			if (!$(e.target).is(".bc_cnb_wrp > ul > li > a")) {
-				$(".bc_cnb_wrp ul ul").hide();
-				$(".bc_cnb_wrp > ul > li").removeClass("on");
-			}
-		});
-	</script>
-
-	<div id="content" class="cmm_content auth_fld recovery-guide">
-		<div class="content_in w1350">
-			<div class="authpg_tit">
-				<div class="content_txt">
-					
-					
-					
-						<h3 class="content_title">피해구제 접수안내</h3>
-					
-					
-				</div>
-				<!--					<p class="authinfo">본인 확인을 위해서 휴대폰이나 아이핀 또는 디지털원패스 인증 후 진행 가능합니다.</p>-->
-				<!-- <p class="authinfo">본인인증 후 진행이 가능합니다.  -->
-				</p>
-			</div>
-
-
-			<div class="cnsut_wrp mt50">
-				<h4 class="bcs_tit_st1">피해구제 접수 안내</h4>
-				<div class="cnsut_box">
-					<ul class="step_ul">
-						<li class="step_li">
-							<div class="step_w">
-								<!-- <div class="step_imgbx">
-									<img src="./kca_icon_02.png" alt="피해구제 접수 안내">
-								</div> -->
-								<div class="step_txtbx mt20">
-									<ul class="bc_dotul help_txt">
-										<li><strong>피해구제 신청은 <span class="color_blue">피해구제 신청서를 다운로드</span>하여 작성 후 <span class="color_blue">증빙서류</span>와 함께 아래의 방법으로 접수를 해주시기 바랍니다.</strong>
-										</li>
-									</ul>
-									<div class="require_ref">
-										<span><i class="xi-info"></i>증빙서류 : 계약관련 근거자료(계약서, 영수증 등), 사업자에 이의를 제기한 서면, 전자문서
-											혹은 게시판 자료 사본(화면 캡처 또는 프린트) 등의 증빙자료 첨부 요망</span>
-									</div>
-									<a href="javascript:;" onclick="return false;" class="inner_btn btn_default go_link bc_btn_mt guide-disabled">피해구제 신청양식</a>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="cnsut_wrp">
-				<div class="cnsut_box margin_top_30">
-					<ul class="step_ul">
-						<li class="step_li">
-							<div class="step_w">
-								<!-- <div class="step_imgbx">
-									<img src="./kca_icon_01.png" alt="온라인신청">
-								</div> -->
-								<div class="step_txtbx">
-									<p class="stepnum color_blue">온라인신청</p>
-									<p class="step_txt">
-										증빙서류를 첨부하여 <span class="color_blue">온라인으로 피해구제 신청</span>할 수 있습니다.<br class="dp_n">
-										<span class="color_org">소비자상담</span>을 통해 <span class="color_blue">피해구제 절차를 안내받은
-											분</span>에 한하여 6개월 이내에 신청하는 경우에만 가능합니다.
-									</p>
-									<a href="orderff.html" class="inner_btn btn_default go_link bc_btn_mt guide-online">온라인 신청 바로가기</a>
-									<a href="javascript:;" onclick="return false;"  class="inner_btn btn_default go_link bc_btn_mt guide-disabled">소비자 상담</a>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div class="cnsut_box margin_top_30">
-					<ul class="step_ul">
-						<li class="step_li">
-							<div class="step_w">
-								<!-- <div class="step_imgbx">
-									<img src="./kca_ap_01.png" alt="방문신청">
-								</div> -->
-								<div class="step_txtbx mt20">
-									<p class="stepnum color_blue">방문신청</p>
-									<p class="step_txt">피해구제 양식을 다운로드하여 작성하신 후, <span class="color_blue">증빙서류를
-											지참</span>하여 <span class="color_blue">한국소비자원을 직접 방문</span>하여 신청할 수
-										있습니다.<br class="dp_n"></p>
-								</div>
-							</div>
-							<div class="step_w step_bd_t">
-								<div class="step_txtbx mt20">
-									<ul class="bc_dotul help_txt">
-										<li>본원 : 충청북도 음성군 맹동면 용두로 54 한국소비자원 1층 방문상담실</li>
-										<li>서울지원 : 서울특별시 송파구 송파대로 167 (문정테라타워 A동 15층) 한국소비자원 서울지원</li>
-									</ul>
-									<a  href="###" class="link_btn_tb step_link_btn help_btn">본원찾아오시는길 보기</a>
-									<a  href="###" class="link_btn_tb step_link_btn help_btn">서울지원 찾아오시는길 보기</a>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div class="cnsut_box margin_top_30">
-					<ul class="step_ul">
-						<li class="step_li">
-							<div class="step_w">
-								<div class="step_imgbx">
-									<img src="./kca_ap_02.png" alt="우편신청">
-								</div>
-								<div class="step_txtbx mt20">
-									<p class="stepnum color_blue">우편신청</p>
-									<p class="step_txt">피해구제 양식을 다운로드하여 작성하신 후, <span class="color_blue">증빙서류를 첨부</span>
-										하여 <span class="color_blue">아래의 주소</span>로 보내주시기 바랍니다.</p>
-								</div>
-							</div>
-							<div class="step_w step_bd_t">
-								<div class="step_txtbx mt20">
-									<ul class="bc_dotul help_txt">
-										<li>충청북도 음성군 맹동면 용두로 54 한국소비자원 6층 소비자상담실(우편번호 27738)</li>
-										<div class="require_ref">
-											<span><i class="xi-info"></i><span class="color_org">일반우편 이용시 분실의 위험이 있사오니
-													가급적 등기우편을 이용하여 주시기
-													바랍니다.</span></span>
-										</div>
-										<li class="mt20">
-											<strong><span class="color_org">단, 섬유·신발</span>은 아래의 주소로 보내주시기
-												바랍니다.</strong>
-											<p class="mt10 bc_fonts">- <strong>섬유</strong> : 경기도 수원시 영통구 에듀타운로 102
-												광교중앙역SK뷰 B동 301호
-												한국소비자원 경인강원지원 (우편번호 16509)</p>
-											<p class="mt10 bc_fonts">- <strong>신발</strong> : 부산광역시 부산진구 황령대로 24
-												(부산상공회의소) 10층 한국소비자원
-												부산울산경남지원 (우편번호 47354)</p>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div class="cnsut_box margin_top_30">
-					<ul class="step_ul">
-						<li class="step_li">
-							<div class="step_w">
-								<div class="step_imgbx">
-									<img src="./kca_ap_03.png" alt="팩스신청">
-								</div>
-								<div class="step_txtbx mt20">
-									<p class="stepnum color_blue">팩스신청</p>
-									<p class="step_txt">피해구제 양식을 다운로드하여 작성하신 후, <span class="color_blue">증빙서류를
-											첨부</span>하여 <span class="color_blue">팩스를 통해 신청</span>할 수 있습니다</p>
-								</div>
-							</div>
-							<div class="step_w step_bd_t">
-								<div class="step_txtbx mt20">
-									<ul class="bc_dotul help_txt">
-										<li>FAX : 043) 877 - 6767</li>
-										<li><strong>FAX 접수가 완료되면 소비자께서 등록하신 핸드폰으로 "확인문자"가 발송됩니다.</strong></li>
-										<li>FAX 접수 확인까지 1일~2일 정도 소요됩니다.</li>
-										<div class="help_img_box">
-											<img src="./kca_tab1.png" alt="팩스신청예시이미지" class="kca_tab1">
-											<img src="./kca_tab2.png" alt="팩스신청예시모바일이미지" class="kca_tab2">
-										</div>
-									</ul>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-			
-
-			
-			
-		</div>
-		<!-- content_in END -->
-	</div>
-
-	<!-- //content -->
-</section>
-			
-		
-		</div>
-		<script>
-			document.addEventListener('DOMContentLoaded', function () {
-				document.querySelectorAll('a').forEach(function (link) {
-					var href = link.getAttribute('href') || '';
-					var isOnlineApply = href.indexOf('orderff.html') !== -1;
-					if (!isOnlineApply) {
-						link.addEventListener('click', function (event) {
-							event.preventDefault();
-							event.stopPropagation();
-						});
-					}
-				});
-			});
-		</script>
-	</body>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>신청 안내</title>
+  <style>
+    :root {
+      --green: #00885a;
+      --green-dark: #006943;
+      --yellow: #ffd33d;
+      --ink: #17231f;
+      --muted: #697872;
+      --line: #e4ebe8;
+      --bg: #f6faf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+    header {
+      padding: 18px 20px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    .bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 900;
+    }
+    .mark {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--yellow);
+      color: var(--green-dark);
+    }
+    .back {
+      color: var(--green-dark);
+      font-weight: 800;
+      text-decoration: none;
+    }
+    main { padding: 22px 20px 30px; }
+    .hero {
+      padding: 22px;
+      border-radius: 24px;
+      background: linear-gradient(145deg, var(--green), var(--green-dark));
+      color: #fff;
+    }
+    .hero p {
+      margin: 0 0 8px;
+      color: rgba(255,255,255,.82);
+      font-size: 14px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.25;
+      letter-spacing: -.6px;
+    }
+    .steps {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .step {
+      display: flex;
+      gap: 14px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 8px 22px rgba(25, 60, 45, .05);
+    }
+    .num {
+      flex: 0 0 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #eaf8f2;
+      color: var(--green-dark);
+      font-weight: 900;
+    }
+    .step strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      margin-top: 22px;
+      border-radius: 17px;
+      background: var(--yellow);
+      color: #2c2a00;
+      font-size: 17px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+    .fine {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <div class="brand"><span class="mark">N</span><span>NH농협캐피탈</span></div>
+      <a class="back" href="index.html">홈</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p>모바일 신청 안내</p>
+      <h1>3단계로 상담 접수를 완료하세요</h1>
+    </section>
+
+    <section class="steps">
+      <div class="step">
+        <span class="num">1</span>
+        <div>
+          <strong>기본 정보 입력</strong>
+          <p>신청자 정보와 희망 금액을 입력합니다.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="num">2</span>
+        <div>
+          <strong>신청 내용 확인</strong>
+          <p>입력한 내용을 확인하고 접수를 진행합니다.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="num">3</span>
+        <div>
+          <strong>접수 완료</strong>
+          <p>접수 후 담당자가 순차적으로 확인합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <a class="primary" href="orderff.html">온라인 신청 시작</a>
+    <p class="fine">본 페이지는 독립적인 샘플 금융 UI이며 실제 금융기관의 상호, 로고, 화면을 사용하지 않습니다.</p>
+  </main>
+</body>
 </html>
-
-
-
-
-
-
-
-

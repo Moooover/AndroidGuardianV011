@@ -1,1519 +1,278 @@
 <!doctype html>
 <html lang="ko">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
-<meta name="robots" content="index, follow">
-<meta name="description" content="한국소비자원">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>NH농협캐피탈</title>
+  <style>
+    :root {
+      --green: #00885a;
+      --green-dark: #006943;
+      --mint: #eaf8f2;
+      --yellow: #ffd33d;
+      --ink: #17231f;
+      --muted: #697872;
+      --line: #e4ebe8;
+      --bg: #f6faf8;
+    }
 
-<meta name="keywords" content="한국소비자원">
-<meta name="format-detection" content="telephone=no,email=no,address=no">
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
 
-<title>한국소비자원</title>
-<link rel="shortcut icon" href="https://www.kca.go.kr/favicon.ico"><link rel="stylesheet" type="text/css" href="staticqefeee/css/ecms.font.api.css" media="all">
-<link rel="stylesheet" type="text/css" href="staticqefeee/css/ecms.basic.css" media="all">
-<link rel="stylesheet" type="text/css" href="staticqefeee/css/ecms.board.css" media="all">
-<link rel="stylesheet" type="text/css" href="staticqefeee/css/ecms.template.css" media="all">
-<link rel="stylesheet" type="text/css" href="staticqefeee/css/ecms.ui.css" media="all">
-<link rel="stylesheet" type="text/css" href="staticqefeee/css/ecms.kca.css" media="all">
+    .app {
+      min-height: 100vh;
+      padding-bottom: 28px;
+    }
 
-<link rel="stylesheet" type="text/css" href="staticqefeee/css/lib.css" media="all">
-<link rel="stylesheet" type="text/css" href="staticqefeee/css/main.css" media="all">
-	<script src="staticqefeee/js/jquery-3.4.1.min.js"></script>
-<script src="staticqefeee/js/jquery-migrate-3.0.1.min.js"></script>
+    .top {
+      padding: 18px 20px 28px;
+      background: linear-gradient(145deg, var(--green), var(--green-dark));
+      color: #fff;
+      border-bottom-left-radius: 28px;
+      border-bottom-right-radius: 28px;
+    }
 
-<script src="staticqefeee/js/jquery.cookie.min.js"></script>
-<script src="staticqefeee/js/jquery.slides.min.js"></script>
-<script src="staticqefeee/js/jquery.banner.js"></script>
-<script src="staticqefeee/js/owl.carousel.min.js"></script>
-<script src="staticqefeee/js/jquery.slick.min.js"></script>
-<script src="staticqefeee/js/jquery.carouFredSel-6.2.1-packed.js"></script>
-<script src="staticqefeee/js/jquery.fullpage.min.js"></script>
-<script src="staticqefeee/js/jquery.form.js"></script>
-<script src="staticqefeee/js/jquery.placeholder.min.js"></script>
-<script src="staticqefeee/js/jquery.rwdImageMaps.min.js"></script>
+    .bar,
+    .brand,
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-<script src="staticqefeee/js/ecms.util.js"></script>
-<script src="staticqefeee/js/ecms.sns.js"></script>
-<script src="staticqefeee/js/ecms.visual.js"></script>
-<script src="staticqefeee/js/ecms.navigation.type2.js"></script>
-<script src="staticqefeee/js/ecms.navigation.mobile.js"></script>
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 800;
+      letter-spacing: -.2px;
+    }
 
-<link rel="stylesheet" type="text/css" href="staticqefeee/css/jquery-ui.min.css" media="all">
-<script src="staticqefeee/js/jquery-ui.min.js"></script>
+    .mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--yellow);
+      color: var(--green-dark);
+      font-weight: 900;
+    }
 
-<link rel="stylesheet" type="text/css" href="staticqefeee/css/print-preview.css">
-<script src="staticqefeee/js/jquery.print-preview.js"></script>
-<style>
-.relief-main,
-.relief-main-panel .relief-cta {
-	position: relative;
-	box-shadow: 0 8px 24px rgba(24, 83, 168, .14);
-}
-.relief-main:before,
-.relief-main-panel .relief-cta:before {
-	content: "접수안내";
-	position: absolute;
-	right: 12px;
-	top: 10px;
-	z-index: 2;
-	padding: 5px 10px;
-	border-radius: 999px;
-	background: #2367c8;
-	color: #fff;
-	font-size: 12px;
-	font-weight: 700;
-	letter-spacing: 0;
-}
-.relief-main a,
-.relief-main-panel .relief-cta a {
-	font-weight: 700;
-}
-.relief-main-panel h1 a {
-	color: #114f9f;
-}
-@media (max-width: 768px) {
-	.relief-main:before,
-	.relief-main-panel .relief-cta:before {
-		right: 8px;
-		top: 8px;
-		font-size: 11px;
-	}
-}
-</style>
-<script>
-(function () {
-	var transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+    .menu {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255,255,255,.32);
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      text-decoration: none;
+      font-size: 22px;
+    }
 
-	function showTransparentImage(img) {
-		if (!img || img.dataset.transparentFallback === '1') return;
-		img.dataset.transparentFallback = '1';
-		img.onerror = null;
-		img.alt = '';
-		img.removeAttribute('title');
-		img.src = transparentPixel;
-	}
+    .hero {
+      margin-top: 28px;
+    }
 
-	document.addEventListener('error', function (event) {
-		var target = event.target;
-		if (target && target.tagName === 'IMG') {
-			event.preventDefault();
-			event.stopImmediatePropagation();
-			showTransparentImage(target);
-		}
-	}, true);
+    .hero p {
+      margin: 0 0 8px;
+      color: rgba(255,255,255,.82);
+      font-size: 14px;
+    }
 
-	document.addEventListener('DOMContentLoaded', function () {
-		var images = document.querySelectorAll('img:not([src]), img[src=""], img[src*="noimg"]');
-		for (var i = 0; i < images.length; i++) {
-			showTransparentImage(images[i]);
-		}
-	});
-})();
-</script>
+    .hero h1 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.22;
+      letter-spacing: -.7px;
+    }
 
-<script type="text/javascript">
-//<![CDATA[
-	function getCookie(cname) {
-		var name = cname + "=";
-		var ca = document.cookie.split(';');
-		
-		for(var i=0; i<ca.length; i++) {
-			var c = ca[i];
-			while (c.charAt(0)==' ') c = c.substring(1);
-			if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
-		}
-		return "";
-	}
+    .loan-card {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 22px;
+      background: #fff;
+      color: var(--ink);
+      box-shadow: 0 14px 35px rgba(0, 70, 45, .18);
+    }
 
-	function setCookie(cname, cvalue, exdays) {
-		var d = new Date();
-		d.setTime(d.getTime() + (exdays*24*60*60*1000));
-		var expires = "expires="+d.toUTCString();
-		document.cookie = cname + "=" + cvalue + "; " + expires;
-	}
-	
-	jQuery.browser = {};
-	(function () {
-	    jQuery.browser.msie = false;
-	    jQuery.browser.version = 0;
-	    if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
-	        jQuery.browser.msie = true;
-	        jQuery.browser.version = RegExp.$1;
-	    }
-	})();
-	
-	jQuery.jQueryAlert = function(msg) {
-		var $messageBox = $.parseHTML('<div id="alertBox"></div>');
-		$("body").append($messageBox);
-		
-		$($messageBox).dialog({
-			title: "알림",
-			resizable: false,
-			width: 420,
-			height: "auto",
-			modal: true,
-			open: function() {
-				$('.ui-widget-overlay').bind('click', function() {
-					$('#alertBox').dialog('close');
-				});
-				$(this).append(msg);
-			}
-		})
-	}
-	
-	function googleTranslateElementInit() {
-		new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages: 'ko,en,zh-CN,zh-TW,ja,es,fr,de,ms,th,vi,tl,km,mn,uz,ru', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: true, multilanguagePage: true}, 'google_translate_element');
-	}
+    .loan-card .label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
 
-	
-	$(document).ready(function() {
-		if("00000004" != '00000001'&&"00000004" != '00000002') {
-			menu_root = "0";
-			initTopMenu(0,0);
-		}
+    .amount {
+      margin: 8px 0 16px;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -.5px;
+    }
 
-		
-// 		$('#google_translate_element').on("click", function(){
-// 			$("iframe").contents().find(".goog-te-menu2-item").click(function(){
-// 				$.jQueryAlert("다음 페이지는 기계에 의해 번역된 페이지 입니다.<br />또 고유 명사등에 따라서는 정확하게 번역되지 않을 수도 있으므로 양해해 주시기 바랍니다.");
-// 			});
-// 		});
+    .pill {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: var(--mint);
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 800;
+    }
 
-		$('.sbt-google').click(function(){
-			$(this).toggleClass('on');
-			$(this).next('.translation-icons').toggle();
-		});		
-		$('#tgoogle_ul').find('a').last().focusout(function(){
-			$('#t_google').removeClass('on');
-			$('#tgoogle_ul').hide();
-		});
-		$('#pgoogle_ul').find('a').last().focusout(function(){
-			$('#p_google').removeClass('on');
-			$('#pgoogle_ul').hide();
-		});
-	 
-		$('.translation-icons').css('visibility', 'visible');
-		$('.translation-icons a').click(function(e) {	
-			e.preventDefault();
-			
-			//$('.translation-icons a').removeAttr('title');
-			//$(this).attr('title','선택됨');
-			
-			var placement = $(this).data('placement');
-			var $frame = $('.goog-te-menu-frame:first');
-			
-			if (!$frame.length) {
-				 alert("구글 서버로부터 구글 번역 기능을 가져오지 못했습니다. 새로고침 해주세요.");
-				 return false;
-			}
-		
-			var langs = $('.goog-te-menu-frame:first').contents().find('a span.text');
-/* 
-			console.log(placement);
-			setCookie("testtest", placement, 1);
-			
-			var im = $('.translation-icons a');
-			
-			
-			for(var i = 0; i < im.length; i++){
-				im[i].removeAttribute("title");
-			}
-			
-			im[placement].title = "선택됨";
-			 */
-			 
-// 			if (langs.length == 11 ) placement +=1;
-			
-			langs.eq(placement).click();
-			return false;
-		});
-		
-		
-		$('.rank_word ul').carouFredSel({
-			items : 1,
-			direction : "up",
-			scroll : {items:1,duration:1000,pauseOnHover:true}
-		});
-		$('.rank').on('mouseover click', function(){
-			$('.rank_word ul').trigger('pause');			
-			$('.rankAll').show();
-		});
-		$('.rank').mouseout(function(){
-			$('.rank_word ul').trigger('play');
-			$('.rankAll').hide();
-		});
-		$('.rankAll').find('li:last-child a').focusout(function(){
-			$('.rank_word ul').trigger('play');			
-			$('.rankAll').hide();
-		});
+    .primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      border-radius: 16px;
+      background: var(--yellow);
+      color: #2c2a00;
+      font-size: 17px;
+      font-weight: 900;
+      text-decoration: none;
+    }
 
-		
-		$('#search_open').click(function(){
-			$(this).addClass('on');
-			$('#menubg').addClass('shadow').show();
-			$('#search').slideDown();
-			$('#searchKwd').focus();
-		});
-		$('#search_close').click(function(){
-			$('#search_open').removeClass('on').focus();
-			$('#menubg').removeClass('shadow').hide();
-			$('#search').slideUp();
-		});
-		$(window).resize(function(){
-			if($(window).width() < 1025){
-				$('#search_close').click();
-			}
-		});
+    .content {
+      padding: 20px;
+    }
 
-		$("#lnb_device").html($("#top1menu").html()).find(".menu1th+p").detach();
-		var param = "#topmenu";
-		var obj = "#header";
-		var btn = "#open_mn";
-		var elem = 01; // th1 메뉴코드, index로 사용
-		var dur = 500; // 애니메이션 진행 속도
-		var meth = "easeOutExpo"; // 애니메이션 진행 타입
-		lnb_open(param,obj,btn,elem,dur,meth);
-		
-		
-		$(window).scroll(function(){
-			if($(window).scrollTop() > 200){
-				$('#go_top').show();
-			} else {
-				$('#go_top').hide();
-			}
-		});
-		$("#top").click(function(e) {
-		  e.preventDefault();
-		  $('html,body').animate({scrollTop: 0}, 200);
-		});
-		$("#main_top a").click(function(e) {
-		  e.preventDefault();
-		  $('html,body').animate({scrollTop: 0}, 200);
-		});
-		
-		
-		$('a.fontBtn').click(function(){
-			$(this).next('ul').show();
-			$(this).parent().find('a.fontBtn_close').show();
-		});
-		$('a.fontBtn_close').click(function(){
-			$(this).siblings('ul').hide();
-			$(this).hide();
-			$(this).parent().find('a.fontBtn').focus();
-		});
-		$('.fontPlus > ul > li > a').click(function(){
-			var fnt = $(this);
-			var num = fnt.attr('class').substr(4,5);
-			$(this).parent().siblings().find('a').removeClass('on');
-			$(this).addClass('on');
-			$('#contentBody').css('font-size', num+"px");
-			return false;
-		});
-		
-		
-		$('a.print-preview').printPreview();
-		
-		
-// 		$('input').placeholder();
+    .quick {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: -8px;
+    }
 
-		
-		$(document).on('keydown', '#brdata_mng_empno, #brdata_mng_deptnm, #brdata_mng_phone, #brdata_mng_email', function(e) {
-			if(e.keyCode == 8) return false; 
-		});
-	});
-//]]>
-</script>
+    .quick a {
+      min-height: 86px;
+      padding: 12px 6px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      color: var(--ink);
+      text-align: center;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(25, 60, 45, .05);
+    }
 
+    .quick span {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin: 0 auto 8px;
+      border-radius: 14px;
+      background: var(--mint);
+      color: var(--green-dark);
+      font-size: 18px;
+    }
 
-	
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-		
-		  gtag('config', 'UA-154492566-1');
-		</script>
-		
-		<script type="text/javascript" src="staticqefeee/js/wcslog.js"></script>
-		<script type="text/javascript">
-			if(!wcs_add) var wcs_add = {};
-			wcs_add["wa"] = "32a9f901ef14e6";
-			wcs_do();
-		</script>
-		<!-- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
-		<script type="text/javascript" src="staticqefeee/js/translate.google.js"></script>
-			
-		<!-- LOGGER TRACKING SCRIPT V.31 FOR www.kca.go.kr / 1001 : FAIL-SAFE TYPE / DO NOT ALTER THIS SCRIPT. -->
-		<!-- COPYRIGHT (C) 2002-2020 BIZSPRING INC. LOGGER(TM) ALL RIGHTS RESERVED. -->
-		<script language="JavaScript">/* LOGGER TRACKING SCRIPT V.31 : 1001 *//*X*//* COPYRIGHT 2002-2020 BIZSPRING INC. *//*X*//* DO NOT MODIFY THIS SCRIPT. *//*X*/var _TRK_LID="1001";var _L_TD="weblog.kca.go.kr"; var _TRK_DOMAIN="weblog.kca.go.kr";var _trk_bMSIE=(document.all)?true:false;var _trk_bJS12=(window.screen)?true:false;function _trk_escape(_str) { var str, ch; var bEncURI = "N"; eval("try{bEncURI=encodeURI('Y');}catch(_e){ }" ); if( bEncURI == "Y" ) str=encodeURI(_str); else str = escape(_str); str=str.split("+").join("%2B"); str=str.split("/").join("%2F"); str=str.split("&").join("%26"); str=str.split("?").join("%3F"); str=str.split(":").join("%3A"); str=str.split("#").join("%23"); return str;}function _trk_setCookie(name,value,expire) { var today=new Date(); today.setTime(today.getTime()+ expire ); document.cookie=name+"="+value+"; path=/; expires="+today.toGMTString()+";"; }function _trk_getCookie(name) { var cookieName=name+"="; var x=0; while(x<=document.cookie.length) { var y=(x+cookieName.length); if(document.cookie.substring(x,y)==cookieName) {  if((endOfCookie=document.cookie.indexOf(";",y))==-1) endOfCookie=document.cookie.length;  return unescape(document.cookie.substring(y,endOfCookie)); } x=document.cookie.indexOf(" ",x)+1; if(x == 0) break; } return "";}function _trk_getParameter(name) { var paraName=name+"="; var URL=""+self.document.location.search; var tURL=""; eval("try{ tURL=top.document.location.search; }catch(_e){}"); URL=URL+"&"+tURL; if(URL.indexOf(paraName)!=-1) { var x=URL.indexOf(paraName)+paraName.length; var y=URL.substr(x).indexOf("&"); if(y!=-1) return URL.substring(x,x+y); else return URL.substr(x); } return "";}function getNewSID(len) { var str="01234567890abcdef"; var ret=""; for(var i=0; i<len; i++) { ret=ret+(str.substr(Math.floor(Math.random()*str.length),1)); } return ret;}function _trk_make_code(_TRK_SERVER,_TRK_U) { var dt=document.title.toString(); dt=dt.substr(0,128); var dr=self.document.referrer; var tdr=""; eval("try{ tdr=top.document.referrer; }catch(_e){}"); var tdu=""; eval("try{ tdu=top.document.location.href; }catch(_e){}"); var bFrm=false; if(dr==tdu) { dr=tdr; bFrm=true; } if(dr=="undefined") dr=""; var du=self.document.location.href; if(du.substr(0,4)=="file") return ""; var adKeyVal = ""; if(bFrm) { adKeyVal=_trk_getParameter("OVKEY"); if(adKeyVal!="" && du.indexOf("OVKEY=")<0) {  if(du.indexOf("?")!=-1) du=du+"&OVKEY="+adKeyVal; else du=du+"?OVKEY="+adKeyVal;  adKeyVal=_trk_getParameter("OVRAW");  if(adKeyVal!="" && du.indexOf("OVRAW=")<0 )  if(du.indexOf("?")!=-1) du=du+"&OVRAW="+adKeyVal; else du=du+"?OVRAW="+adKeyVal; } else {  adKeyVal=_trk_getParameter("netpia");  if(adKeyVal!="" && du.indexOf("netpia=")<0 )  if(du.indexOf("?")!=-1) du=du+"&netpia="+adKeyVal; else du=du+"?netpia="+adKeyVal; } adKeyVal=_trk_getParameter("logger_kw"); if(adKeyVal!="" && du.indexOf("logger_kw=")<0 )  if(du.indexOf("?")!=-1) du=du+"&logger_kw="+adKeyVal; else du=du+"?logger_kw="+adKeyVal; adKeyVal=_trk_getParameter("source"); if(adKeyVal!="" && du.indexOf("source=")<0 )  if(du.indexOf("?")!=-1) du=du+"&source="+adKeyVal; else du=du+"?source="+adKeyVal; adKeyVal=_trk_getParameter("keywd"); if(adKeyVal!="" && du.indexOf("keywd=")<0 )  if(du.indexOf("?")!=-1) du=du+"&keywd="+adKeyVal; else du=du+"?keywd="+adKeyVal; adKeyVal=_trk_getParameter("NVADID"); if(adKeyVal!="" && du.indexOf("NVADID=")<0 )  if(du.indexOf("?")!=-1) du=du+"&NVADID="+adKeyVal; else du=du+"?NVADID="+adKeyVal; adKeyVal=_trk_getParameter("NVAR"); if(adKeyVal!="" && du.indexOf("NVAR=")<0 )  if(du.indexOf("?")!=-1) du=du+"&NVAR="+adKeyVal; else du=du+"?NVAR="+adKeyVal; adKeyVal=_trk_getParameter("NVADKWD"); if(adKeyVal!="" && du.indexOf("NVADKWD=")<0)  if(du.indexOf("?")!=-1) du=du+"&NVADKWD="+adKeyVal; else du=du+"?NVADKWD="+adKeyVal; adKeyVal=_trk_getParameter("NVKWD"); if(adKeyVal!="" && du.indexOf("NVKWD=")<0 )  if(du.indexOf("?")!=-1) du=du+"&NVKWD="+adKeyVal; else du=du+"?NVKWD="+adKeyVal; adKeyVal=_trk_getParameter("DMCOL"); if(adKeyVal!="" && du.indexOf("DMCOL=")<0 )  if(du.indexOf("?")!=-1) du=du+"&DMCOL="+adKeyVal; else du=du+"?DMCOL="+adKeyVal; adKeyVal=_trk_getParameter("DMKW"); if(adKeyVal!="" && du.indexOf("DMKW=")<0 )  if(du.indexOf("?")!=-1) du=du+"&DMKW="+adKeyVal; else du=du+"?DMKW="+adKeyVal; adKeyVal=_trk_getParameter("DMSKW"); if(adKeyVal!="" && du.indexOf("DMSKW=")<0 )  if(du.indexOf("?")!=-1) du=du+"&DMSKW="+adKeyVal; else du=du+"?DMSKW="+adKeyVal; adKeyVal=_trk_getParameter("DWIT"); if(adKeyVal!="" && du.indexOf("DWIT=")<0)  if(du.indexOf("?")!=-1) du=du+"&DWIT="+adKeyVal; else du=du+"?DWIT="+adKeyVal; adKeyVal=_trk_getParameter("DWIC"); if(adKeyVal!="" && du.indexOf("DWIC=")<0 )  if(du.indexOf("?")!=-1) du=du+"&DWIC="+adKeyVal; else du=du+"?DWIC="+adKeyVal; adKeyVal=_trk_getParameter("gad"); if(adKeyVal!="" && du.indexOf("gad=")<0 )  if(du.indexOf("?")!=-1) du=du+"&gad="+adKeyVal; else du=du+"?gad="+adKeyVal; adKeyVal=_trk_getParameter("gclid"); if(adKeyVal!="" && du.indexOf("gclid=")<0 )  if(du.indexOf("?")!=-1) du=du+"&gclid="+adKeyVal; else du=du+"?gclid="+adKeyVal; adKeyVal=_trk_getParameter("gkw"); if(adKeyVal!="" && du.indexOf("gkw=")<0 )  if(du.indexOf("?")!=-1) du=du+"&gkw="+adKeyVal; else du=du+"?gkw="+adKeyVal; adKeyVal=_trk_getParameter("rcsite"); if(adKeyVal!="" && du.indexOf("rcsite=")<0 )  if(du.indexOf("?")!=-1) du=du+"&rcsite="+adKeyVal; else du=du+"?rcsite="+adKeyVal; adKeyVal=_trk_getParameter("rctype"); if(adKeyVal!="" && du.indexOf("rctype=")<0 )  if(du.indexOf("?")!=-1) du=du+"&rctype="+adKeyVal; else du=du+"?rctype="+adKeyVal; adKeyVal=_trk_getParameter("rc_code"); if(adKeyVal!="" && du.indexOf("rc_code=")<0 )  if(du.indexOf("?")!=-1) du=du+"&rc_code="+adKeyVal; else du=du+"?rc_code="+adKeyVal; adKeyVal=_trk_getParameter("_C_"); if(adKeyVal!="" && du.indexOf("_C_=")<0 )  if(du.indexOf("?")!=-1) du=du+"&_C_="+adKeyVal; else du=du+"?_C_="+adKeyVal; } var ce=navigator.cookieEnabled?"Y":"N"; var je=navigator.javaEnabled()?"Y":"N"; var ss=""; var cd = ""; if(_trk_bJS12) { ss=screen.width+"x"+screen.height; cd=screen.colorDepth; } if(!dt) dt=""; if(!dr) dr=""; if(!du) du=""; if(!ce) ce=""; if(!je) je=""; var t = new Date; var tye=(_trk_bMSIE)?(t.getYear()):(t.getFullYear()); var tmo=t.getMonth()+1; var tda=t.getDate(); var tho=t.getHours(); var tmi=t.getMinutes(); var tse=t.getSeconds(); var tzo=t.getTimezoneOffset(); var tc = ""; var prtcl="https://"; if(prtcl=="https://") _TRK_SERVER=_TRK_DOMAIN; tc=tc+prtcl+_TRK_SERVER; var bPNF=((typeof _TRK_PI)!="undefined" && _TRK_PI=="PNF")?true:false; if(bPNF) tc=tc+"/tracker_click.tsp"; else tc=tc+"/tracker.1.tsp"; tc=tc+"?u="+_TRK_U+"&XU=&TREX="+_TRK_EX; tc=tc+"&UID="+_TRK_UID+"&SID="+_TRK_SID; if(bPNF) { tc=tc+"&rnd="+Math.random()+"&CKFL="+_TRK_PI+"&CKDATA="+_trk_escape(du); } else { tc=tc+"&dr="+_trk_escape(dr)+"&XDR="+"&dt="+_trk_escape(dt)+"&du="+_trk_escape(du); if((typeof _TRK_CP)!="undefined" && _TRK_CP!="") tc=tc+"&CP="+_trk_escape(_TRK_CP)+"&XCP="; if((typeof _TRK_PI)!="undefined" && _TRK_PI!="") tc=tc+"&PI="+_TRK_PI; if((typeof _TRK_PN)!="undefined" && _TRK_PN!="") tc=tc+"&PN="+_trk_escape(_TRK_PN); if((typeof _TRK_MF)!="undefined" && _TRK_MF!="") tc=tc+"&MF="+_trk_escape(_TRK_MF); if((typeof _TRK_OA)!="undefined" && _TRK_OA!="") tc=tc+"&OA="+_TRK_OA; if((typeof _TRK_OP)!="undefined" && _TRK_OP!="") tc=tc+"&OP="+_trk_escape(_TRK_OP); if((typeof _TRK_OE)!="undefined" && _TRK_OE!="") tc=tc+"&OE="+_TRK_OE; if((typeof _TRK_CC)!="undefined" && _TRK_CC!="") tc=tc+"&CC="+_TRK_CC; if((typeof _TRK_RK)!="undefined" && _TRK_RK!="") tc=tc+"&RK="+_trk_escape(_TRK_RK); if((typeof _TRK_SX)!="undefined" && _TRK_SX!="") tc=tc+"&SX="+_TRK_SX; if((typeof _TRK_AG)!="undefined" && _TRK_AG!="") tc=tc+"&AG="+_TRK_AG; if((typeof _TRK_IK)!="undefined" && _TRK_IK!="") tc=tc+"&IK="+_trk_escape(_TRK_IK); if((typeof _TRK_CN)!="undefined" && _TRK_CN!="") tc=tc+"&CN="+_trk_escape(_TRK_CN); tc=tc+"&js=Y"+"&ss="+escape(ss)+"&cd="+cd+"&ce="+ce+"&je="+je+"&tzo="+tzo+"&tye="+tye+"&tmo="+tmo+"&tda="+tda+"&tho="+tho+"&tmi="+tmi+"&tse="+tse; if((typeof _TRK_VN)!="undefined" && _TRK_VN>=0) tc=tc+"&VN="+_TRK_VN; if((typeof _TRK_CR)!="undefined" && _TRK_CR!="") tc=tc+"&CR="+_trk_escape(_TRK_CR)+"&XCR=1"; if((typeof _TRK_CQ)!="undefined" && _TRK_CQ!="") tc=tc+"&CQ="+_trk_escape(_TRK_CQ)+"&XCQ=1"; } return tc;}var _TRK_LIFE=_trk_getParameter("_L_");if(_TRK_LIFE=="") _TRK_LIFE=14;_TRK_LIFE = parseInt(_TRK_LIFE)*24*60*60*1000;if ((typeof _TRK_U) != "undefined" && _TRK_U != "") { _TRK_U = _TRK_U; } else { var _TRK_U = ""; }var _TRK_U_P=_trk_getParameter("_U_");var _TRK_U_C= _trk_getCookie("_TRK_U");if(_TRK_U_C!="") _TRK_U=_TRK_U_C;if(_TRK_U_P!="") _TRK_U=_TRK_U_P;if(_TRK_U!="" && _TRK_U_P!="") _trk_setCookie("_TRK_U",_TRK_U,_TRK_LIFE);var _TRK_CC_C=_trk_getCookie("_TRK_CC");var _TRK_CC_P=_trk_getParameter("_C_");if((typeof _TRK_CC)!="undefined" && _TRK_CC!="") _TRK_CC_P=_TRK_CC;if(_TRK_CC_C!="") _TRK_CC=_TRK_CC_C;if(_TRK_CC_P!="") _TRK_CC=_TRK_CC_P;if((typeof _TRK_CC)!="undefined" && _TRK_CC!="" && _TRK_CC_P!="") _trk_setCookie("_TRK_CC",_TRK_CC,_TRK_LIFE);var _TRK_RK_C=_trk_getCookie("_TRK_RK");var _TRK_RK_P=_trk_getParameter("_R_");if((typeof _TRK_RK)!="undefined" && _TRK_RK!="") _TRK_RK_P=_TRK_RK;if(_TRK_RK_C!="") _TRK_RK=_TRK_RK_C;if(_TRK_RK_P!="") _TRK_RK=_TRK_RK_P;if((typeof _TRK_RK)!="undefined" && _TRK_RK!="" && _TRK_RK_P!="") _trk_setCookie("_TRK_RK",_TRK_RK,_TRK_LIFE);var _SS_LIFE = 30*60*1000;var _TRK_EX = _trk_getCookie("_TRK_EX");if( _TRK_EX == "" ) _TRK_EX = 0; _TRK_EX ++;_trk_setCookie("_TRK_EX",_TRK_EX,_SS_LIFE);var _TRK_UID=_trk_getCookie("_TRK_UID").split(":")[0];var _TRK_VN=_trk_getCookie("_TRK_UID").split(":")[1];var _TRK_SID=_trk_getCookie("_TRK_SID");if(_TRK_UID=="") _TRK_UID=getNewSID(32);if(_TRK_VN=="" || _TRK_VN=="NaN" || typeof(_TRK_VN)=="undefined") _TRK_VN=0; else _TRK_VN=parseInt(_TRK_VN);if(_TRK_SID=="") { _TRK_SID=getNewSID(32); _TRK_VN++;}_trk_setCookie("_TRK_UID",_TRK_UID+":"+_TRK_VN.toString(),30*365*24*60*60*1000);_trk_setCookie("_TRK_SID",_TRK_SID,_SS_LIFE);var _TRK_CR=_trk_getCookie("_TRK_CR");var _TRK_CQ=_trk_getCookie("_TRK_CQ");if(_TRK_EX==1) { var dr = self.document.referrer; var tdu = ""; eval("try{ tdu=top.document.location.href; }catch(_e){}"); var _TRK_CR_S = (dr==tdu ? top.document.referrer : self.document.referrer); if(_TRK_CR_S!="") _TRK_CR=_TRK_CR_S; if((typeof _TRK_CR)!="undefined" && _TRK_CR!="" && _TRK_CR_S!="") _trk_setCookie("_TRK_CR",_trk_escape(_TRK_CR),_TRK_LIFE); var _TRK_CQ_S = (dr==tdu ? top.document.location.search : self.document.location.search); if(_TRK_CQ_S!="") _TRK_CQ=_TRK_CQ_S; if((typeof _TRK_CQ)!="undefined" && _TRK_CQ!="" && _TRK_CQ_S!="") _trk_setCookie("_TRK_CQ",_trk_escape(_TRK_CQ),_TRK_LIFE);}var _trk_code_base=_trk_make_code(_L_TD,_TRK_LID);var _trk_code_chan="";if(_TRK_U!="") _trk_code_chan=_trk_code_base.replace(/\?u=[0-9A-z]+&XU=/g,"?u="+_TRK_U+"&XU=");var _trk_img_base=new Image();var _trk_img_chan=new Image();var _trk_img_base_click=new Image();var _trk_img_chan_click=new Image();if(_trk_bJS12==true) { if(_trk_bMSIE) { _trk_img_base.src=_trk_code_base; if(_TRK_U!="") _trk_img_chan.src=_trk_code_chan; } else { setTimeout("_trk_img_base.src=_trk_code_base;",1); if(_TRK_U!="") setTimeout("_trk_img_chan.src=_trk_code_chan;",1); }} else { if(_trk_bMSIE) document.write('<div style=\"display: none\">'); document.write('<img src=\"'+_trk_code_base+'\" height=\"0\" width=\"0\">'); if(_TRK_U!="") document.write('<img src=\"'+_trk_code_chan+'\" height=\"0\" width=\"0\">'); if(_trk_bMSIE) document.write('<\/div>');}function _trk_flashEnvView(env1,env2,env3,env4,env5,env6,env7,env8,env9,env10,env11,env12){ var _trk_code_flash=_trk_code_base; for (var envCnt=1; envCnt< 13; envCnt++){ if((eval("env"+envCnt) != "") && (typeof eval("env"+envCnt) != "undefined" )){  var trk_str  = eval("env"+envCnt) ;  if(trk_str.indexOf("_TRK_CP")>=0){   var trk_cp = trk_str.split('=');   var _TRK_CP = trk_cp[1];   _trk_code_flash=_trk_code_flash.replace(/&CP=.*&XCP=/g,"&XCP=");   _trk_code_flash=_trk_code_flash.replace(/&dr=.*&XDR=/g,"&XDR=");   _trk_code_flash=_trk_code_flash+"&dr=&CP="+_trk_escape(_TRK_CP)+"&rnd="+Math.random();   if(_TRK_U!="") {    _trk_code_flash=_trk_code_flash.replace(/\?u=[0-9A-z]+&XU=/g,"?u="+_TRK_U+"&XU=");   }  }  if((trk_str.indexOf("_TRK_PN")>=0) || (trk_str.indexOf("_TRK_MF")>=0) || (trk_str.indexOf("_TRK_RK")>=0) || (trk_str.indexOf("_TRK_OP")>=0) || (trk_str.indexOf("_TRK_IK")>=0) || (trk_str.indexOf("_TRK_CN")>=0)){   var trk_env = trk_str.split('=');   var _TRK_ENV = _trk_escape(trk_env[1]);   var tkr_env_name = trk_str.substring(trk_str.indexOf('_',1)+1,trk_str.lastIndexOf('='));   var _trk_envs = "&"+tkr_env_name+"="+ _TRK_ENV;   if( _trk_code_flash.indexOf("&"+tkr_env_name+"=") > 0) {    var regVal = "\&"+tkr_env_name+"\=(.*)(\&PN\=|\&MF\=|\&OA\=|\&OP\=|\&OE\=|\&CC\=|\&RK\=|\&SX\=|\&AG\=|\&IK\=|\&js\=|\&CN\=)";    var envReg = new RegExp(regVal, 'gi');    var envRst = _trk_code_flash.match(envReg);    var envRst = envRst.toString();    var envArr = envRst.split('&');    var envVar = envArr[1];    _trk_code_flash=_trk_code_flash.replace("&"+envVar+"&", _trk_envs);   }else{    _trk_code_flash = _trk_code_flash+"&"+tkr_env_name+"="+_TRK_ENV;   }  }  if((trk_str.indexOf("_TRK_PI")>=0) || (trk_str.indexOf("_TRK_OA")>=0) || (trk_str.indexOf("_TRK_OE")>=0) || (trk_str.indexOf("_TRK_CC")>=0) || (trk_str.indexOf("_TRK_SX")>=0) || (trk_str.indexOf("_TRK_AG")>=0)){   var trk_env = trk_str.split('=');   var _TRK_ENV = trk_env[1];   var tkr_env_name = trk_str.substring(trk_str.indexOf('_',1)+1,trk_str.lastIndexOf('='));   var _trk_envs = "&"+tkr_env_name+"="+_TRK_ENV+"&";   if( _trk_code_flash.indexOf("&"+tkr_env_name+"=") > 0) {    var regVal = "\&"+tkr_env_name+"\=(.*)(\&PN\=|\&MF\=|\&OA\=|\&OP\=|\&OE\=|\&CC\=|\&RK\=|\&SX\=|\&AG\=|\&IK\=|\&js\=|\&CN\=)";    var envReg = new RegExp(regVal, 'gi');    var envRst = _trk_code_flash.match(envReg);    var envRst = envRst.toString();    var envArr = envRst.split('&');    var envVar = envArr[1];    _trk_code_flash=_trk_code_flash.replace("&"+envVar+"&", _trk_envs);   }else{    _trk_code_flash = _trk_code_flash+"&"+tkr_env_name+"="+_TRK_ENV;   }  } } } _trk_img_base_click.src=_trk_code_flash ;}function _trk_flashContentsView(_TRK_PI, _TRK_CP) { var _trk_code_flash=_trk_code_base; var _trk_piv = "&PI="+_TRK_PI+"&"; _trk_code_flash=_trk_code_flash.replace(/&CP=.*&XCP=/g,"&XCP="); _trk_code_flash=_trk_code_flash.replace(/&dr=.*&XDR=/g,"&XDR="); if( _trk_code_flash.indexOf("&PI=") > 0) { var regVal = "\&PI\=(.*)(\&PN\=|\&MF\=|\&OA\=|\&OP\=|\&OE\=|\&CC\=|\&RK\=|\&SX\=|\&AG\=|\&IK\=|\&js\=)"; var envReg = new RegExp(regVal, 'gi'); var envRst = _trk_code_flash.match(envReg); var envRst = envRst.toString(); var envArr = envRst.split('&'); var envVar = envArr[1]; _trk_code_flash=_trk_code_flash.replace("&"+envVar+"&", _trk_piv ); }else{ _trk_code_flash = _trk_code_flash+"&PI="+_TRK_PI; } _trk_img_base_click.src=_trk_code_flash+"&dr=&CP="+_trk_escape(_TRK_CP)+"&rnd="+Math.random(); if(_TRK_U!="") { _trk_code_flash=_trk_code_flash.replace(/\?u=[0-9A-z]+&XU=/g,"?u="+_TRK_U+"&XU="); _trk_img_chan_click.src=_trk_code_flash+"&dr=&CP="+_trk_escape(_TRK_CP)+"&rnd="+Math.random(); }}function _trk_clickTrace(_TRK_CKFL,_TRK_CKDATA) { var _trk_code_click=_trk_code_base.substr(0,_trk_code_base.indexOf("tracker.1.tsp")); _trk_code_click=_trk_code_click+"tracker_click.tsp?rnd="+Math.random()+"&CKFL="+_TRK_CKFL+"&CKDATA="+_trk_escape(_TRK_CKDATA)+"&UID="+_trk_getCookie("_TRK_UID").split(":")[0]+"&SID="+_trk_getCookie("_TRK_SID"); _trk_img_base_click.src=_trk_code_click+"&u="+_TRK_LID; if(_TRK_U!="") _trk_img_chan_click.src=_trk_code_click+"&u="+_TRK_U;}function _trk_adClick( adSvr, svcCode, adCode ) { var ac = ""; var prtcl="https://"; if(prtcl=="https://") adSvr="ssl."+_TRK_DOMAIN; ac=ac+prtcl+adSvr; _trk_img_base_click.src=ac+"/tracker_ad.tsp?u="+svcCode+"&mode=C&adCode="+adCode;}function _trk_adClickImpress( adSvr, svcCode, adCode ) { var ac = ""; var prtcl="https://"; if(prtcl=="https://") adSvr=_TRK_DOMAIN; ac=ac+prtcl+adSvr; _trk_img_base_click.src=ac+"/tracker_ad.tsp?u="+svcCode+"&mode=I&adCode="+adCode;}</script>
-		<noscript><img src="http://weblog.kca.go.kr/tracker.1.tsp?u=1001&js=N" width="0" height="0/"></noscript>
-		<!-- END OF LOGGER TRACKING SCRIPT -->
-	</head>
+    .section-title {
+      margin: 26px 0 12px;
+      font-size: 20px;
+      letter-spacing: -.3px;
+    }
 
-<body id="mainWrapper">
-<script type="text/javascript">
-//<![CDATA[
-	var www = 0;
-	
-	function setCookie(cname, cvalue, exdays) {
-		var d = new Date();
-		d.setTime(d.getTime() + (exdays*24*60*60*1000));
-		var expires = "expires="+d.toUTCString();
-		document.cookie = cname + "=" + cvalue + "; " + expires;
-	}
-		
-	function closePopupBtn(me){
-		if($("#p"+me).is(':checked') == true){
-			setCookie("pc"+me,'Y',1);
-		}
+    .product {
+      display: block;
+      margin-bottom: 12px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #fff;
+      color: inherit;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(25, 60, 45, .05);
+    }
 
-		sessionStorage.setItem("ps"+me, "N");
-		$('#pp'+me).hide();
-		return false;
-	};
-//]]>
-</script>
-<div id="accessibility">
-	<ul>
-		<li><a href="javascript:;">본문 바로가기</a></li>
-		<li><a href="javascript:;">대메뉴 바로가기</a></li>
-	</ul>
-</div><div id="shadow_device"></div>
-	<div id="touchArea"></div>
-	<div id="menubg"></div>
+    .product strong {
+      display: block;
+      font-size: 18px;
+      letter-spacing: -.2px;
+    }
 
-	<script type="text/javascript">
-//<![CDATA[
-	$(document).ready(function(){		
-		if ($('.tpop_slide').find('div.item').length > 0){
-			$('#toppopup').show();
-		} else {
-			$('#toppopup').hide();
-		}
+    .product p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
 
-		function getCookie(cname) {
-			var name = cname + "=";
-			var ca = document.cookie.split(';');
-			for(var i=0; i<ca.length; i++) {
-				var c = ca[i];
-				while (c.charAt(0)==' ') c = c.substring(1);
-				if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
-			}
-			return "";
-		}
-		function setCookie(cname, cvalue, exdays) {
-			var d = new Date();
-			d.setTime(d.getTime() + (exdays*24*60*60*1000));
-			var expires = "expires="+d.toUTCString();
-			document.cookie = cname + "=" + cvalue + "; " + expires;
-		}
+    .rate {
+      color: var(--green);
+      font-size: 15px;
+      font-weight: 900;
+    }
 
-		function pClose(){
-			$('#mainWrapper').removeClass('popOn');
-			$('.tpop_close').hide();
-			$('.tpop_open').show();
-			$('.tpop_slide').slideUp();
-			$('.tpop_ctrl').hide();
-		}
-		function pOpen(){
-			$('#mainWrapper').addClass('popOn');
-			$('#toppopup > .wrap').show();
-			$('.tpop_open').hide();
-			$('.tpop_close').show();
-			$('.tpop_ctrl').show();
-			$('.tpop_slide').slideDown();
-			$('.tpop_slide').get(0).slick.setPosition();			
-		}		
-		cookiedata = document.cookie;
-		if(cookiedata.indexOf("p_close=Y")<0 && sessionStorage.getItem("tpop") != "N"){
-			pOpen();
-		} else {
-			pClose();
-			$('#toppopup > .wrap').hide();
-		}
-		
-		$('.tpop_open').click(function(){
-			sessionStorage.setItem("tpop", "Y"); // 세션 스토리지에 정보 저장 (2020.01.06 박재희)
-			
-			pOpen();
-			$('.tpop_close').focus();
-			return false;
-		});
-		$('.tpop_close').click(function(){
-			sessionStorage.setItem("tpop", "N");
-			pClose();
-			$('.tpop_open').focus();
-			return false;
-		});
+    .notice {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 16px;
+      background: #edf4f1;
+      color: #52615c;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <section class="top">
+      <div class="bar">
+        <div class="logo"><span class="mark">N</span><span>NH농협캐피탈</span></div>
+        <a class="menu" href="javascript:;" aria-label="메뉴">≡</a>
+      </div>
 
-		$('.p_close').click(function(){
-			pClose();
-			setCookie("p_close","Y",1);
-		});		
-	});
-//]]>
-</script>
-<div id="toppopup">
-	<a href="" class="tpop_open"><img src="staticqefeee/pictureff/tpop_open.png" alt="상단팝업 열기"></a>
-	<div class="wrap">
-		<div class="tpop_slide">
-			</div>
-		<div class="tpop_ctrl">
-			<div class="ctrl_wrap">				
-				<p class="slidesjs-log"><span class="current">1</span>/<span class="total"></span></p>
-				<button class="slick-play">재생</button>
-				<button class="slick-stop">정지</button>
-			</div>
-			<a href="" onclick="return false;" class="p_close">오늘 하루열지않기</a>
-		</div>	
-	</div>
-	<a href="" class="tpop_close"><img src="staticqefeee/pictureff/tpop_close.png" alt="상단팝업 닫기"></a>
-</div><div id="header">
-		<div class="header_wrap">
-	<h1 class="logo"><a href="javascript:;"><img src="staticqefeee/pictureff/logo.png" alt="한국소비자원 Korea Consumer Agency"></a></h1>
-	<div class="gnb">
-		<ul class="clearfix">
-			<li><a href="javascript:;">정보공개</a></li>
-			<li><a href="javascript:;">고객참여</a></li>
-			<li><a href="javascript:;" target="_self" title="스마트컨슈머 새창열림"><img src="staticqefeee/pictureff/consumerIco.png" alt="" style="height:20px; vertical-align: middle;">스마트컨슈머</a></li>
-			<li><a href="javascript:;" target="_self" title="소비자중심경영 새창열림"><!-- img src="staticqefeee/picture/ccm.png" alt="CCM(로고)" style="width: 30px; vertical-align: middle;"/-->소비자중심경영</a></li>
-			<li><a href="javascript:;" target="_self" title="참가격 새창열림"><img src="staticqefeee/pictureff/price.png" alt="참가격(로고)" style="height:18px; vertical-align: middle;"></a></li>
-			<li><a href="javascript:;"><b>로그인</b></a></li>
-				<li><a href="javascript:;">사이트맵</a></li>
-			<li class="goo">
-				<div id="google_translate_element" style="display:none;">구글번역</div>
-				<div class="language_google">
-					<a href="javascript:;" class="sbt-google" onclick="return false;"><span>언어 선택</span></a>
-					<div id="tgoogle_ul" class="sgoogle_ul translation-icons" style="display:none;">
-						<ul>
-							<li><a href="javascript:;" onclick="return false;" data-placement="0"><img class="trs_nation" src="staticqefeee/pictureff/Korea(South).png" alt="">한국어</a></li>
-							<li><a href="javascript:;" onclick="return false;" data-placement="1"><img class="trs_nation" src="staticqefeee/pictureff/Germany.png" alt="">독일어</a></li>
-							<li><a href="javascript:;" onclick="return false;" data-placement="3"><img class="trs_nation" src="staticqefeee/pictureff/Malaysia.png" alt="">말레이어</a></li>
-							<li><a href="javascript:;" onclick="return false;" data-placement="6"><img class="trs_nation" src="staticqefeee/pictureff/Spain.png" alt="">스페인어</a></li>
-							<li><a href="javascript:;" onclick="return false;" data-placement="7"><img class="trs_nation" src="staticqefeee/pictureff/UnitedStates.png" alt="">영어</a></li>
-							<li><a href="javascript:;" onclick="return false;" data-placement="9"><img class="trs_nation" src="staticqefeee/pictureff/Japan.png" alt="">일본어</a></li>
-							<li><a href="javascript:;" onclick="return false;" data-placement="10"><img class="trs_nation" src="staticqefeee/pictureff/China.png" alt="">중국어(간체)</a></li>
-							<li><a href="javascript:;" onclick="return false;" data-placement="11"><img class="trs_nation" src="staticqefeee/pictureff/China.png" alt="">중국어(번체)</a></li>
-							<li><a href="javascript:;" onclick="return false;" data-placement="14"><img class="trs_nation" src="staticqefeee/pictureff/Thailand.png" alt="">태국어</a></li>
-							<li><a href="javascript:;" onclick="return false;" data-placement="15"><img class="trs_nation" src="staticqefeee/pictureff/France.png" alt="">프랑스어</a></li>
-							<li><a href="javascript:;" onclick="return false;" data-placement="5"><img class="trs_nation" src="staticqefeee/pictureff/Vietnam.png" alt="">베트남어</a></li>
-							<li><a href="javascript:;" onclick="return false;" data-placement="13"><img class="trs_nation" src="staticqefeee/pictureff/Philippines.png" alt="">필리핀어</a></li>
-							<li><a href="javascript:;" onclick="return false;" data-placement="12"><img class="trs_nation" src="staticqefeee/pictureff/Cambodia.png" alt="">캄보디아어</a></li>
-							<li><a href="javascript:;" onclick="return false;" data-placement="4"><img class="trs_nation" src="staticqefeee/pictureff/Mongolia.png" alt="">몽골어</a></li>
-							<li><a href="javascript:;" onclick="return false;" data-placement="8"><img class="trs_nation" src="staticqefeee/pictureff/Uzbekistan.png" alt="">우즈베크어</a></li>
-							<li><a href="javascript:;" onclick="return false;" data-placement="2"><img class="trs_nation" src="staticqefeee/pictureff/Russia.png" alt="">러시아어</a></li>
-						</ul>
-					</div>
-				</div>
-			</li>		    
-		</ul>
-	</div>
-	<div class="rank">
-		<h2>인기검색어</h2>
-		<div class="rank_word">
-			<ul>
-		    <li><a href="javascript:;" target="_self"><span>1</span>환불규정</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>2</span>피해구제</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>3</span>환불</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>4</span>소비자분쟁해결기준</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>5</span>새싹보리</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>6</span>공기청정기</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>7</span>분쟁조정</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>8</span>채용</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>9</span>마스크</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>10</span>사기의심</a></li>  
-		    </ul>
-	<input type="image" class="rank_more" src="staticqefeee/pictureff/roll_more.png" alt="인기검색어 전체보기">
-		</div>
-		<div class="rankAll">
-			<h2>인기검색어</h2>
-			<ul>
-		    <li><a href="javascript:;" target="_self"><span>1</span>환불규정</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>2</span>피해구제</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>3</span>환불</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>4</span>소비자분쟁해결기준</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>5</span>새싹보리</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>6</span>공기청정기</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>7</span>분쟁조정</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>8</span>채용</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>9</span>마스크</a></li>  
-		    <li><a href="javascript:;" target="_self"><span>10</span>사기의심</a></li>  
-		    </ul>
-	</div>
-	</div>
-	<div class="top_Btn">
-		<a href="javascript:;" id="search_open" onclick="return false;">통합검색</a>
-		<a href="javascript:;" target="_self" title="영문홈페이지 바로가기 (새창)" class="lang">ENG</a>
-	</div>
-</div>
-<div id="search">
-	<h2>통합검색</h2>
-	<form name="searchForm" action="javascript:;" method="post" title="통합검색">
-		<fieldset>
-			<legend>통합검색</legend>
-			<div class="select">
-				<label class="skip" for="searchKwd">검색어 입력</label>
-				<input type="text" id="searchKwd" name="kwd" class="inplinekr" value="" title="검색어 입력박스" placeholder="검색어를 입력하세요">
-				<button type="submit" class="search_btn" title="검색(새창)" onclick="if($('#searchKwd').val() == '') { alert('검색어를 입력하세요.'); $('#searchKwd').focus(); return false; } else { return true;}">검색</button>
-			</div>
-		</fieldset>
-	</form>
-	<a href="" onclick="return false;" id="search_close">검색닫기</a>
-</div><div id="lnb" class="clearfix">
-    <div class="wrap">
-        <ul id="top1menu" class="clearfix">
-        <li class="top2hover">
-                <a href="javascript:;" id="top1m1" class="menu1th">소비자뉴스</a>
-                <div id="top2m1" class="top2m">
-		<ul>
-			<li>
-					    <a href="javascript:;">보도자료</a>
-						</li>
-				<li>
-					    <a href="javascript:;">소비자원동향</a>
-						</li>
-				<li>
-					    <a href="javascript:;">공지사항</a>
-						</li>
-				<li>
-					    <a href="javascript:;">카드뉴스</a>
-						</li>
-				<li>
-					    <a href="javascript:;">피해예방주의보</a>
-						</li>
-				<li>
-					    <a href="javascript:;">소비자안전주의보</a>
-						</li>
-				</ul>
-		</div>
-</li>
-			
-			<li class="top2hover">
-                <a href="javascript:;" id="top1m2" class="menu1th">소비자안전</a>
-                <div id="top2m2" class="top2m">
-		<ul>
-			<li>
-					    <a href="javascript:;">소비자안전</a>
-						</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">소비자위해감시시스템(CISS)<span></span></a>
-						</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">위해정보신고<span></span></a>
-						</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">어린이안전넷<span></span></a>
-						</li>
-				</ul>
-		</div>
-</li>
-			
-			<li class="top2hover">
-                <a href="javascript:;" rel="noopener noreferrer" id="top1m3" class="menu1th" title="새창" target="_self">피해구제·분쟁조정</a>
-                <div id="top2m3" class="top2m">
-		<ul>
-			<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">피해구제·분쟁조정<span></span></a>
-						</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">피해구제<span></span></a>
-						<ul>
-		<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">절차안내<span></span></a>
-					</li>
-			<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">상담신청<span></span></a>
-					</li>
-			<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">피해구제신청<span></span></a>
-					</li>
-			</ul>
-	</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">분쟁조정<span></span></a>
-						<ul>
-		<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">분쟁조정안내<span></span></a>
-					</li>
-			<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">집단분쟁조정<span></span></a>
-					</li>
-			<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">분쟁조정 결정 사례<span></span></a>
-					</li>
-			</ul>
-	</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">피해구제정보<span></span></a>
-						<ul>
-		<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">품목별 피해구제 사례<span></span></a>
-					</li>
-			<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">섬유제품 심의 사례<span></span></a>
-					</li>
-			<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">소비자분쟁해결기준<span></span></a>
-					</li>
-			<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">내용증명 안내 및 작성<span></span></a>
-					</li>
-			<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">소비자 피해구제 연보 및 사례집<span></span></a>
-					</li>
-			</ul>
-	</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">온라인협력사<span></span></a>
-						<ul>
-		<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">피해구제조회<span></span></a>
-					</li>
-			<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">상술유형별피해구제건수<span></span></a>
-					</li>
-			<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">청구이유별피해구제건수<span></span></a>
-					</li>
-			<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">처리결과별피헤구제건수<span></span></a>
-					</li>
-			<li>
-				    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">판매유형별피해구제건수<span></span></a>
-					</li>
-			</ul>
-	</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">나의사건처리<span></span></a>
-						</li>
-				<li>
-					    <a href="javascript:;">사업자 상담 자율처리</a>
-						</li>
-				</ul>
-		</div>
-</li>
-			
-			<li class="top2hover">
-                <a href="javascript:;" rel="noopener noreferrer" id="top1m4" class="menu1th" title="새창" target="_self">스마트컨슈머(교육·정보)</a>
-                <div id="top2m4" class="top2m">
-		<ul>
-			<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">KCA보고서<span></span></a>
-						</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">소비자시대<span></span></a>
-						</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">소비자교육<span></span></a>
-						</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">소비자24<span></span></a>
-						</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">참가격<span></span></a>
-						</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">생애주기별 소비자정보맵<span></span></a>
-						</li>
-				</ul>
-		</div>
-</li>
-			
-			<li class="top2hover">
-                <a href="javascript:;" id="top1m5" class="menu1th">소비자정책연구</a>
-                <div id="top2m5" class="top2m">
-		<ul>
-			<li>
-					    <a href="javascript:;">정책연구보고서</a>
-						</li>
-				<li>
-					    <a href="javascript:;">소비자정책동향</a>
-						</li>
-				<li>
-					    <a href="javascript:;">소비자정책지표</a>
-						<ul>
-		<li>
-				    <a href="javascript:;">지표소개</a>
-				    </li>
-			<li>
-				    <a href="javascript:;">통계시각화 자료</a>
-				    </li>
-			<li>
-				    <a href="javascript:;">데이터신청</a>
-				    </li>
-			</ul>
-	</li>
-				<li>
-					    <a href="javascript:;">소비자문제연구</a>
-						<ul>
-		<li>
-				    <a href="javascript:;">논문검색</a>
-				    </li>
-			<li>
-				    <a href="javascript:;">논문투고안내</a>
-				    </li>
-			</ul>
-	</li>
-				<li>
-					    <a href="javascript:;">소비자법령</a>
-						</li>
-				</ul>
-		</div>
-</li>
-			
-			<li class="top2hover">
-                <a href="javascript:;" rel="noopener noreferrer" id="top1m6" class="menu1th" title="새창" target="_self">국제거래</a>
-                <div id="top2m6" class="top2m">
-		<ul>
-			<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">상담사례<span></span></a>
-						</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">국제거래 상담신청<span></span></a>
-						</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">사기의심사이트<span></span></a>
-						</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">피해예방정보<span></span></a>
-						</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">해외직구<span></span></a>
-						</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">FAQ<span></span></a>
-						</li>
-				</ul>
-		</div>
-</li>
-			
-			<li class="top2hover">
-                <a href="javascript:;" id="top1m7" class="menu1th">소비자빅데이터</a>
-                <div id="top2m7" class="top2m">
-		<ul>
-			<li>
-					    <a href="javascript:;">소비자원 데이터</a>
-						</li>
-				<li>
-					    <a href="javascript:;" rel="noopener noreferrer" title="새창" target="_self">빅데이터 분석<span></span></a>
-						</li>
-				<li>
-					    <a href="javascript:;">빅데이터 시각화</a>
-						</li>
-				<li>
-					    <a href="javascript:;">빅데이터 이슈</a>
-						</li>
-				</ul>
-		</div>
-</li>
-			
-			</ul>
-        <a href="javascript:;" class="site_map">사이트맵</a>
-        	</div>
-    </div>
-<div class="h_m_mn">
-	<a href="javascript:;" id="btn_search" onclick="return false;">통합검색열기</a>
-	<a href="javascript:;" id="open_mn" onclick="return false;">메뉴열기</a>
-</div>
+      <div class="hero">
+        <p>모바일 금융 신청 센터</p>
+        <h1>필요한 자금,<br>쉽고 빠르게 확인하세요</h1>
+      </div>
 
-<div id="m_search">
-	<form name="searchForm" action="javascript:;" method="get" title="모바일 통합검색">
-		<fieldset>
-			<legend>모바일 통합검색</legend>
-			<div class="select">
-				<label class="skip" for="m_searchKwd">검색어 입력</label>
-				<input type="text" id="m_searchKwd" name="kwd" class="inplinekr" value="" title="검색어를 입력하세요" placeholder="검색어를 입력하세요">
-				<button type="submit" class="search_btn" title="검색(새창)">검색하기</button>
-			</div>
-		</fieldset>
-	</form>
-	<div class="m_srch_close"><a href="javascript:;" onclick="return false;" id="srch_close">검색닫기</a></div>
-</div>
+      <div class="loan-card">
+        <div class="row">
+          <span class="label">오늘의 추천 한도</span>
+          <span class="pill">간편조회</span>
+        </div>
+        <div class="amount">최대 5,000만원</div>
+        <a class="primary" href="online.html">신청 안내 보기</a>
+      </div>
+    </section>
 
-<div id="topmenu">
-	<ul class="g_link clearfix">
-	<li><a href="javascript:;">정보공개</a></li>
-			<li><a href="javascript:;">고객참여</a></li>
-<!-- 			<li><a href="http://www.kca.go.kr/ccm/" target="_blank" >CCM</a></li> -->
-			<li><a href="javascript:;" target="_self" title="새창열림"><img src="staticqefeee/pictureff/ccm_gray.png" alt="CCM 소비자중심경영" style="width:120px; vertical-align: middle;"></a></li>
-			<li><a href="javascript:;" target="_self" title="새창열림"><img src="staticqefeee/pictureff/price.png" alt="참가격" style="width:50px; vertical-align: middle;"></a></li>
-			<li><a href="javascript:;" target="_self" title="새창열림"><img src="staticqefeee/pictureff/sume_gray.png" alt="스마트컨슈머" style="width:100%; vertical-align: middle;"></a></li>
-				<li><a href="javascript:;" target="_self">ENG</a></li>
-					<li><a href="javascript:;" class="login"><b>로그인</b></a></li>
-					</ul>
-	<ul class="site_btn">
-		<li class="on"><a href="javascript:;">주요서비스</a></li>
-				<li><a href="javascript:;">KCA소개</a></li>
-			</ul>
-	<ul id="lnb_device"></ul>
-	<div id="m_close"><a href="javascript:;" onclick="return false;"X</a></div>
-</div></div>
-	<div id="content">
-		<div id="full-nav">
-	<a href="javascript:;" class="quick" title="KCA소개로 이동"><span class="skip">클릭</span>KCA소개</a>
-	<ul>				
-		<li data-menuanchor="Page1" class="nav1 active"><a href="javascript:;" title="화면 스크롤 이동">서비스 한눈에 보기</a></li>
-		<li data-menuanchor="Page2" class="nav2"><a href="javascript:;" title="화면 스크롤 이동">소비자안전</a></li>
-		<li data-menuanchor="Page3" class="nav3"><a href="javascript:;" title="화면 스크롤 이동">피해구제 &middot;<br>분쟁조정</a></li>
-		<li data-menuanchor="Page4" class="nav4"><a href="javascript:;" title="화면 스크롤 이동">스마트컨슈머<br>(교육&middot;정보) &middot;<br>소비자 정책연구</a></li>
-		<li data-menuanchor="Page5" class="nav5"><a href="javascript:;" title="화면 스크롤 이동">국제거래 &middot;<br>소비자빅데이터</a></li>
-		<li data-menuanchor="Page6" class="nav6"><a href="javascript:;" title="화면 스크롤 이동">SNS</a></li>
-		<li class="nav7"><a href="javascript:;">서비스전체보기</a></li>
-		<li class="nav8"><a href="javascript:;">국민참여혁신제안<br>바로가기</a></li>
-		<li class="scroll"><img src="staticqefeee/pictureff/nav_scroll.png" alt="스크롤 내리기"></li>
-	</ul>			
-	<a href="javascript:;" class="m_site">사이트맵</a>
-</div><div id="fullpage">
-			<script>
-$(document).ready(function(){
-	// 웹접근성 조치로 arai-live 소성 삭제 by 2018076 2023.02.17.
-	$('.slick-list').removeAttr('aria-live');
-});
-</script>
-<div id="section1" class="section">
-	<div class="wrap clearfix">
-		<div class="sec1_top clearfix">
-			<h1 class="copy"><strong>소비생활</strong>에 <strong>가치</strong>와 <strong>신뢰</strong>를 더하여 <span>국민의 삶의 질 향상에 기여합니다.</span></h1>
-			<div class="notice">
-				<h2><strong>공지</strong>사항</h2>
-				<div class="slide-wrap">
-					<ul class="carousel-slide" id="slide1">
-						<li><a href="javascript:;">2023년 대학생 광고감시단 선발 결과 발표</a></li>
-								<li><a href="javascript:;">[공모전] 제7회 소비자지향성 개선과제 공모전 개최 안내</a></li>
-								</ul>
-					<div class="slide-ctrl">
-						<a href="javascript:;" onclick="return false;" class="slide-prev slide-arrow">이전</a>
-						<a href="javascript:;" onclick="return false;" class="slide-play">재생</a>
-						<a href="javascript:;" onclick="return false;" class="slide-stop">정지</a>
-						<a href="javascript:;" onclick="return false;" class="slide-next slide-arrow">다음</a>
-						<a href="javascript:;" class="slide-more" title="공지사항 더보기">더보기</a>
-					</div>
-				</div>
-			</div>
-			<div class="news">
-				<h2><strong>보도</strong>자료</h2>
-				<div class="slide-wrap">
-					<ul class="carousel-slide" id="slide2">
-						<li><a href="javascript:;">실손보험금 미지급 피해구제 신청 3건 중 1건 '백내장 수술' 관련</a></li>
-								<li><a href="javascript:;">친환경 서비스 호텔, 환경보호 노력 강화해야</a></li>
-								<li><a href="javascript:;">쿠쿠전자㈜ 아이편한 가습기 타워, 자발적 리콜(무상수리) 실시</a></li>
-								<li><a href="javascript:;">졸음쉼터 내 장애인 전용 화장실, 주차구역 설치 확대 필요</a></li>
-								</ul>
-					<div class="slide-ctrl">
-						<a href="javascript:;" onclick="return false;" class="slide-prev slide-arrow">이전</a>
-						<a href="javascript:;" onclick="return false;" class="slide-play">재생</a>
-						<a href="javascript:;" onclick="return false;" class="slide-stop">정지</a>
-						<a href="javascript:;" onclick="return false;" class="slide-next slide-arrow">다음</a>
-						<a href="javascript:;" class="slide-more" title="보도자료 더보기">더보기</a>
-					</div>
-				</div>
-			</div>
-		</div><!--// sec1_top -->
-		<div class="sec1_con clearfix">
-			<div class="con1">
-				<h2>소비자 <strong>안전</strong></h2>
-				<ul class="list1">
-					<li><a href="javascript:;" target="_self">소비자위해<br>감시시스템<br>(CISS)</a></li>
-					<li><a href="javascript:;" target="_self">위해정보<br>신고</a></li>
-					<li><a href="javascript:;" target="_self">어린이<br>안전넷</a></li>
-				</ul>
-			</div>
-			<div class="con2">
-				<div class="left relief-main">
-					<h2><a href="./online.html" class="none" target="_self"><strong>피해</strong> 구제</a></h2>
-					<ul>
-						<li><a href="./online.html" title="피해구제 접수안내">피해구제 절차안내</a></li>
-						<li><a href="./online.html" title="피해구제 접수안내">피해구제 상담신청</a></li>
-						<li><a href="./online.html" title="피해구제 접수안내">피해구제신청</a></li>
-						<li><a href="./online.html" title="피해구제 접수안내">피해구제사례</a></li>
-					</ul>
-				</div>
-				<div class="right">
-					<h2><a href="javascript:;" class="none" target="_self"><strong>분쟁</strong> 조정</a></h2>
-					<ul>
-						<li><a href="javascript:;" target="_self" title="새창열림">분쟁조정안내</a></li>
-						<li><a href="javascript:;" target="_self" title="새창열림">집단분쟁조정신청</a></li>
-						<li><a href="javascript:;" target="_self" title="새창열림">분쟁조정결정사례</a></li>
-						<li><a href="javascript:;" target="_self" title="새창열림">소비자분쟁해결기준</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="con3">
-				<h2><img src="staticqefeee/pictureff/consumerIco_001.png" alt="한국소비자원" width="25px" height="25px"> <a href="javascript:;" target="_self"><strong>스마트컨슈머</strong>(교육 &middot; 정보)</a></h2>
-				<ul class="list2 newList">
-					<li><a href="javascript:;" target="_self" title="새창열림">교육자료</a></li>
-					<li><a href="javascript:;" target="_self" title="새창열림">생애주기별 정보맵</a></li>
-					<li><a href="javascript:;" target="_self" title="새창열림">교원연수신청</a></li>
-					<li><a href="javascript:;" target="_self" title="새창열림">일반교육신청</a></li>
-					<li><a href="javascript:;" target="_self" title="새창열림">웹진 소비자시대</a></li>
-					<li><a href="javascript:;" target="_self" title="새창열림">소비자24</a></li>
-					<li><a href="javascript:;" target="_self" title="새창열림">KCA보고서</a></li>
-					<li><a href="javascript:;" target="_self" title="새창열림">소비자중심경영(CCM)</a></li>
-				</ul>
-			</div>
-			<div class="con4">
-				<h2><a href="javascript:;">소비자<strong>정책연구</strong></a></h2>
-				<ul class="list2">
-					<li><a href="javascript:;">정책연구보고서</a></li>	 			
-					<li><a href="javascript:;">소비자정책동향</a></li>
-					<li><a href="javascript:;">소비자정책지표</a></li>
-					<li><a href="javascript:;">소비자문제연구</a></li>
-				</ul>
-			</div>
-			<div class="con5">
-				<h2><a href="javascript:;" target="_self"><strong>국제</strong>거래</a></h2>
-				<ul class="list2">
-					<li><a href="javascript:;" target="_self">상담사례</a></li>
-					<li><a href="javascript:;" target="_self">국제거래<br>상담신청</a></li>
-					<li><a href="javascript:;" target="_self">사기의심사이트</a></li>
-					<li><a href="javascript:;" target="_self">피해예방정보</a></li>
-				</ul>
-			</div>
-			<div class="con6">
-				<h2>소비자 <strong>빅데이터</strong></h2>
-				<ul class="list1">
-				    <li class="ht"><a href="javascript:;">소비자원<br>공공데이터</a></li>
-					<li><a href="javascript:;" target="_self">빅데이터<br>분석 시스템</a></li>
-					<li class="ht"><a href="javascript:;">빅데이터<br>시각화</a></li>
-				</ul>
-			</div>
-		</div><!--// sec1_con -->
-		<div class="infozone">
-			<ul class="clearfix">
-				<li class="on"><a href="javascript:;" onclick="return false" class="tabBtn">배너</a>
-					<div class="tabContent">
-						<div class="infoBox" id="info2">
-						
-							<div class="item">
-			<span class="img" style="height: 275px;"><img style="width: 275px; height: 275px; overflow: hidden;" src="staticqefeee/pictureff/1680480388984_umiSXNzVY6zxGoZwOgmf.png" alt="" onerror="this.src='static/picture/hot_noimgs.png'"></span>
-			</div>
-		<div class="item">
-			<a href="javascript:;" title="2023 사이버 범죄예방 콘텐츠 공모전새창 열림" target="_self">
-			<span class="img" style="height: 275px;"><img style="width: 275px; height: 275px; overflow: hidden;" src="staticqefeee/pictureff/1680222110239_xjJSWxEpXLcVEM87wxLn.jpg" alt="2023 사이버 범죄예방 콘텐츠 공모전" onerror="this.src='static/picture/hot_noimgs.png'"></span>
-			</a>
-			</div>
-		<div class="item">
-			<a href="javascript:;" title="내구제 대출? 잘못하면 사기 당해요!새창 열림" target="_self">
-			<span class="img" style="height: 275px;"><img style="width: 275px; height: 275px; overflow: hidden;" src="staticqefeee/pictureff/1679890991755_UbSWG3mjexbWZwza8CTH.jpg" alt="내구제 대출? 잘못하면 사기 당해요!" onerror="this.src='static/picture/hot_noimgs.png'"></span>
-			</a>
-			</div>
-		<div class="item">
-			<a href="javascript:;" title="제7회 소비자지향성 개선과제 공모전새창 열림" target="_self">
-			<span class="img" style="height: 275px;"><img style="width: 275px; height: 275px; overflow: hidden;" src="staticqefeee/pictureff/1677465232308_PBcDZSV5bdIqh1NW3JRM.jpg" alt="제7회 소비자지향성 개선과제 공모전" onerror="this.src='static/picture/hot_noimgs.png'"></span>
-			</a>
-			</div>
-		<div class="item">
-			<span class="img" style="height: 275px;"><img style="width: 275px; height: 275px; overflow: hidden;" src="staticqefeee/pictureff/1678755181086_lrCDalDvyChXTusnYhU5.jpg" alt="2022년 행정안전부 안전문화대상 대통령상" onerror="this.src='static/picture/hot_noimgs.png'"></span>
-			</div>
-		<div class="item">
-			<a href="javascript:;" title="전화권유판매 수신거부의사 등록시스템(두낫콜)새창 열림" target="_self">
-			<span class="img" style="height: 275px;"><img style="width: 275px; height: 275px; overflow: hidden;" src="staticqefeee/pictureff/1657254972195_3CpjWmv7JWAIHxGtB6ah.png" alt="전화권유판매 수신거부의사 등록시스템(두낫콜)" onerror="this.src='static/picture/hot_noimgs.png'"></span>
-			</a>
-			</div>
-		<div class="item">
-			<a href="javascript:;" title="한국소비자단체협의회 배달비 조사새창 열림" target="_self">
-			<span class="img" style="height: 275px;"><img style="width: 275px; height: 275px; overflow: hidden;" src="staticqefeee/pictureff/1645677607497_MVLI4D5RIiBYJzqDg9Qs.jpg" alt="한국소비자단체협의회 배달비 조사" onerror="this.src='static/picture/hot_noimgs.png'"></span>
-			</a>
-			</div>
-		<div class="item">
-			<a href="javascript:;" title="소비자24새창 열림" target="_self">
-			<span class="img" style="height: 275px;"><img style="width: 275px; height: 275px; overflow: hidden;" src="staticqefeee/pictureff/1635150250786_EwSoZ64imKi2zHiWnuqE.jpg" alt="정부가 제공하는 공신력 있는 소비자 정보 24시간 열린소비자포털 '소비자24'" onerror="this.src='static/picture/hot_noimgs.png'"></span>
-			</a>
-			</div>
-		<div class="item">
-			<a href="javascript:;" title="한국소비자원을 사칭한 스미싱 피해 주의새창 열림" target="_self">
-			<span class="img" style="height: 275px;"><img style="width: 275px; height: 275px; overflow: hidden;" src="staticqefeee/pictureff/1619150799882_N1lNMvxwO9f53iBBLTEG.jpg" alt="최근 한국소비자원을 사칭하며 구매하지 않은 물건이 결제되었다는 스팸메시지가 급증하고 있습니다. 소비자민원센터, 소비자보호센터 등을 언급하며 첨부된 번호로 전화나 앱 다운로드를 유도하는 등의 메시지를 담고 있으니 주의하시길 바랍니다" onerror="this.src='static/picture/hot_noimgs.png'"></span>
-			</a>
-			</div>
-		</div>
-						<div class="slick-ctrl">
-							<button class="slick-prev slick-arrow">이전</button>
-							<button class="slick-play">재생</button>
-							<button class="slick-stop">정지</button>
-							<button class="slick-next slick-arrow">다음</button>
-						</div>
-					</div>
-				</li>
-				<li style="border-right: 1px #959595 solid; border-left: 1px #959595 solid;"><a href="javascript:;" onclick="return false" class="tabBtn">소비자이슈</a>
-					<div class="tabContent" style="display:none;">
-						<div class="infoBox" id="info1">
-						
-							<div class="item">
-			<a href="javascript:;" title="'D사' 커피믹스 이물질 혼입 관련 소비자이슈 게시물 이동">
-			<span class="img"><img style="width: 280px; height: 210px; overflow: hidden;" src="staticqefeee/pictureff/1680758690481_pTJo6Rxqll6hMmLAuaqG.png" alt="" onerror="this.src='static/picture/hot_noimgs.png'"></span>
-				<strong>'D사' 커피믹스 이물질 혼입 관련 소비자이슈</strong>
-			</a>
-			</div>
-			<div class="item">
-			<a href="javascript:;" title="필라테스 업체 'S사' 휴업 및 연락두절 관련 소비자이슈 게시물 이동">
-			<span class="img"><img style="width: 280px; height: 210px; overflow: hidden;" src="staticqefeee/pictureff/1679881757097_fO1YSCFoLjKxCbYPwnfu.png" alt="" onerror="this.src='static/picture/hot_noimgs.png'"></span>
-				<strong>필라테스 업체 'S사' 휴업 및 연락두절 관련 소비자이슈</strong>
-			</a>
-			</div>
-			<div class="item">
-			<a href="javascript:;" title="튀르키예(터키) 지진 발생 관련 소비자이슈 게시물 이동">
-			<span class="img"><img style="width: 280px; height: 210px; overflow: hidden;" src="staticqefeee/pictureff/1676009459667_ogR9qTbhCbPAKYJh9H3G.png" alt="" onerror="this.src='static/picture/hot_noimgs.png'"></span>
-				<strong>튀르키예(터키) 지진 발생 관련 소비자이슈</strong>
-			</a>
-			</div>
-			</div>
-						<div class="slick-ctrl">
-							<button class="slick-prev slick-arrow">이전</button>
-							<button class="slick-play">재생</button>
-							<button class="slick-stop">정지</button>
-							<button class="slick-next slick-arrow">다음</button>
-						</div>
-					</div>
-				</li>
-				<li><a href="javascript:;" onclick="return false" class="tabBtn">카드뉴스</a>
-					<div class="tabContent" style="display:none;">
-						<div class="infoBox" id="info0" style="overflow: hidden;">
-							<div class="item"><a href="javascript:;"><img style='width: 275px; height: 275px; overflow: hidden;' src='staticqefeee/pictureff/thumbnail_1681087365617_SQZCZSruQG5PY0HaTTO7.jpg' alt='친환경 서비스 호텔, 환경보호 노력 강화 필요해요'></a></div>
-								<div class="item"><a href="javascript:;"><img style='width: 275px; height: 275px; overflow: hidden;' src='staticqefeee/pictureff/thumbnail_1680676354537_sGFruAkbje0y62BPoQmO.jpg' alt='제품 자체에서 발연될 수 있는 Latuna 전기포트 판매차단 안내 '></a></div>
-								<div class="item"><a href="javascript:;"><img style='width: 275px; height: 275px; overflow: hidden;' src='staticqefeee/pictureff/thumbnail_1680676309048_EHqfc7jD38kBcHNiZPwx.jpg' alt='배터리 팩의 과열 및 발연으로 화재 위험있는 Bissell 진공청소기 판매차단 안내'></a></div>
-								<div class="item"><a href="javascript:;"><img style='width: 275px; height: 275px; overflow: hidden;' src='staticqefeee/pictureff/thumbnail_1680676260727_VzVTo5QPeGmyzhk3eAjB.jpg' alt='퓨즈·플러그 결함으로 감전 및 부상의 위험이 있는 Aovopro 전동킥보드 판매차단 안내'></a></div>
-								</div>
-						<div class="slick-ctrl">
-							<button class="slick-prev slick-arrow">이전</button>
-							<button class="slick-play">재생</button>
-							<button class="slick-stop">정지</button>
-							<button class="slick-next slick-arrow">다음</button>
-							<a href="javascript:;" class="slick-more" title="카드뉴스 더보기">카드뉴스 더보기</a>
-						</div>
-					</div>
-				</li>
-			</ul>
-		</div><!--// infozone -->
-		<div class="alram">
-			<div class="alram1">
-				<h2>피해예방주의보</h2>
-				<div class="slide-wrap">
-					<ul class="carousel-slide" id="slide3">
-						<li><span>[2023-04-11]</span><a href="javascript:;">실손보험금 미지급 피해구제 신청 3건 중 1건 ‘백내장 수술’ 관련</a></li>
-								<li><span>[2023-02-27]</span><a href="javascript:;">한국소비자원 사칭 유사투자자문서비스 피해보상 연락 주의</a></li>
-								<li><span>[2023-02-16]</span><a href="javascript:;">온라인으로 구입한 가구 ‘품질’ 관련 불만이 많아</a></li>
-								<li><span>[2023-02-07]</span><a href="javascript:;">투어2000(㈜투어이천)의 일방적 계약해제로 인한 소비자피해 주의</a></li>
-								</ul>
-					<div class="slide-ctrl">
-						<a href="javascript:;" onclick="return false;" class="slide-prev slide-arrow">이전</a>
-						<a href="javascript:;" onclick="return false;" class="slide-play">재생</a>
-						<a href="javascript:;" onclick="return false;" class="slide-stop">정지</a>
-						<a href="javascript:;" onclick="return false;" class="slide-next slide-arrow">다음</a>
-						<a href="javascript:;" class="slide-more" title="피해예방주의보 더보기">피해예방주의보 더보기</a>
-					</div>
-				</div>
-			</div>
-			<div class="alram2">
-				<h2>안전주의보</h2>
-				<div class="slide-wrap">
-					<ul class="carousel-slide" id="slide4">
-						<li><span>[2023-02-23]</span><a href="javascript:;">화재 위험성이 높은 ㈜위니아 노후 김치냉장고,리콜 미조치 상태라면 즉시 사용을 중단해야!</a></li>
-								<li><span>[2023-02-16]</span><a href="javascript:;">소비자원-국표원 「유모차 영유아 끼임 사고」 소비자안전주의보 발령</a></li>
-								<li><span>[2022-12-22]</span><a href="javascript:;">겨울 스포츠 안전사고 발생에 주의하세요!</a></li>
-								<li><span>[2022-11-28]</span><a href="javascript:;">해외구매대행으로 구입한 미인증 캠핑용 가스용품 사고 위험 높아</a></li>
-								</ul>
-					<div class="slide-ctrl">
-						<a href="javascript:;" onclick="return false;" class="slide-prev slide-arrow">이전</a>
-						<a href="javascript:;" onclick="return false;" class="slide-play">재생</a>
-						<a href="javascript:;" onclick="return false;" class="slide-stop">정지</a>
-						<a href="javascript:;" onclick="return false;" class="slide-next slide-arrow">다음</a>
-						<a href="javascript:;" class="slide-more" title="안전주의보 더보기">안전주의보 더보기</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--// alram -->
-		</div>
-	</div>
-	<!--// section1 --><div id="section2" class="section">				
-	<div class="wrap">
-		<div class="sec2_top">
-			<h1>소비자 <strong>안전</strong></h1>
-			<p>국내·외 안전정보를 확인하고 소비자 위해정보를 신고할 수 있습니다.</p>
-		</div>
-		<div class="sec2_con clearfix">
-			<div class="item1">
-				<h2><a href="javascript:;" target="_self">소비자위해감시시스템<strong>(CISS)</strong><span>소비자 위해정보를 수집하고 분석·평가하여 관련 조치를 취할 수 있도록 구축된 소비자 위해상황 상시 감시 시스템입니다.</span></a></h2>
-				<ul class="cts">
-					<li><a href="javascript:;" target="_self">위해정보 처리속보<span>리콜 제품에 대한 국내 유통·판매차단 등의 조치 내용을 확인할 수 있습니다. </span></a></li>
-					<li><a href="javascript:;" target="_self">알기쉬운 안전이야기<span>국내·외 소비자안전 정보를 알기 쉽게 정리하여 제공합니다. </span></a></li>
-					<li><a href="javascript:;" target="_self">안전조사보고서<span>한국소비자원에서 수행한 안전실태조사 및 위해정보 심층분석 등 보고서를 확인할 수 있습니다.</span></a></li>
-				</ul>
-			</div>
-			<div class="item2">
-				<h2><a href="javascript:;" target="_self">위해정보신고</a></h2>
-				<div class="cts">
-					<p>사업자가 제공하는 제품, 시설물, 서비스를 <br>이용하는 과정에서 소비자안전과 관련된 <br>사례를 제보 &middot; 신고할 수 있습니다.</p>
-					<a href="javascript:;" target="_self" class="more">더보기</a>
-				</div>
-			</div>
-			<div class="item3">
-				<h2><a href="javascript:;" target="_self">어린이안전넷</a></h2>
-				<div class="cts">
-					<p>안전한 환경 속에서 대한민국 어린이 모두가 <br>마음껏 뛰놀 수 있도록 안전정보와 학습자료를 <br>제공하는 어린이안전 종합 정보망입니다.</p>
-					<a href="javascript:;" target="_self" class="more">더보기</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!--// section2 --><div id="section3" class="section">
-	<div class="wrap clearfix">
-		<div class="sec3_left relief-main-panel">
-			<h1><a href="./online.html" target="_self"><strong>피해</strong>구제</a></h1>
-			<p>피해구제 사례와 절차 안내를 확인하고 상담 및 구제 신청할 수 있습니다.</p>
-			<div class="con">
-				<ul class="clearfix">
-					<li class="list1"><a href="./online.html" target="_self" title="피해구제 접수안내">피해구제 사례<span>품목별 소비자의 피해구제사례를 확인할 수 있습니다.</span></a></li>
-					<li class="list2"><a href="./online.html" target="_self" title="피해구제 접수안내">피해구제 절차안내<span>피해구제 세부 처리과정을 <br>확인할 수 있습니다.</span></a></li>					
-					<li class="list4"><a href="./online.html" target="_self" title="피해구제 접수안내">피해상담 신청<span>소비자 피해, 전문상담원<br>에게 물어보세요.</span></a></li>
-					<li class="list3 relief-cta"><a href="./online.html" target="_self" title="피해구제 접수안내">피해구제 신청<span>소비자상담 후 피해구제 <br>신청이 가능합니다.</span></a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="sec3_right">
-			<h1><a href="javascript:;" target="_self"><strong>분쟁</strong>조정</a></h1>
-			<p>분쟁조정 절차 및 조정결정사례를 확인하고, 집단분쟁조정<br>신청 방법을 확인할 수 있습니다.</p>
-			<div class="con">
-				<ul class="clearfix">
-					<li class="list1"><a href="javascript:;" target="_self" title="새창열림">분쟁조정 결정 사례<span>소비자 분쟁사건에 대한 조정결정 사례를 품목별로 확인할 수 있습니다.</span></a></li>
-					<li class="list2"><a href="javascript:;" target="_self" title="새창열림">분쟁조정안내<span>분쟁조정 절차를 확인할 수 있습니다.</span></a></li>
-					<li class="list3"><a href="javascript:;" target="_self" title="새창열림">집단분쟁조정신청<span>집단분쟁조정 신청 요건과 방법을<br>확인할 수 있습니다.</span></a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div><div id="section4" class="section">
-	<div class="wrap clearfix">
-		<div class="sec4_left">
-			<h1><img src="staticqefeee/pictureff/consumerIco_001.png" alt="한국소비자원" width="35px" height="35px"> <a href="javascript:;" target="_self"><strong>스마트컨슈머</strong>(교육 &middot; 정보)</a></h1>
-			<p>한국소비자원의 소비자 교육 및 정보에 대해 확인할 수 있습니다.</p>
-			<div class="con">
-				<ul class="clearfix">
-					<li class="list1"><a href="javascript:;" target="_self">교육자료<span>소비자의 합리적이고 능동적인 소비환경 대응을 위한 다양한 소비자정보 콘텐츠를 제공합니다.</span></a></li>
-					<li class="list2"><a href="javascript:;" target="_self">교원연수 신청<span>학교 소비자교육 활성화를 위해 정기 소비자교육 교원연수를 실시하고 있습니다.</span></a></li>
-					<li class="list3"><a href="javascript:;" target="_self">일반연수 신청<span>소비환경의 빠른 변화에 소비자들이 능동적으로 대처할 수 있는 교육서비스를 제공합니다.</span></a></li>
-					<li class="list5"><a href="javascript:;" target="_self"><img src="staticqefeee/pictureff/webzine_tit.png" alt="웹진 소비자시대"></a></li>
-					<li class="list6">
-						<a href="javascript:;" target="_self"><img src="staticqefeee/pictureff/sec4_img3.png" alt="생애주기별 소비자정보맵"></a>
-						<a href="javascript:;" target="_self"><img src="staticqefeee/pictureff/sec4_img1.png" alt="소비자24"></a>
-						<a href="javascript:;" target="_self"><img src="staticqefeee/pictureff/sec4_img2.png" alt="참가격 가격정보 종합 포털사이트"></a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="sec4_right">
-			<h1><a href="javascript:;">소비자 <strong>정책연구</strong></a></h1>
-			<p>소비자정책 분야별 연구보고서 및 국내외 최신 정책동향, 지표데이터분석, <br>학술논문 등에 대해 확인할 수 있습니다.</p>
-			<div class="con">
-				<ul class="clearfix">
-					<li class="list1"><a href="javascript:;">정책연구보고서<span>소비자 권익향상을 위한 제도와 정책, 법령의 분석 및 개선에 관한 연구보고서입니다.</span></a></li>					
-					<li class="list3"><a href="javascript:;">소비자정책동향<span>최신 소비자 이슈에 대한 시의성 있는 검토를 통해 시사점을 제시합니다.</span></a></li>
-					<li class="list4"><a href="javascript:;">소비자정책지표<span>소비자정책지표(소비생활지표, 소비자시장평가지표, 소비자역량지수)의 데이터와 시각화된 통계를 제공합니다.</span></a></li>
-					<li class="list5"><a href="javascript:;">소비자문제연구<span>한국연구재단 등재학술지인 소비자문제연구에 게재된 논문을 다운받을 수 있으며, 논문을 투고할 수 있습니다.</span></a></li>					
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
-<!--// section4 --><div id="section5" class="section">
-	<div class="wrap clearfix">
-		<div class="sec5_left">
-			<h1><a href="javascript:;" target="_self"><strong>국제</strong>거래</a></h1>
-			<p>국제거래 피해예방 및 해결, <br>국제거래 소비자포털이 함께 합니다</p>
-			<div class="con">
-				<ul class="clearfix">
-					<li class="list2"><a href="javascript:;" target="_self">상담사례<span>주요 품목별 상담사례를 확인할 수 있습니다.</span></a></li>
-					<li class="list1"><a href="javascript:;" target="_self">국제거래상담신청<span>해외사업자와 발생한 불만을 상담 접수 할 수 있습니다.</span></a></li>
-					<li class="list3"><a href="javascript:;" target="_self">사기의심사이트<span>소비자피해 예방을 위해 해외 구매 전에 꼭 확인하세요.</span></a></li>
-					<li class="list4"><a href="javascript:;" target="_self">피해예방정보<span>해외직구 관련 피해예방정보를 제공합니다.</span></a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="sec5_right">
-			<h1>소비자 <strong>빅데이터</strong></h1>
-			<p>소비자 상담과 피해구제에 관한 빅데이터를 시각화하여 <br>조회할 수 있습니다.</p>
-			<div class="con">
-				<ul class="clearfix">
-				  	<li class="ht"><a href="javascript:;">소비자원 공공데이터<span>한국소비자원에서 보유하고 있는 데이터를 제공합니다.</span></a></li>
-					<li><a href="javascript:;" target="_self">소비자 빅데이터 분석 시스템<span>소비자상담 및 피해구제 데이터를 한눈에 확인할 수 있습니다.</span></a></li>
-					<li class="ht"><a href="javascript:;">빅데이터 시각화<span>소비자 빅데이터 분석 결과를 시각화하여 제공합니다.</span></a></li>
-					<li class="ht"><a href="javascript:;">빅데이터 이슈<span>최근 소비자이슈를 확인할 수 있습니다.</span></a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
-<!--// section5 --><div id="section6" class="section">
-	<script type="text/javascript">
-	//<![CDATA[
-		$(document).ready(function() {
-			$('.sns-slick').empty();
-			$.ajax({
-				url: "/home/blogRSS.do",
-				timeout: 3000,
-				success: function(result) {
-					for(var i=0; i<4; i++) {
-						var pubDate = "";
-						if(result.blogRSS[i].pubDate != null) {
-							pubDate = result.blogRSS[i].pubDate;
-							pubDate = new Date(pubDate);
-							pubDate = pubDate.getFullYear() + '-' + (pubDate.getMonth()+1) + '-' + pubDate.getDate();
-						}
-						$('.sns-slick').append('<div class="item"><a href="' + result.blogRSS[i].link + '" target="_blank"><span class="cate">' + result.blogRSS[i].category + '</span><strong>' + result.blogRSS[i].title + '</strong><span class="tt">' + result.blogRSS[i].description + '</span><span class="date">'  + pubDate + '</span></a></div>');
-					}
-				},
-				error: function(error) {
-					console.log(error);
-					if(error.statusText == 'timeout') {
-						$('.sns-slick').append('<div class="item">Connection timed out</div>');
-					}
-				},
-				complete: function() {
-					// ajaxstop 대체(01.14 박재희)
-					$('.sns-slick').slick({
-						autoplay: false,
-						slidesToShow: 4,
-						slidesToScroll: 4, 
-						arrows: false,
-						responsive: [{
-							breakpoint: 1025,
-							settings: {
-								arrows: true,
-								slidesToShow: 2,
-								slidesToScroll: 1
-							}
-						},
-						{
-							breakpoint: 641,
-							settings: {
-								arrows: true,
-								slidesToShow: 1,
-								slidesToScroll: 1
-							}
-						}]
-					});
-					
-					// 웹접근성 조치로 arai-live 소성 삭제 by 2018076 2023.02.17.
-					$('.slick-list').removeAttr('aria-live');
-				}
-			});	
-		});
-	//]]>
-	</script>
-	<div class="wrap">
-		<div class="sec6_top">
-			<h1><img src="staticqefeee/pictureff/sec6_tit.png" alt="SNS 소통톡톡"></h1>
-			<p>한국소비자원의 SNS 소식을 확인해보세요!</p>
-		</div>
-		<div class="sec6_con">
-			<ul class="clearfix">
-				<li class="on"><a href="javascript:;" target="_self" class="tabBtn"><img src="staticqefeee/pictureff/sec6_blog.png" alt="blog"></a>
-					<div class="tabContent"><div class="sns-slick"></div></div>
-				</li>
-				<li><a href="javascript:;" target="_self" class="btn_face">페이스북</a></li>
-				<li><a href="javascript:;" target="_self" class="btn_insta">인스타그램</a></li>
-				<li><a href="javascript:;" target="_self" class="btn_ytb">유튜브</a></li>
-			</ul>
-		</div>
-	</div>
-</div><div id="foot-section" class="section">
-				<div id="banner">
-					<div class="banner_wrap">
-    <h2>배너모음</h2>
-    <div class="control">
-		<a href="javascript:;" onclick="return false;" class="bnr_up" id="bnr_prev">이전</a>
-        <a href="javascript:;" onclick="return false;" class="bnr_down" id="bnr_play">재생</a>
-		<a href="javascript:;" onclick="return false;" class="bnr_pause" id="bnr_stop">정지</a>
-		<a href="javascript:;" onclick="return false;" class="bnr_play" id="bnr_next">다음</a>
-		<a href="javascript:;" id="bnr_more"><img src="staticqefeee/pictureff/bnr_more.png" alt="배너더보기"></a>
-        <!-- <li><a href="#"><img src="/home/imgs/main/banner_More.gif" alt="배너 전체보기" /></a></li> -->
-    </div>
-	<div class="bannerzone">
-		<ul>
-			<li>
-			<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1670310642398_bMorzOUNiDoysXxUXaFw.png" alt="한국공정거래조정원" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1661920989698_4cs0LQTfwKEUXg8Lnw0z.png" alt="한국의료분쟁조정중재원" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1648602288850_wgDHliCXvWpns55P0nRG.jpg" alt="기업성장응답센터" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1615338234946_qX9bFZQDlFLKLo7quBHq.jpg" alt="축산물 이력제 위반업소 공개" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1594777695472_Ug4HcocPWN2yPNS4UD9s.gif" alt="복지로 함께 만드는 복지" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1657178127740_4xJXw5MkF3DOnY6RTLIC.png" alt="CCM 소비자중심경영" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078552714_08gpC1ErgByTOMfZ1wMX.png" alt="사업실명제" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				</li><li><a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078641982_EXWDGpVbhckTQJUVxqMB.png" alt="[법제처]찾기 쉬운 생활법령정보" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078649049_4pQeohISOmepbr7S4hI5.png" alt="한국소비자원 태블로" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078633067_8ZgJUUMsKLH7VubeugMS.png" alt="온라인행정심판(신속공정한권리구제)" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078624367_bhinIgyxIYj38NXZqBly.png" alt="(수산물)원산지 표시 위반사항 공표" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078605570_3YjJDhzy1GNAhBmX93qj.png" alt="정부24" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078524287_plTZdJxaLnGx4gdXy4jd.png" alt="한국소비자원 국제거래소비자포털" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078455500_7Ca3Q6p5vnSfEfZTY57T.png" alt="안전신문고" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				</li><li><a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078380807_2oTPx8yAE2HopdICZbMi.png" alt="전화권유판매 수신거부의사 등록시스템" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078560956_AxeMrMMDRjNxXRg5hJ7X.png" alt="한국인터넷광고재단" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078544654_Z6A4s8XvBbcbDxgvm9NI.png" alt="농산물 원산지 표시 위반정보 공표" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078579873_9RmNeraDkxwX15BqSIIX.png" alt="한국정보화진흥원이 운영하는 청각·언어장애인을 위한 통신중계서비스" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078569021_BtxtASuWWfgUoy9J10Iz.png" alt="UCC" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078588442_CiBaMK2tj8oJyzQAMFvZ.png" alt="한국소비자원 소비자시대 웹진" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078596907_M1YOr8Qx8sECTqQ2XofU.png" alt="소비자 빅데이터 분석 시스템" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				</li><li><a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078172646_ZsCsUnYdytmvE88e0xyb.png" alt="한국소비자원 참가격" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1624323099172_WnLHhfooD1X5fLFpvnnc.png" alt="소비자24" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078195654_sYacCLtoGmq0znIuBm7t.png" alt="한국소비자원 소비자위해감시시스템(CISS)" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078201711_HQL1WAXs76MRr6DqpBKV.png" alt="한국소비자원 어린이안전넷" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577082088040_wChBJGPiqH2il1fV6Bhj.png" alt="한국소비자원 정보자료실" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				<a href="javascript:;" target="_self">
-					<img src="staticqefeee/pictureff/1577078288711_2Bt1WBNxlEVuOTfOBK1g.png" alt="공정거래위원회" onerror="this.src='static/picture/banner_noimg.png'">
-				</a>
-				
-				</li>
-		</ul>
-	</div>
-</div></div>
-				<div id="footer">
-					<div class="wrap">
-						<div class="footer_navi">
-	<ul class="clearfix">					
-		<li><a href="javascript:;"><strong>개인정보처리방침</strong></a></li>
-		<li><a href="javascript:;" target="_self" title="새창">영상정보처리기기 운영 &middot; 관리 방침</a></li>
-		<li><a href="javascript:;">저작권 정책</a></li>
-		<li><a href="javascript:;">이용안내</a></li>
-		<li><a href="javascript:;" target="_self" title="새창">원격지원</a></li>
-	</ul>
-</div>
-<div class="family_site clearfix">
-	<dl class="site_link">
-		<dt><button type="button" class="selectBtn">한국소비자원 웹사이트</button></dt>
-		<dd class="sitea">
-			<ul>
-				<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="한국소비자원 KCA소개 새창열림">한국소비자원 KCA소개</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="한국소비자원 주요서비스 새창열림">한국소비자원 주요서비스</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="영문홈페이지 새창열림">영문홈페이지</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="참가격 새창열림">참가격</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="국제거래소비자포털 새창열림">국제거래소비자포털</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="소비자위해감시시스템 새창열림">소비자위해감시시스템</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="어린이안전넷 새창열림">어린이안전넷</a></li>
-</ul>
-			<div class="close"><input type="image" src="staticqefeee/pictureff/family_site_close.png" alt="한국소비자원 웹사이트 닫기"></div>
-		</dd>
-	</dl>
-	<dl class="site_link">
-		<dt><button type="button" class="selectBtn">지자체 유관기관</button></dt>
-		<dd class="sitea">
-			<ul>
-				<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="서울전자상거래센터 새창열림">서울전자상거래센터</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="부산소비생활센터 새창열림">부산소비생활센터</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="대구소비생활센터 새창열림">대구소비생활센터</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="인천소비생활센터 새창열림">인천소비생활센터</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="광주소비생활센터 새창열림">광주소비생활센터</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="대전소비생활센터 새창열림">대전소비생활센터</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="울산소비생활센터 새창열림">울산소비생활센터</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="경기소비자정보센터 새창열림">경기소비자정보센터</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="강원소비생활센터 새창열림">강원소비생활센터</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="충북소비생활정보망 새창열림">충북소비생활정보망</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="충남소비자보호센터 새창열림">충남소비자보호센터</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="전북소비생활센터 새창열림">전북소비생활센터</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="전남소비물가정보 새창열림">전남소비물가정보</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="경북소비자보호센터 새창열림">경북소비자보호센터</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="경남소비생활센터 새창열림">경남소비생활센터</a></li>
-<li><a href="javascript:;" target="_self" rel="noopener noreferrer" title="제주소비생활센터 새창열림">제주소비생활센터</a></li>
-</ul>
-			<div class="close"><input type="image" src="staticqefeee/pictureff/family_site_close.png" alt="지자체 유관기관 닫기"></div>
-		</dd>
-	</dl>
-</div>
-<div class="footer_info"><address>(27738) 충청북도 음성군 맹동면 용두로 54 한국소비자원 (원장:장덕진)<br><strong class="fir">사업자등록번호 :</strong> 229-82-01080 <strong>대표전화 :</strong> <a href="tel:043-880-5500" title="전화연결" style="color:#d1d4d7;">043-880-5500</a> <strong>팩스 :</strong> 043-877-6767 <span class="blue"><strong>소비자상담 :</strong> 국번없이 <a href="tel:1372" title="전화연결" style="color:#6981ad;">1372</a>(공정거래위원회 소비자 상담센터, 유료, 통화료는 발신자 부담)</span></address>
-<span class="copy">COPYRIGHT(C) 2019 KOREA CONSUMER AGENCY, ALL RIGHT RESERVED. </span></div>
-<div class="mark"><a href="javascript:;" target="_self"><img src="staticqefeee/pictureff/wa.png" alt="미래창조과학부 WEB ACCESSIBILITY 마크(웹 접근성 품질인증 마크)" title="국가 공인 인증기관 : 한국웹접근성인증평가원"></a></div>
-<div id="go_top"><a href="javascript:;" id="top" aria-label="맨 위로 이동" title="맨 위로 이동"></a></div></div>
-				</div>
-			</div>
-		</div>
-		<div id="main_top"><a href="javascript:;" aria-label="맨 위로 이동" title="맨 위로 이동"></a><a href="javascript:;" class="m_top" aria-label="맨 위로 이동" title="맨 위로 이동"></a></div>
-	</div>
+    <section class="content">
+      <nav class="quick" aria-label="빠른 메뉴">
+        <a href="online.html"><span>₩</span>대출신청</a>
+        <a href="javascript:;"><span>%</span>금리안내</a>
+        <a href="javascript:;"><span>✓</span>한도조회</a>
+        <a href="javascript:;"><span>?</span>상담</a>
+      </nav>
+
+      <h2 class="section-title">맞춤 금융 상품</h2>
+      <a class="product" href="online.html">
+        <div class="row">
+          <strong>직장인 신용대출</strong>
+          <span class="rate">연 5.9%~</span>
+        </div>
+        <p>서류 부담을 줄이고 모바일에서 신청 과정을 이어갈 수 있습니다.</p>
+      </a>
+      <a class="product" href="online.html">
+        <div class="row">
+          <strong>생활 안정 자금</strong>
+          <span class="rate">빠른 심사</span>
+        </div>
+        <p>필요 금액과 상환 계획을 입력해 상담 접수를 진행합니다.</p>
+      </a>
+
+      <div class="notice">
+        본 화면은 실제 금융기관을 사칭하지 않는 샘플 UI입니다. 대출 조건은 심사 결과에 따라 달라질 수 있습니다.
+      </div>
+    </section>
+  </main>
 </body>
 </html>
-
-
-
-
-
-
-
-

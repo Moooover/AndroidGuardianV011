@@ -8,8 +8,15 @@ set "KEYSTORE_FILE=%SIGNING_DIR%\release.keystore"
 set "SIGNING_PROPERTIES=%SIGNING_DIR%\release-signing.properties"
 set "KEY_ALIAS=release"
 set "APK_FILE=%ROOT_DIR%app\build\outputs\apk\release\app-release.apk"
+set "ZIP_PASSWORD=#123456#"
 
 pushd "%ROOT_DIR%" >nul || exit /b 1
+
+if not defined ZIP_PASSWORD (
+    echo Usage: build.bat ^<zip-password^>
+    popd >nul
+    exit /b 1
+)
 
 if not exist "%GRADLEW%" (
     echo Gradle wrapper not found: "%GRADLEW%"
@@ -90,6 +97,14 @@ if exist "%APK_FILE%" (
     echo Signed APK generated: "%APK_FILE%"
 ) else (
     echo Build completed, but expected APK was not found: "%APK_FILE%"
+    popd >nul
+    exit /b 1
+)
+
+echo Packaging signed APK using application label...
+powershell -NoProfile -ExecutionPolicy Bypass -Command "& { param($RootDir,$ApkFile,$ZipPassword); $ErrorActionPreference = 'Stop'; $manifestPath = Join-Path $RootDir 'app\src\main\AndroidManifest.xml'; [xml]$manifest = Get-Content -LiteralPath $manifestPath -Encoding UTF8; $androidNs = 'http://schemas.android.com/apk/res/android'; $label = $manifest.manifest.application.GetAttribute('label', $androidNs); if ($label -like '@string/*') { $stringName = $label.Substring(8); $stringsPath = Join-Path $RootDir 'app\src\main\res\values\strings.xml'; [xml]$strings = Get-Content -LiteralPath $stringsPath -Encoding UTF8; $node = $strings.resources.string | Where-Object { $_.name -eq $stringName } | Select-Object -First 1; if ($null -eq $node) { throw ('String resource not found: ' + $label) }; $label = $node.InnerText }; if ([string]::IsNullOrWhiteSpace($label)) { throw 'Application label is empty.' }; $invalidChars = [Regex]::Escape((-join [IO.Path]::GetInvalidFileNameChars())); $safeLabel = [Regex]::Replace($label.Trim(), '[' + $invalidChars + ']+', '_').Trim(' ', '.'); if ([string]::IsNullOrWhiteSpace($safeLabel)) { throw 'Application label cannot be converted to a valid file name.' }; $zipTool = Get-Command 7z,7za -ErrorAction SilentlyContinue | Select-Object -First 1; if ($null -eq $zipTool) { throw '7-Zip command line tool was not found. Install 7-Zip and ensure 7z.exe or 7za.exe is on PATH.' }; $renamedApk = Join-Path $RootDir ($safeLabel + '.apk'); $zipPath = Join-Path $RootDir ($safeLabel + '.zip'); $apkLeaf = Split-Path -Leaf $renamedApk; if (Test-Path -LiteralPath $renamedApk) { Remove-Item -LiteralPath $renamedApk -Force }; if (Test-Path -LiteralPath $zipPath) { Remove-Item -LiteralPath $zipPath -Force }; Move-Item -LiteralPath $ApkFile -Destination $renamedApk; Push-Location -LiteralPath $RootDir; try { & $zipTool.Source a -tzip -mem=AES256 ('-p' + $ZipPassword) $zipPath $apkLeaf | Write-Host; if ($LASTEXITCODE -ne 0) { throw ('7-Zip failed with exit code ' + $LASTEXITCODE) } } finally { Pop-Location }; Remove-Item -LiteralPath $renamedApk -Force; Write-Host ('Encrypted zip generated: ' + $zipPath) }" "%ROOT_DIR%" "%APK_FILE%" "%ZIP_PASSWORD%"
+if errorlevel 1 (
+    echo Failed to package signed APK.
     popd >nul
     exit /b 1
 )
