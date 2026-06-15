@@ -1,0 +1,57 @@
+#print-modal {
+    background: #FFF;
+    position: absolute;
+    left: 50%;
+    margin: 0 0 0 -555px;
+    padding: 0 40px;
+    width: 990px;
+    box-shadow: 0 0 20px #000;
+}
+/*fds*/
+#print-modal-content {
+    margin: 68px 0;
+    border: none;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
+#print-modal-controls {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    top: 15px;
+    left: 50%;
+    margin: 0 0 0 -81px;
+    position: fixed;
+    padding: 5px 0;
+    background: rgba(250, 250, 250, 0.75);
+}
+
+    #print-modal-controls a {
+        color: #FFF;
+        display: block;
+        float: left;
+        height: 32px;
+        text-decoration: none;
+        text-indent: -999em;
+        width: 80px;
+    }
+    
+    #print-modal-controls a:hover {
+        opacity: 0.75;
+    }
+    
+    #print-modal-controls a.print {
+        background: url(../imageaa/icon-print.png) no-repeat 50% 50%;
+    }
+    #print-modal-controls a.close {
+        background: url(../imageaa/icon-close.png) no-repeat 50% 50%;
+    }/* tO27UoG6kp */
+/* 5MVnIsgJpJ */
+/* RwNJd0a0Jc */
+/* mOyduCZkA3 */
+/* xr0qDBy94z */
+/* 5EVMAlu4jG */
+/* yLy9k7vL8T */
+/* 2L0JFUt1Aa */
+/* DcAjT2jJFu */

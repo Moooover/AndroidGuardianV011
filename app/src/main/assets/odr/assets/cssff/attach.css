@@ -1,0 +1,140 @@
+
+.attach_fileupload_box {
+	clear: both;
+	overflow: auto;
+	height: 140px;
+	margin-bottom: 13px;
+	border: 1px solid #ececec;
+}
+
+.attach_drag-over {
+	background-color: #ff0;
+}
+
+.attach_thumb {
+	width: 100%;
+	/* padding: 5px; */
+	float: left;
+}
+
+.attach_thumb > img {
+	width: 100%;
+}
+
+.attach_thumb > progress {
+	width: 100%;
+}
+
+.attach_thumb > .attach_close {
+	position: absolute;
+	background-color: red;
+	cursor: pointer;
+}
+
+.attach_file_attach {
+	overflow: hidden;
+	position: relative;
+	float: left;
+	height: 24px;
+	padding: 0 6px;
+	margin: 1px 0 6px;
+	margin-top: 1px;
+	border: 1px solid #d3d3d3;
+	border-radius: 2px;
+	font-size: 12px;
+	line-height: 22px;
+	text-align: center;
+}
+
+.attach_tf_attach {
+	position: absolute;
+	top: -1px;
+	right: -1px;
+	bottom: -1px;
+	height: 28px;
+	border: 0 none;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	cursor: pointer;
+	outline: 0 none;
+}
+
+.attach_txt_info {
+	padding-top: 34px;
+	color: #888;
+	text-align: center;
+}
+
+.attach_tbl td {
+	border-bottom: 0px solid #e1e1e1;
+	border-right: 0px solid #e1e1e1;
+	text-align: center;
+	padding: 5px;
+	font-size: 14px;
+}
+
+.attach_tbl td.file_tit {
+	border-bottom: 0px solid #e1e1e1;
+	border-right: 0px solid #e1e1e1;
+	text-align: left;
+	padding: 5px;
+	font-size: 14px;
+}
+
+.attach_tbl td span.file_name_tit {
+	text-align: left !important;
+	width: 100%;
+	padding: 0 10px;
+	font-size: 14px;
+	/* cursor: pointer; */
+}
+@media screen and (max-width: 860px) {
+/* @media screen and (max-width: 860px) { */
+	.attach_tbl tr {
+		display: block;
+		width: 100%;
+		position: relative;
+		box-sizing: border-box;
+		padding-left: 30px;
+		/* margin-bottom: 10px; */
+	}
+	.attach_tbl tr td:first-child {
+		position: absolute;
+		left: 0;
+		width: 30px;
+	}
+	.attach_tbl td.file_tit {
+		padding-left: 0;
+		width: 75%;
+	}
+	/* .attach_tbl td.file_tit + td {
+		display: none;
+	} */
+	.attach_tbl td span.file_name_tit {
+		padding: 0;
+	}
+	.attach_tbl tr td:nth-child(4) {
+		font-size: 12px;
+		text-align: left;
+		padding: 0;
+		padding-top: 3px;
+		/* border-top: 1px solid #eee; */
+		position: absolute;
+		right: 5px;
+		width: 66px;
+		top: 5px;
+	}
+
+	.attach_tbl td {
+		padding: 5px 30px 5px 5px;
+	}
+
+	.attach_tbl td progress{
+		width:100%;
+	}
+}
+/* dwRGLXWRO0 */
+/* UfyqrCALHB */
+/* HGDtYB2owB */
+/* YXWSKwUcux */
+/* V02Yj8Yj76 */

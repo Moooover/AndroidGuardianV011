@@ -1,0 +1,101 @@
+
+.bc_cnb {
+	background: #fafafa;
+	position: relative;
+}
+
+.steps_ul_st.bjstps li:nth-child(2) .stps_3 .steps_ico {
+	background: url("../images/kca_icon_06.png") no-repeat;
+}
+.steps_ul_st.bjstps li:nth-child(3) .stps_3 .steps_ico {
+	background: url("../images/kca_icon_04.png") no-repeat;
+}
+.steps_ul_st.bjstps li:nth-child(4) .stps_3 .steps_ico {
+	background: url("../images/kca_icon_07.png") no-repeat;
+}
+.steps_ul_st.bjstps li:nth-child(5) .stps_3 .steps_ico {
+	background: url("../images/kca_icon_02.png") no-repeat;
+}
+.steps_ul_st.bjstps li:nth-child(6) .stps_3 .steps_ico {
+	background: url("../images/kca_icon_08.png") no-repeat;
+}
+
+.steps_ul_st.bjstps li:nth-child(2).stps_on .stps_3 .steps_ico {
+	background: url("../images/kca_icon_hv06.png") no-repeat;
+}
+.steps_ul_st.bjstps li:nth-child(3).stps_on .stps_3 .steps_ico {
+	background: url("../images/kca_icon_hv04.png") no-repeat;
+}
+.steps_ul_st.bjstps li:nth-child(4).stps_on .stps_3 .steps_ico {
+	background: url("../images/kca_icon_hv08.png") no-repeat;
+}
+.steps_ul_st.bjstps li:nth-child(5).stps_on .stps_3 .steps_ico {
+	background: url("../images/kca_icon_hv02.png") no-repeat;
+}
+.steps_ul_st.bjstps li:nth-child(6).stps_on .stps_3 .steps_ico {
+	background: url("../images/kca_icon_hv08.png") no-repeat;
+}
+
+
+#content {
+	padding: 45px 0;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.snb_tab ul li a {
+	line-height: 125px;
+}
+
+@media screen and (max-width: 1350px) {
+	#content {
+		padding: 40px 20px;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.depth_3_menu .depth_3_list a {
+		padding-left: 10px;
+		font-size: 14px !important;
+		max-width: 152px !important;
+	}
+	.depth_2_menu .depth_2_list > a {
+		font-size: 14px !important;
+	}
+}
+@media screen and (max-width: 1023px) {
+	.m_show {
+		display: revert !important;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.container {
+		padding: 0 10px;
+	}
+
+	.header_info span, .header_info a{
+		font-size: 14px !important;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.container {
+		padding: 0 10px;
+	}
+
+	.header_info span, .header_info a{
+		font-size: 12px !important;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.header_info span, .header_info a {
+		font-size: 10px !important;
+	}
+}
+/* oWNU1EMzf4 */
+/* 61RUKaBTrw */
+/* unkAisiine */
+/* 8lqBbLcImR */
+/* 6u6m2yTZq2 */

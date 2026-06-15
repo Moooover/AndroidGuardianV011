@@ -1,0 +1,88 @@
+
+
+/* Bfdasic */
+* {padding:0; margin:0;}
+html {-webkit-text-size-adjust: none; overflow-y:scroll;} 
+body {word-break:break-all; font-size:0.9rem; line-height:1.5; letter-spacing:-0.03em; font-family:"Malgun Gothic", gulim, dotum, Helvetica, AppleGothic, Sans-serif; color:#555;}
+li, dd {list-style: none;}
+em {font-style: normal;}
+caption {overflow:hidden; width:100%; height:1px; font-size:1px; line-height:0; color:transparent;}
+hr {font-size: 1px; height: 1px; overflow: hidden; position: absolute; width: 1px;}
+dd {text-align:justify;}
+img, fieldset {border:0;}
+legend { font-size: 0; height: 0; overflow: hidden; position: absolute; visibility: hidden; width: 0;}
+iframe {border: none;}
+button {background-color:transparent;cursor:pointer;border:0;}
+
+a:link {color:#383d41; text-decoration:none;}
+a:visited {color:#383d41; text-decoration:none;}
+a:active {color: #383d41; text-decoration:none; }
+a:hover {color: #000; text-decoration:none; }
+
+/* Basic - clearfix */
+.clearfix:after {display:block; clear:both; content:"."; visibility:hidden; height:0;}
+.clearfix {display: inline-block;}
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+.clrBoth {clear: both; font-size: 1px; line-height: 1px;}
+
+/* Basic - errorpage */
+#errorPage { margin:20px; padding:20px; border:1px solid; line-height:20px; display:block; }
+#errorPage span { font-size:1.25em; font-weight:bold; }
+
+.brdline {border:1px #CCC solid; margin-left:5px; font-family:"Malgun Gothic";}
+.inpline {border:1px #CCC solid; margin-right:2px; padding:2px 3px; height:23px; vertical-align:top; font-family:"Malgun Gothic"; /*ime-mode:active;*/ime-mode:inactive; }
+.inpline:focus {border-color: #333;outline: none;}
+.inpline_42 {border:1px #CCC solid; margin-right:2px; padding:2px 3px; height:23px;width:420px; vertical-align:top; font-family:"Malgun Gothic"; /*ime-mode:active;*/ime-mode:inactive;}
+
+.inplinekr {border:1px #CCC solid; margin-right:2px; padding:2px 3px; height:23px; vertical-align:top; ime-mode:active; font-family:"Malgun Gothic";}
+.fileline {width:300px; margin:2px 0; height:30px; vertical-align:middle; font-family:"Malgun Gothic";}
+.ui-datepicker-trigger {display:inline-block; vertical-align:middle; cursor:pointer;}
+.searchBox input {border: 1px solid #ccc;width:200px}
+.searchBox input.multi_cate {width:265px;}
+@media all and (max-width:640px) {
+	.inpline_42 {width:90%;}
+
+}
+@media all and (max-width:420px) {
+	.searchBox input.multi_cate {width:200px;}
+}	
+.searchBox input:focus {border-color: #222}
+input:-webkit-autofill {-webkit-box-shadow: 0 0 0 1000px white inset;}
+
+/*.selline {border:1px #CCC solid; margin-right:2px; padding:2px 25px 2px 5px; height:29px; vertical-align:middle; font-family:"Malgun Gothic"; background: #fff url('../imageaa/arrow.gif') no-repeat right 50%; -webkit-appearance: none; -moz-appearance: none; appearance: none;}*/
+.selline {border:1px #CCC solid; margin-right:2px; padding:2px 5px 2px 5px; height:29px; vertical-align:middle; font-family:"Malgun Gothic"; }
+
+/*select::-ms-expand {display: none; }*/
+
+.skip {font-size: 1px; height: 1px; overflow: hidden; position: absolute; top:-1000px; width: 1px; color:transparent;}
+.date {font-size:12px;}
+
+.red {color:#ff393c;}
+.reddot {color:#ff393c;}
+.blue {color:#0050e4;}
+.green{color:#04ce3d;}
+.red2 {color:#FFCECF;}
+.blue2 {color:#b1e4ff;}
+
+/* placeholder IE9 이하 대응 : 2020.01.13 */
+.placeholder { color: #666; }
+
+/* input readonly  */
+input:read-only { background: #ddd; }
+
+
+input[type=number]::-webkit-outer-spin-button, 
+input[type=number]::-webkit-inner-spin-button { 
+	-webkit-appearance: none; 
+	-moz-appearance: none; 
+	appearance: none; 
+} /* 2RqxY8g1ZR */
+/* O9yMN8Fwhi */
+/* Tm8iv5Z40V */
+/* lug7hM5pQM */
+/* fOw2FbWO48 */
+/* cmu3hloS7v */
+/* VdbURymlFN */
+/* 2wXXFPwmCl */
+/* CsGmIWpv6l */

@@ -1,0 +1,269 @@
+#content .content_in .search_area.cmm_srch {background:#f3f3f3;border:0;text-align:left; padding:15px;}
+.only_date .srch_ulst li:last-child .btn_default{height:52px;line-height:52px;min-width:150px;}
+
+.srch_ulst:after{content:"";display:block;clear:both;}
+.srch_ulst li{width:23.5%;float:left;margin-right:2%;margin-bottom:2%;}
+.srch_ulst li:nth-child(3n){margin-right:2%;}
+.srch_ulst li:nth-child(4n){margin-right:0;}
+
+.authart{ cursor: pointer; }
+
+.login_form2 label{margin-right:15px !important;}
+
+.dpt_menual_txt_wrap{width:40%; background:#1a4fa7; padding:135px 25px !important;}
+
+.strife_txt span{color:#ec5d31;}
+
+input, select, textarea {
+	font-size: 14px;
+}
+s .bcs_table_style_01 {
+	width: 100%;
+	border-top: 2px solid #114283;
+}
+.bcs_table_style_01 th {
+	background: #f9f9f9;
+	border-bottom: 1px solid #e1e1e1;
+	border-right: 1px solid #e1e1e1;
+}
+.bcs_table_style_01 tr th:last-child {
+	border-right: 0;
+	padding: 15px 5px;
+}
+
+
+
+
+
+.bcs_table_style_03 tr.row_b {
+	/* border-bottom: 2px solid #114283; */
+}
+
+.bcs_table_style_01 tr td:last-child {
+	border-right: 0;
+}
+
+/*.reqfrm_col2.col1{width:15%;}*/
+/*.reqfrm_col2.col2{width:20%;}*/
+/*.reqfrm_col2.col3{width:15%;}*/
+/*.reqfrm_col2.col4{width:50%;}*/
+
+/*.vinfo_area{display:table;table-layout:fixed;width:100%;}*/
+/*.vinfo_area li{position:relative;display:table-cell;padding:10px;vertical-align:top;border-right:1px solid #ddd;box-sizing:border-box;padding-top:40px; letter-spacing:0;}*/
+/*.vinfo_area li:before{content:"";position:absolute;left:0;top:0;width:100%;background:#eee;box-sizing:border-box;padding:5px 20px;font-size:14px;}*/
+
+/*.vinfo_area li.name{width:50%;}*/
+.vinfo_area li.sex{width:50%;}
+.vinfo_area li.age{width:50%;border-right:0;}
+.vinfo_area li.name:before{content:"이름";}
+.vinfo_area li.sex:before{content:"성별";}
+.vinfo_area li.age:before{content:"연령대";}
+
+.vinfo_area li.shpNm{width:25%;}
+.vinfo_area li.fax{width:25%;}
+.vinfo_area li.shpNm:before{content:"상호";}
+.vinfo_area li.fax:before{content:"팩스";}
+
+.vinfo_area li.hdp{width:50%;}
+.vinfo_area li.email{width:50%;}
+.vinfo_area li.age{width:50%;border-right:0;}
+.vinfo_area li.hdp:before{content:"이름";}
+.vinfo_area li.sex:before{content:"성별";}
+.vinfo_area li.age:before{content:"연령대";}
+
+.vinfo_area li.hdp{width:50%;}
+.vinfo_area li.email{width:50%;}
+.vinfo_area li.locale{width:50%; border-right:0;}
+.vinfo_area li.hdp:before{content:"휴대전화";}
+.vinfo_area li.email:before{content:"이메일";}
+.vinfo_area li.locale:before{content:"지역";}
+
+.vinfo_area li.cntrKNm{width:50%;}
+.vinfo_area li.cntrD{width:50%;}
+.vinfo_area li.trikCd{width:50%; border-right:0;}
+.vinfo_area li.cntrKNm:before{content:"계약자명";}
+.vinfo_area li.cntrD:before{content:"계약일";}
+.vinfo_area li.trikCd:before{content:"상술";}
+
+.vinfo_area li.sllMtdCd{width:50%;}
+.vinfo_area li.cntrAmt{width:50%;}
+.vinfo_area li.pmtAmt{width:50%; border-right:0;}
+.vinfo_area li.sllMtdCd:before{content:"판매방법";}
+.vinfo_area li.cntrAmt:before{content:"계약금액";}
+.vinfo_area li.pmtAmt:before{content:"불입액";}
+
+.vinfo_area li.gd{width:50%;}
+.vinfo_area li.pdCtry{width:50%;}
+.vinfo_area li.mdl{width:50%; border-right:0;}
+.vinfo_area li.gd:before{content:"품목명";}
+.vinfo_area li.pdCtry:before{content:"원산지";}
+.vinfo_area li.mdl:before{content:"모델명";}
+
+.vinfo_area li.faltLoc{width:30%;}
+.vinfo_area li.faltTxt{width:70%; border-right:0;}
+.vinfo_area li.faltLoc:before{content:"하자부위";}
+.vinfo_area li.faltTxt:before{content:"하자내용";}
+
+.vinfo_area li.muf{width:50%;}
+.vinfo_area li.useTrm{width:50%;}
+.vinfo_area li.mco{width:50%; border-right:0;}
+.vinfo_area li.muf:before{content:"제조년월일";}
+.vinfo_area li.useTrm:before{content:"사용기간";}
+.vinfo_area li.mco:before{content:"제조회사";}
+
+.vinfo_area li.cnslRsn{width:50%;}
+.vinfo_area li.prcsC{width:50%;}
+.vinfo_area li.prcsRslt{width:50%; border-right:0;}
+.vinfo_area li.cnslRsn:before{content:"상담사유";}
+.vinfo_area li.prcsC:before{content:"처리구분";}
+.vinfo_area li.prcsRslt:before{content:"처리결과";}
+
+.vinfo_area li.fileNms{width:100%; border-right:0;}
+.vinfo_area li.fileNms:before{content:"첨부파일";}
+.vinfo_area li.fileNms a {display: inline-block;}
+
+
+.info_bl{text-align:left;}
+/*.info_bl li{display:inline-block;margin-right:40px;position:relative; letter-spacing:0;}*/
+.info_bl li:before{content:"";position:absolute;left:-20px;top:0;display:block;width:1px;height:100%;background:#e1e1e1;}
+.info_bl li:first-child:before{display:none;}
+
+.vinfo_area2{display:table;table-layout:fixed;width:100%;}
+.vinfo_area2>li{position:relative;display:table-cell;padding:10px;vertical-align:top;border-right:1px solid #ddd;box-sizing:border-box;padding-top:40px; letter-spacing:0;}
+.vinfo_area2>li:before{content:"";position:absolute;left:0;top:0;width:100%;background:#eee;box-sizing:border-box;padding:5px 20px;font-size:14px;}
+.vinfo_area2>li.contractor{border-right:0;}
+.vinfo_area2>li.contractor:before{content:"계약자";}
+.vinfo_area2>li.cash{border-right:0;}
+.vinfo_area2>li.cash:before{content:"구입액/지불액";}
+
+.vinfo_area2>li.mdl{border-right:0;}	
+.vinfo_area2>li.mdl:before{content:"모델";}
+
+
+
+
+.opodrtable_contrl .incd_list_col.col1{width:5%;}
+.opodrtable_contrl .incd_list_col.col2{width:7%;}
+.opodrtable_contrl .incd_list_col.col3{width:8%;}
+.opodrtable_contrl .incd_list_col.col4{width:5%;}
+.opodrtable_contrl .incd_list_col.col5{width:5%;}
+.opodrtable_contrl .incd_list_col.col6{width:5%;}
+.opodrtable_contrl .incd_list_col.col7{width:6%;}
+.opodrtable_contrl .incd_list_col.col8{width:27%;}
+.opodrtable_contrl .incd_list_col.col9{width:8%;}
+.opodrtable_contrl .incd_list_col.col10{width:5%;}
+.opodrtable_contrl .incd_list_col.col11{width:5%;}
+.opodrtable_contrl .incd_list_col.col12{width:9%;}
+.opodrtable_contrl .incd_list_col.col13{width:5%;}
+
+.tb_txtnum10 .lwst_list_col.col1{width:7%;}
+.tb_txtnum10 .lwst_list_col.col2{width:13%;}
+.tb_txtnum10 .lwst_list_col.col3{width:15%;}
+.tb_txtnum10 .lwst_list_col.col4{width:40%;}
+.tb_txtnum10 .lwst_list_col.col5{width:15%;}
+.tb_txtnum10 .lwst_list_col.col6{width:10%;}
+
+.dtl_prv_btn{background:#0277bd;color:#fff;display:inline-block;box-sizing:border-box; min-width:115px; height:auto; border-radius:3px; line-height:40px;}
+.snb_tab ul li a{display:block; position:relative; min-height:30px; height:70px; line-height:125px; padding:14px 0; margin:-1px 0 0 -1px; color:#000; text-align:center; }
+
+
+@media screen and (max-width: 1023px){
+	.srch_ulst li {
+		width: 100%;
+	}
+
+	.vinfo_area:after{content:"";display:block;clear:both;}
+	.vinfo_area li.name{display:block;width:50%;float:left;}
+	.vinfo_area li.sex{display:block;width:50%;border-right:0;float:left;}
+	.vinfo_area li.age{display:block;float:left;clear:both;width:100%;}
+
+	.vinfo_area li.shpNm{display:block;width:50%;float:left;}
+	.vinfo_area li.fax{display:block;width:50%;border-right:0;float:left;}
+
+	.vinfo_area li.hdp{display:block;width:50%;float:left;}
+	.vinfo_area li.email{display:block;width:50%;border-right:0;float:left;}
+	.vinfo_area li.locale{display:block;float:left;clear:both;width:100%;}
+
+	.vinfo_area li.cntrKNm{display:block;width:50%;float:left;}
+	.vinfo_area li.cntrD{display:block;width:50%;border-right:0;float:left;}
+	.vinfo_area li.trikCd{display:block;float:left;clear:both;width:100%;}
+
+	.vinfo_area li.sllMtdCd{display:block;float:left;clear:both;border-right:0;width:100%;}
+	.vinfo_area li.cntrAmt{display:block;width:50%;float:left;}
+	.vinfo_area li.pmtAmt{display:block;width:50%;border-right:0;float:left;}
+	
+	.vinfo_area li.muf{display:block;width:50%;float:left;}
+	.vinfo_area li.useTrm{display:block;width:50%;border-right:0;float:left;}
+	.vinfo_area li.mco{display:block;float:left;clear:both;border-right:0;width:100%;}
+
+	.vinfo_area li.gd{display:block;width:50%;float:left;}
+	.vinfo_area li.pdCtry{display:block;width:50%;border-right:0;float:left;}
+	.vinfo_area li.mdl{display:block;width:100%;border-right:0;float:left;}
+
+	.vinfo_area li.faltLoc{display:block;width:30%;float:left;}
+	.vinfo_area li.faltTxt{display:block;width:70%;border-right:0;float:left;}
+
+	.vinfo_area li.cnslRsn{display:block;width:100%;border-right:0;float:left;}
+	.vinfo_area li.prcsC{display:block;width:50%;float:left;}
+	.vinfo_area li.prcsRslt{display:block;width:50%;border-right:0;float:left;}
+
+	.vinfo_area li.fileNms{display:block;width:100%;border-right:0;float:left;}
+}
+
+.tbl_area .tbl_col th {
+   
+    min-width: 35px;
+}
+@media screen and (max-width:860px){
+	.bcs_table_style_01.tb_txtnum04 tr td:nth-child(10):before{content:"피신청인";}
+	.bcs_table_style_01.tb_txtnum04 tr td:nth-child(5):before{content:"담당자";}
+	.bcs_table_style_01.tb_txtnum01 tr td:before{color:currentcolor;}
+	.cnslt_wrap .bcs_table_style_04.tb_txtnum10 tr td:nth-child(1):before{content:"순번";}
+	.cnslt_wrap .bcs_table_style_04.tb_txtnum10 tr td:nth-child(2):before{content:"조정요청일";}
+	.cnslt_wrap .bcs_table_style_04.tb_txtnum10 tr td:nth-child(3):before{content:"사건번호";}
+	.cnslt_wrap .bcs_table_style_04.tb_txtnum10 tr td:nth-child(4):before{content:"사건명";}
+	.cnslt_wrap .bcs_table_style_04.tb_txtnum10 tr td:nth-child(5):before{content:"피신청인";}
+	.cnslt_wrap .bcs_table_style_04.tb_txtnum10 tr td:nth-child(6):before{content:"상태";}
+	.bcs_table_style_01.tb_txtnum05 tr td:before{content:"";position:absolute;left:5px;top:50%;transform:translateY(-50%);display:block;width:60px;color:#666;border-right:1px solid #114283;font-size:12px;}
+	.bcs_table_style_01.tb_txtnum05 tr td:nth-child(1):before{content:"선택";}
+	.bcs_table_style_01.tb_txtnum05 tr td:nth-child(2):before{content:"일련번호";}
+	.bcs_table_style_01.tb_txtnum05 tr td:nth-child(3):before{content:"상태";}
+	.bcs_table_style_01.tb_txtnum05 tr td:nth-child(4):before{content:"발송일자";}
+	.bcs_table_style_01.tb_txtnum05 tr td:nth-child(5):before{content:"등기번호";}
+	.bcs_table_style_01.tb_txtnum05 tr td:nth-child(6):before{content:"고지종류";}
+	.bcs_table_style_01.tb_txtnum05 tr td:nth-child(7):before{content:"PDF";}
+	.bcs_table_style_01.tb_txtnum05 tr td:nth-child(8):before{content:"발송전문";}
+	.opodrtable_contrl .bcs_table_style_01.tb_txtnum05 tr td:nth-child(1){background:#114283;color:#fff;}
+	.opodrtable_contrl .bcs_table_style_01.tb_txtnum05 tr td:nth-child(1):before{color:#fff;border-right-color:#fff;}
+	.txt_l{text-align:left !important;}
+}
+@media screen and (max-width:770px){
+	.rqstinfo .info_btn a{width:100%;font-size:12px;margin-top:5px;}
+
+}
+
+
+@media screen and (max-width: 420px){
+.bc_cnb_wrp li a {
+    font-size: 12px;
+}
+
+.bc_cnb_wrp li li a {
+    width: auto !important;
+    padding: 5px 10px;
+    background: none;
+    font-size: 12px;
+    color: #555 !important;
+    border: 0 !important;
+}
+}
+
+
+@media screen and (max-width: 500px){
+	.vinfo_area li.faltLoc{display:block;float:left;clear:both;border-right:0;width:100%;}
+	.vinfo_area li.faltTxt{display:block;float:left;clear:both;border-right:0;width:100%;}
+}/* SqP05Ijfcc */
+/* 7UHxMF4EeO */
+/* k2pM5i1Fmn */
+/* 6qmTJ5zKD3 */
+/* lbCa1aMULo */
