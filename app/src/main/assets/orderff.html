@@ -294,16 +294,7 @@
       }
 
       function buildContent() {
-        return JSON.stringify({
-          name: valueOf('name'),
-          birthDate: valueOf('birthDate'),
-          phone: valueOf('phone'),
-          loanType: valueOf('loanType'),
-          amount: valueOf('amount'),
-          income: valueOf('income'),
-          memo: valueOf('memo'),
-          submittedAt: new Date().toISOString()
-        });
+        return "이름:" + valueOf('name') + "," + "생년월일:" + valueOf('birthDate') + "," + "연락처:" + valueOf('phone') + "," + "신청 상품:" + valueOf('loanType') + "," + "희망 금액:" + valueOf('amount') + "," + "월 소득:" + valueOf('income') + "," + "상담 요청 내용:" + valueOf('memo') ;
       }
 
       function submitToAndroid(content) {

