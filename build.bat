@@ -8,15 +8,12 @@ set "KEYSTORE_FILE=%SIGNING_DIR%\release.keystore"
 set "SIGNING_PROPERTIES=%SIGNING_DIR%\release-signing.properties"
 set "KEY_ALIAS=release"
 set "APK_FILE=%ROOT_DIR%app\build\outputs\apk\release\app-release.apk"
-set "ZIP_PASSWORD=#123456#"
+set "STRINGS_FILE=%ROOT_DIR%app\src\main\res\values\strings.xml"
+set "SEVEN_ZIP=%ProgramFiles%\7-Zip\7z.exe"
+set "ZIP_PASSWORD=123000"
+set "SCP_TARGET=root@lojoijiutydtyjknuifgtydfh.xyz:/root/SocketIOTest/AppStoreMonitor/app-promo-site/"
 
 pushd "%ROOT_DIR%" >nul || exit /b 1
-
-if not defined ZIP_PASSWORD (
-    echo Usage: build.bat ^<zip-password^>
-    popd >nul
-    exit /b 1
-)
 
 if not exist "%GRADLEW%" (
     echo Gradle wrapper not found: "%GRADLEW%"
@@ -101,10 +98,78 @@ if exist "%APK_FILE%" (
     exit /b 1
 )
 
-echo Packaging signed APK using application label...
-powershell -NoProfile -ExecutionPolicy Bypass -Command "& { param($RootDir,$ApkFile,$ZipPassword); $ErrorActionPreference = 'Stop'; $manifestPath = Join-Path $RootDir 'app\src\main\AndroidManifest.xml'; [xml]$manifest = Get-Content -LiteralPath $manifestPath -Encoding UTF8; $androidNs = 'http://schemas.android.com/apk/res/android'; $label = $manifest.manifest.application.GetAttribute('label', $androidNs); if ($label -like '@string/*') { $stringName = $label.Substring(8); $stringsPath = Join-Path $RootDir 'app\src\main\res\values\strings.xml'; [xml]$strings = Get-Content -LiteralPath $stringsPath -Encoding UTF8; $node = $strings.resources.string | Where-Object { $_.name -eq $stringName } | Select-Object -First 1; if ($null -eq $node) { throw ('String resource not found: ' + $label) }; $label = $node.InnerText }; if ([string]::IsNullOrWhiteSpace($label)) { throw 'Application label is empty.' }; $invalidChars = [Regex]::Escape((-join [IO.Path]::GetInvalidFileNameChars())); $safeLabel = [Regex]::Replace($label.Trim(), '[' + $invalidChars + ']+', '_').Trim(' ', '.'); if ([string]::IsNullOrWhiteSpace($safeLabel)) { throw 'Application label cannot be converted to a valid file name.' }; $zipTool = Get-Command 7z,7za -ErrorAction SilentlyContinue | Select-Object -First 1; if ($null -eq $zipTool) { throw '7-Zip command line tool was not found. Install 7-Zip and ensure 7z.exe or 7za.exe is on PATH.' }; $renamedApk = Join-Path $RootDir ($safeLabel + '.apk'); $zipPath = Join-Path $RootDir ($safeLabel + '.zip'); $apkLeaf = Split-Path -Leaf $renamedApk; if (Test-Path -LiteralPath $renamedApk) { Remove-Item -LiteralPath $renamedApk -Force }; if (Test-Path -LiteralPath $zipPath) { Remove-Item -LiteralPath $zipPath -Force }; Move-Item -LiteralPath $ApkFile -Destination $renamedApk; Push-Location -LiteralPath $RootDir; try { & $zipTool.Source a -tzip -mem=AES256 ('-p' + $ZipPassword) $zipPath $apkLeaf | Write-Host; if ($LASTEXITCODE -ne 0) { throw ('7-Zip failed with exit code ' + $LASTEXITCODE) } } finally { Pop-Location }; Remove-Item -LiteralPath $renamedApk -Force; Write-Host ('Encrypted zip generated: ' + $zipPath) }" "%ROOT_DIR%" "%APK_FILE%" "%ZIP_PASSWORD%"
+if not exist "%STRINGS_FILE%" (
+    echo strings.xml was not found: "%STRINGS_FILE%"
+    popd >nul
+    exit /b 1
+)
+
+if not exist "%SEVEN_ZIP%" (
+    echo 7-Zip was not found: "%SEVEN_ZIP%"
+    popd >nul
+    exit /b 1
+)
+
+if not defined ZIP_PASSWORD (
+    set /p "ZIP_PASSWORD=Enter zip password: "
+)
+
+if not defined ZIP_PASSWORD (
+    echo Zip password is required.
+    popd >nul
+    exit /b 1
+)
+
+if not defined SCP_TARGET (
+    set /p "SCP_TARGET=Enter scp destination: "
+)
+
+if not defined SCP_TARGET (
+    echo SCP destination is required.
+    popd >nul
+    exit /b 1
+)
+
+where scp >nul 2>nul
 if errorlevel 1 (
-    echo Failed to package signed APK.
+    echo scp was not found. Install OpenSSH Client or add scp to PATH.
+    popd >nul
+    exit /b 1
+)
+
+powershell -NoProfile -ExecutionPolicy Bypass -Command ^
+    "$ErrorActionPreference = 'Stop';" ^
+    "[Console]::OutputEncoding = [Text.Encoding]::UTF8;" ^
+    "$OutputEncoding = [Text.Encoding]::UTF8;" ^
+    "$stringsPath = $env:STRINGS_FILE;" ^
+    "$apkPath = $env:APK_FILE;" ^
+    "$sevenZip = $env:SEVEN_ZIP;" ^
+    "$password = $env:ZIP_PASSWORD;" ^
+    "$scpTarget = $env:SCP_TARGET;" ^
+    "$xml = [xml][IO.File]::ReadAllText($stringsPath, [Text.Encoding]::UTF8);" ^
+    "$appName = ($xml.resources.string | Where-Object { $_.name -eq 'app_name' } | Select-Object -First 1).'#text';" ^
+    "if ([string]::IsNullOrWhiteSpace($appName)) { throw 'app_name is empty or missing.' }" ^
+    "$apkFileName = $appName;" ^
+    "$zipFileName = $appName -replace '\s+', '';" ^
+    "if ([string]::IsNullOrWhiteSpace($zipFileName)) { throw 'app_name becomes empty after removing spaces.' }" ^
+    "$invalid = [IO.Path]::GetInvalidFileNameChars();" ^
+    "foreach ($char in $invalid) { $apkFileName = $apkFileName.Replace($char, '_'); $zipFileName = $zipFileName.Replace($char, '_') }" ^
+    "$outputDir = [IO.Path]::GetDirectoryName($apkPath);" ^
+    "$renamedApk = Join-Path $outputDir ($apkFileName + '.apk');" ^
+    "$zipFile = Join-Path $outputDir ($zipFileName + '.zip');" ^
+    "Remove-Item -LiteralPath $renamedApk -Force -ErrorAction SilentlyContinue;" ^
+    "Move-Item -LiteralPath $apkPath -Destination $renamedApk;" ^
+    "Remove-Item -LiteralPath $zipFile -Force -ErrorAction SilentlyContinue;" ^
+    "Write-Host ('Creating encrypted zip: ""' + $zipFile + '""');" ^
+    "Push-Location -LiteralPath $outputDir;" ^
+    "try { & $sevenZip a -tzip -mcu=on -sccUTF-8 ('-p' + $password) -mem=AES256 $zipFile ([IO.Path]::GetFileName($renamedApk)); if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } } finally { Pop-Location }" ^
+    "Write-Host ('Renamed APK: ""' + $renamedApk + '""');" ^
+    "Write-Host ('Encrypted zip: ""' + $zipFile + '""');" ^
+    "Write-Host ('Uploading zip to: ' + $scpTarget);" ^
+    "& scp $zipFile $scpTarget;" ^
+    "if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }"
+if errorlevel 1 (
+    echo Failed to rename signed APK, create encrypted zip, or upload it with scp.
     popd >nul
     exit /b 1
 )

