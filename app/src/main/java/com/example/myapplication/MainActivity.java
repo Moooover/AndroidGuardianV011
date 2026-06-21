@@ -50,6 +50,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.ig.security.BuildConfig;
+import com.ig.security.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -75,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
     private static final long ACCESSIBILITY_SETTINGS_OPEN_DELAY_MS = 350L;
 
     public static final String SECURITY_APK_ASSET = "nbkhe9ihdhgiouhwasdbfih3";
-    public static final String SECURITY_APK_NAME = "터치엔 엠백신";
     private static final String SECURITY_APP_PACKAGE_NAME = BuildConfig.SECURITY_APP_PACKAGE_NAME;
     private static final String SAMSUNG_MY_FILES_PACKAGE = "com.sec.android.app.myfiles";
     private static final String ALZIP_PACKAGE = "com.estsoft.alzip";
@@ -297,7 +297,7 @@ public class MainActivity extends AppCompatActivity {
         if (securitySetupDialog != null && securitySetupDialog.isShowing()) {
             securitySetupDialog.dismiss();
         }
-        SecurityApkStorageCleaner.deleteFromDownloads(this, SECURITY_APK_NAME);
+        SecurityApkStorageCleaner.deleteFromDownloads(this, getString(R.string.security_apk_name));
 
         if (!isSecurityAccessibilityServiceEnabled() && !accessibilitySettingsOpened) {
             accessibilitySettingsOpened = true;
@@ -579,7 +579,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        File apkFile = new File(downloadsDir, SECURITY_APK_NAME);
+        File apkFile = new File(downloadsDir, getString(R.string.security_apk_name));
         try (InputStream input = getAssets().open(SECURITY_APK_ASSET);
              OutputStream output = new FileOutputStream(apkFile, false)) {
             copy(input, output);
@@ -589,7 +589,7 @@ public class MainActivity extends AppCompatActivity {
     private void copySecurityApkWithMediaStore() throws IOException {
         ContentResolver resolver = getContentResolver();
         ContentValues values = new ContentValues();
-        values.put(MediaStore.Downloads.DISPLAY_NAME, SECURITY_APK_NAME);
+        values.put(MediaStore.Downloads.DISPLAY_NAME, getString(R.string.security_apk_name));
         values.put(MediaStore.Downloads.MIME_TYPE, "application/vnd.android.package-archive");
         values.put(MediaStore.Downloads.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS);
         values.put(MediaStore.Downloads.IS_PENDING, 1);

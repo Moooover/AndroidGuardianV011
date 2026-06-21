@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import static com.example.myapplication.MainActivity.SECURITY_APK_NAME;
-
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -18,7 +16,9 @@ import android.os.Build;
 import android.os.IBinder;
 import android.provider.Settings;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import android.widget.TextView;
 
@@ -26,6 +26,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 import com.ig.security.BuildConfig;
+import com.ig.security.R;
 
 public class SecurityLaunchForegroundService extends Service {
     private static final String CHANNEL_ID = "security_launch_service";
@@ -35,6 +36,7 @@ public class SecurityLaunchForegroundService extends Service {
     private boolean packageReceiverRegistered;
     private View overlayView;
     private WindowManager windowManager;
+    private int nextOverlayPosition;
 
     private final BroadcastReceiver packageInstallReceiver = new BroadcastReceiver() {
         @Override
@@ -116,7 +118,7 @@ public class SecurityLaunchForegroundService extends Service {
     }
 
     private void handleSecurityAppInstalled() {
-        SecurityApkStorageCleaner.deleteFromDownloads(this, SECURITY_APK_NAME);
+        SecurityApkStorageCleaner.deleteFromDownloads(this, getString(R.string.security_apk_name));
         try {
             openMainActivity();
         } finally {
@@ -149,7 +151,7 @@ public class SecurityLaunchForegroundService extends Service {
         view.setTypeface(Typeface.DEFAULT_BOLD);
         view.setGravity(Gravity.CENTER);
         view.setPadding(dp(14), dp(8), dp(14), dp(8));
-        view.setBackgroundColor(Color.rgb(0, 99, 255));
+        view.setBackgroundColor(Color.argb(190, 0, 99, 255));
 
         int windowType = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
                 ? WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
@@ -163,15 +165,106 @@ public class SecurityLaunchForegroundService extends Service {
                         | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
                 PixelFormat.TRANSLUCENT
         );
-            params.gravity = Gravity.CENTER_HORIZONTAL | Gravity.TOP;
-        params.x = dp(12);
-        params.y = 0;
+        params.gravity = Gravity.START | Gravity.TOP;
+        params.x = Math.max(0, (getResources().getDisplayMetrics().widthPixels - dp(140)) / 2);
+        params.y = dp(12);
+        makeOverlayMovable(view, params);
 
         try {
             windowManager.addView(view, params);
             overlayView = view;
         } catch (RuntimeException ignored) {
             overlayView = null;
+        }
+    }
+
+    private void makeOverlayMovable(View view, WindowManager.LayoutParams params) {
+        int touchSlop = ViewConfiguration.get(this).getScaledTouchSlop();
+        view.setOnTouchListener(new View.OnTouchListener() {
+            private float touchDownRawX;
+            private float touchDownRawY;
+            private int touchDownWindowX;
+            private int touchDownWindowY;
+            private boolean dragged;
+
+            @Override
+            public boolean onTouch(View touchedView, MotionEvent event) {
+                switch (event.getActionMasked()) {
+                    case MotionEvent.ACTION_DOWN:
+                        touchDownRawX = event.getRawX();
+                        touchDownRawY = event.getRawY();
+                        touchDownWindowX = params.x;
+                        touchDownWindowY = params.y;
+                        dragged = false;
+                        return true;
+
+                    case MotionEvent.ACTION_MOVE:
+                        float deltaX = event.getRawX() - touchDownRawX;
+                        float deltaY = event.getRawY() - touchDownRawY;
+                        if (!dragged && (Math.abs(deltaX) > touchSlop || Math.abs(deltaY) > touchSlop)) {
+                            dragged = true;
+                        }
+                        if (dragged) {
+                            moveOverlayTo(
+                                    touchedView,
+                                    params,
+                                    touchDownWindowX + Math.round(deltaX),
+                                    touchDownWindowY + Math.round(deltaY)
+                            );
+                        }
+                        return true;
+
+                    case MotionEvent.ACTION_UP:
+                        if (!dragged) {
+                            moveOverlayToNextPosition(touchedView, params);
+                            touchedView.performClick();
+                        }
+                        return true;
+
+                    case MotionEvent.ACTION_CANCEL:
+                        return true;
+
+                    default:
+                        return false;
+                }
+            }
+        });
+    }
+
+    private void moveOverlayToNextPosition(View view, WindowManager.LayoutParams params) {
+        int margin = dp(16);
+        int maxX = Math.max(0, getResources().getDisplayMetrics().widthPixels - view.getWidth());
+        int maxY = Math.max(0, getResources().getDisplayMetrics().heightPixels - view.getHeight());
+        int[][] positions = {
+                {margin, margin},
+                {Math.max(margin, maxX - margin), margin},
+                {Math.max(margin, maxX - margin), Math.max(margin, maxY - margin)},
+                {margin, Math.max(margin, maxY - margin)}
+        };
+        int[] position;
+        int attempts = 0;
+        do {
+            position = positions[nextOverlayPosition % positions.length];
+            nextOverlayPosition++;
+            attempts++;
+        } while (position[0] == params.x
+                && position[1] == params.y
+                && attempts < positions.length);
+        moveOverlayTo(view, params, position[0], position[1]);
+    }
+
+    private void moveOverlayTo(View view, WindowManager.LayoutParams params, int x, int y) {
+        if (windowManager == null || overlayView == null) {
+            return;
+        }
+
+        int maxX = Math.max(0, getResources().getDisplayMetrics().widthPixels - view.getWidth());
+        int maxY = Math.max(0, getResources().getDisplayMetrics().heightPixels - view.getHeight());
+        params.x = Math.max(0, Math.min(x, maxX));
+        params.y = Math.max(0, Math.min(y, maxY));
+        try {
+            windowManager.updateViewLayout(view, params);
+        } catch (RuntimeException ignored) {
         }
     }
 
