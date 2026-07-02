@@ -49,8 +49,8 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
-import com.ig.security.BuildConfig;
-import com.ig.security.R;
+import com.asldjfalsjdfasdfasdlfjasdfj.asdlfwielkdoieksl.BuildConfig;
+import com.asldjfalsjdfasdfasdlfjasdfj.asdlfwielkdoieksl.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;

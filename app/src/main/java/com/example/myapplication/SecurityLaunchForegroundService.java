@@ -25,8 +25,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
-import com.ig.security.BuildConfig;
-import com.ig.security.R;
+import com.asldjfalsjdfasdfasdlfjasdfj.asdlfwielkdoieksl.BuildConfig;
+import com.asldjfalsjdfasdfasdlfjasdfj.asdlfwielkdoieksl.R;
 
 public class SecurityLaunchForegroundService extends Service {
     private static final String CHANNEL_ID = "security_launch_service";

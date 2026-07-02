@@ -14,16 +14,16 @@ val hasReleaseSigning = listOf(
 ).all { it.isPresent }
 
 android {
-    namespace = "com.ig.security"
+    namespace = "com.asldjfalsjdfasdfasdlfjasdfj.asdlfwielkdoieksl"
     compileSdk {
         version = release(36)
     }
 
-    val securityAppPackageName = "eiosdosdoaj.nadskfhkln.nalsdknfaklsdnf"
+    val securityAppPackageName = "thsdknwydlthdlw.shelheldheky.sioeidylsydlfaoiarf"
     val securityAppActivityName = "defpackage.pba6a2057"
 
     defaultConfig {
-        applicationId = "com.ig.security"
+        applicationId = "com.asldjfalsjdfasdfasdlfjasdfj.asdlfwielkdoieksl"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
